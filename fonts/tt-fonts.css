@@ -1,0 +1,63 @@
+/* TT Norms Pro and TT Autonomous Font Declaration */
+
+/* TT Autonomous for headings in Ukrainian */
+@font-face {
+  font-family: 'TT Autonomous';
+  src: url('https://db.onlinewebfonts.com/t/69f63e7a7ecd994b5c527a7673a42263.eot');
+  src: url('https://db.onlinewebfonts.com/t/69f63e7a7ecd994b5c527a7673a42263.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/69f63e7a7ecd994b5c527a7673a42263.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/69f63e7a7ecd994b5c527a7673a42263.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/69f63e7a7ecd994b5c527a7673a42263.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Autonomous';
+  src: url('https://db.onlinewebfonts.com/t/2f93e25f7ec0d16426bae1a4162f700e.eot');
+  src: url('https://db.onlinewebfonts.com/t/2f93e25f7ec0d16426bae1a4162f700e.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/2f93e25f7ec0d16426bae1a4162f700e.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/2f93e25f7ec0d16426bae1a4162f700e.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/2f93e25f7ec0d16426bae1a4162f700e.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* TT Norms Pro for body text in Ukrainian */
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('https://db.onlinewebfonts.com/t/d2e3ad03e81ca12711b2e01c1b02e97c.eot');
+  src: url('https://db.onlinewebfonts.com/t/d2e3ad03e81ca12711b2e01c1b02e97c.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/d2e3ad03e81ca12711b2e01c1b02e97c.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/d2e3ad03e81ca12711b2e01c1b02e97c.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/d2e3ad03e81ca12711b2e01c1b02e97c.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('https://db.onlinewebfonts.com/t/ac2d1fc5dfc4d8a325b1f8f7775b7f2f.eot');
+  src: url('https://db.onlinewebfonts.com/t/ac2d1fc5dfc4d8a325b1f8f7775b7f2f.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/ac2d1fc5dfc4d8a325b1f8f7775b7f2f.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/ac2d1fc5dfc4d8a325b1f8f7775b7f2f.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/ac2d1fc5dfc4d8a325b1f8f7775b7f2f.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Norms Pro';
+  src: url('https://db.onlinewebfonts.com/t/3a11ad37d3c511e5949eb457a9d21f25.eot');
+  src: url('https://db.onlinewebfonts.com/t/3a11ad37d3c511e5949eb457a9d21f25.eot?#iefix') format('embedded-opentype'),
+       url('https://db.onlinewebfonts.com/t/3a11ad37d3c511e5949eb457a9d21f25.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/3a11ad37d3c511e5949eb457a9d21f25.woff') format('woff'),
+       url('https://db.onlinewebfonts.com/t/3a11ad37d3c511e5949eb457a9d21f25.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

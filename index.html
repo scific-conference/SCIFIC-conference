@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Cyberpunk Conference 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap&subset=cyrillic,cyrillic-ext,latin,latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="lock-container">
+            <div class="lock">
+                <div class="lock-body"></div>
+                <div class="lock-hole"></div>
+                <div class="lock-shackle"></div>
+            </div>
+            <div class="key">
+                <div class="key-handle"></div>
+                <div class="key-shaft"></div>
+                <div class="key-teeth"></div>
+            </div>
+            <div class="loading-text">Securing connection...</div>
+            <div class="loading-steps">
+                <div class="step" id="step1">Preparing key...</div>
+                <div class="step" id="step2">Inserting key...</div>
+                <div class="step" id="step3">Unlocking access...</div>
+                <div class="step" id="step4">Access granted!</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="digital-rain"></div>
+    
+    <header>
+        <div class="logo glitch" data-text="SCIFiC"><a href="#home">SCIFiC</a></div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#materials">Materials</a></li>
+                <li><a href="#participants">Schedule</a></li>
+                <li><a href="#meetings">Sections</a></li>
+                <li><a href="#archive">Archive</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="uk" onclick="switchLanguage('uk')">UA</button>
+            </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <div class="hero">
+                <h1 class="glitch-title" data-text="5-TH INTERNATIONAL CONFERENCE ON CYBERSECURITY"><span>5-TH INTERNATIONAL CONFERENCE ON CYBERSECURITY</span></h1>
+                <p class="conference-description" id="conference-description">We are glad to welcome you to the website of the conference, which is held at the Department of Computer Systems, Networks and Cybersecurity, for everyone who is passionate about cybersecurity.</p>
+                <div class="location">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <span id="date-location">NAU "KhAI", Kharkiv • November 27-28, 2025</span>
+                </div>
+                
+                <div class="countdown">
+                    <div class="time-unit">
+                        <span id="days">00</span>
+                        <label>Days</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="hours">00</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes">00</span>
+                        <label>Minutes</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds">00</span>
+                        <label>Seconds</label>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="https://forms.gle/SqmMuFce2XWfuNxp8" class="neon-button" target="_blank" id="register-button">Register Now</a>
+                    <a href="#participants" class="neon-button-alt">View Schedule</a>
+                </div>
+            </div>
+            
+            <div class="news-ticker">
+                <div class="ticker-content">
+                    <span>The deadline for submitting papers is October 31</span>
+                    <span>Digital Literacy and Cybersecurity: Key Aspects of Training Specialists to Counter Cyber Threats</span>
+                    <span>Cyberthreats evolve — we learn faster. Share expertise at our conference!</span>
+                    <span>Join us!</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials Section -->
+        <section id="materials">
+            <h2 class="section-title">Conference <span class="highlight">Materials</span></h2>
+            
+            <div class="materials-blocks">
+                <!-- Registration Block -->
+                <div class="materials-block" id="registration-block">
+                    <h3 class="block-title" id="registration-title">Registration</h3>
+                    <div class="block-content">
+                        <div class="block-text">
+                            <div>
+                                <p ></p>
+                                <p ></p>
+                                <p ></p>
+                                <p ></p>
+                            </div>
+                            <div class="block-links">
+                                <a href="https://forms.gle/SqmMuFce2XWfuNxp8" class="materials-btn" target="_blank">Register Now</a>
+                                <a href="#contacts" class="materials-btn-alt">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="block-image">
+                            <img src="1692705656553.jpeg" alt="Registration" class="materials-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Conference Information Block -->
+                <div class="materials-block" id="conference-info-block">
+                <h3 class="block-title" id="conference-info-title">Information about Conference</h3>
+                <div class="block-content">
+                    <div class="block-text" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <div class="block-links" style="margin-top: 20px;">
+                            <a href="https://t.me/+6tcRrAHI_sJkOWMy" target="_blank" class="materials-btn">Join us</a>
+                            <a href="https://docs.google.com/document/d/1cExNlTGpcH2e3RMD1XO5rlEECwz5tBtL/preview" target="_blank" class="materials-btn-alt">Conference program</a>
+                            <a href="https://drive.google.com/file/d/1FrwO_6XTKmL1YDzJAF4h3ZcEnj-bDpxZ/view" target="_blank" class="materials-btn-alt">Information letter</a>
+                        </div>
+                    </div>
+                    <div class="block-image">
+                            <img src="closed-padlock-digital-background-cyber-security_42077-14024.jpg" alt="Conference Information" class="materials-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="participants">
+            <h2 class="section-title">Schedule</h2>
+            
+            <div class="schedule-container">
+                <div class="schedule-table-container">
+                    <table class="conference-schedule">
+                        <thead>
+                            <tr>
+                                <th class="task-column">Tasks</th>
+                                <th>First day</th>
+                                <th>Second day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Registration and connection verification</td>
+                                <td class="first-day-time">02:45 – 03:00 pm</td>
+                                <td class="second-day-time">09:45 – 10:00 am</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Plenary session</td>
+                                <td class="first-day-time">03:00 – 04:00 pm</td>
+                                <td class="second-day-time">10:00 – 10:55 am</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Coffee-break</td>
+                                <td class="first-day-time">04:00 - 04:05 pm</td>
+                                <td class="second-day-time">10:55 – 11:00 am</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Work of the sections</td>
+                                <td class="first-day-time">04:05 - 05:15 pm</td>
+                                <td class="second-day-time">11:00 am – 12:20 pm</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Coffee-break</td>
+                                <td class="first-day-time">05:15 - 05:20 pm</td>
+                                <td class="second-day-time">12:20 – 12:25 pm</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Work of the sections</td>
+                                <td class="first-day-time">05:20 – 06:30 pm</td>
+                                <td class="second-day-time">12:25 – 01:30 pm</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Coffee-break</td>
+                                <td class="first-day-time">06:30 – 06:45 pm</td>
+                                <td class="second-day-time">01:30 – 01:45 pm</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Moderators' speech and discussion of the results of the section's work</td>
+                                <td class="first-day-time">06:45 – 07:00 pm</td>
+                                <td class="second-day-time">01:45 – 02:00 pm</td>
+                            </tr>
+                            <tr class="schedule-row">
+                                <td class="task-cell">Closing of the conference</td>
+                                <td>-</td>
+                                <td class="second-day-time">01:55 – 02:00 pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meetings Section -->
+        <section id="meetings">
+            <h2 class="section-title">Links to <span class="highlight">Sections</span></h2>
+            
+            <div class="meetings-container">
+                <div class="sessions-grid">
+                    <div class="session-card">
+                        <h3>Plenary Session</h3>
+                        <p class="session-time">All days of the conference</p>
+                        <div class="session-preview">
+                            <img src="rxkt87gr89.png" alt="Cybersecurity Conference Session" class="session-image">
+                        </div>
+                        <a href="https://meet.google.com/xwr-mxbv-dpc" class="join-button" target="_blank">
+                            <ion-icon name="enter-outline"></ion-icon>
+                            Join Now
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20251127T090000Z/20251128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fxwr-mxbv-dpc&location=NAU%20%22KhAI%22%2C%20Kharkiv" class="calendar-button" target="_blank">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            Add to Calendar
+                        </a>
+                    </div>
+                    
+                    <div class="session-card">
+                        <h3>Section 1 - Information and Cybersecurity</h3>
+                        <p class="session-time">All days of the conference</p>
+                        <div class="session-preview">
+                            <img src="kvybakj2w5.png" alt="Cybersecurity Conference Session" class="session-image">
+                        </div>
+                        <a href="https://meet.google.com/xwr-mxbv-dpc" class="join-button" target="_blank">
+                            <ion-icon name="enter-outline"></ion-icon>
+                            Join Now
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20251127T090000Z/20251128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fxwr-mxbv-dpc&location=NAU%20%22KhAI%22%2C%20Kharkiv" class="calendar-button" target="_blank">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            Add to Calendar
+                        </a>
+                    </div>
+                    
+                    <div class="session-card">
+                        <h3>Section 2 - Functional Safety</h3>
+                        <p class="session-time">All days of the conference</p>
+                        <div class="session-preview">
+                            <img src="kgqpkt9tzi.png" alt="Functional Safety Session" class="session-image">
+                        </div>
+                        <a href="https://meet.google.com/afr-deqo-ghv" class="join-button" target="_blank">
+                            <ion-icon name="enter-outline"></ion-icon>
+                            Join Now
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20251127T090000Z/20251128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fafr-deqo-ghv&location=NAU%20%22KhAI%22%2C%20Kharkiv" class="calendar-button" target="_blank">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            Add to Calendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Archive Section -->
+        <section id="archive">
+            <h2 class="section-title" id="archive-title">Conference <span class="highlight">Archive</span></h2>
+            
+            <div class="archive-container">
+                <div class="archive-blocks">
+                    <div class="archive-block">
+                        <img src="ktz0vttbfi.png" alt="Archive 2020" class="responsive-archive-img">
+                        <div class="archive-overlay">
+                            <h3>Theses SCIFiC 2025</h3>
+                            <ul class="archive-links">
+                                <li><a href="#">GoogleDrive</a></li>
+                                <li><a href="#">ResearchGate</a></li>
+                                <li><a href="#">Library of KhAI</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="archive-block">
+                        <img src="nfa51zs7cs.png" alt="Archive 2021" class="responsive-archive-img">
+                        <div class="archive-overlay">
+                            <h3>Theses SCIFiC 2024</h3>
+                            <ul class="archive-links">
+                                <li><a href="https://drive.google.com/file/d/1wm_siQNAgKerrfTfuvqFnoUlM9CoNbWA/view" target="_blank">GoogleDrive</a></li>
+                                <li><a href="https://www.researchgate.net/publication/386275883_Tezi_dopovidej_Studentskoi_Konferencii_Informacijna_Funkcijna_i_Kiberbezpeka_IV_Scientific_and_practical_conference_Student_conference_on_information_functional_and_cyber_security_of_SCIFiC?channel=doi&linkId=674b42ea876bd17778314386&showFulltext=true" target="_blank">ResearchGate</a></li>
+                                <li><a href="https://dspace.library.khai.edu/xmlui/handle/123456789/8384" target="_blank">Library of KhAI</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="archive-block">
+                        <img src="g70mmhg8or.png" alt="Archive 2022" class="responsive-archive-img">
+                        <div class="archive-overlay">
+                            <h3>Theses SCIFiC 2023</h3>
+                            <ul class="archive-links">
+                                <li><a href="https://drive.google.com/file/d/1v4cVJYHi83RIuNpIiFCtSknXJdj-9BLK/view" target="_blank">GoogleDrive</a></li>
+                                <li><a href="https://www.researchgate.net/publication/375792997_Tezi_dopovidej_Studentskoi_Konferencii_Informacijna_Funkcijna_i_Kiberbezpeka_III_Scientific_and_practical_conference_Student_conference_on_information_functional_and_cyber_security_of_SCIFiC?channel=doi&linkId=656cd7c9ce88b87031304585&showFulltext=true" target="_blank">ResearchGate</a></li>
+                                <li><a href="https://dspace.library.khai.edu/xmlui/handle/123456789/6807" target="_blank">Library of KhAI</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="archive-block">
+                        <img src="4ezvaozuhm.png" alt="Archive 2023" class="responsive-archive-img">
+                        <div class="archive-overlay">
+                            <h3>Theses SCIFiC 2022</h3>
+                            <ul class="archive-links">
+                                <li><a href="https://drive.google.com/file/d/1p8stecWBXCBM2FOaHRfxRjEZAu5L18hP/view" target="_blank">GoogleDrive</a></li>
+                                <li><a href="https://www.researchgate.net/publication/368365333_Tezi_dopovidej_Studentskoi_Konferencii_Informacijna_Funkcijna_i_Kiberbezpeka_II_Scientific_and_practical_conference_Student_conference_on_information_functional_and_cyber_security_of_SCIFiC?channel=doi&linkId=63e62251dea61217579b7d24&showFulltext=true" target="_blank">ResearchGate</a></li>
+                                <li><a href="https://dspace.library.khai.edu/xmlui/handle/123456789/3745" target="_blank">Library of KhAI</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="archive-block">
+                        <img src="ji7vpaqh9v.png" alt="Archive 2024" class="responsive-archive-img">
+                        <div class="archive-overlay">
+                            <h3>Theses SCIFiC 2021</h3>
+                            <ul class="archive-links">
+                                <li><a href="https://drive.google.com/file/d/1cpbmKvoUtrxj6K7iph3iuvAZvihX-v-e/view" target="_blank">GoogleDrive</a></li>
+                                <li><a href="https://www.researchgate.net/publication/375792766_Tezi_dopovidej_Studentskoi_Konferencii_Informacijna_Funkcijna_i_Kiberbezpeka_I_Scientific_and_practical_conference_Student_conference_on_information_functional_and_cyber_security_of_SCIFiC?channel=doi&linkId=655cbfc2b1398a779da3c861&showFulltext=true" target="_blank">ResearchGate</a></li>
+                                <li><a href="#" target="_blank">Library of KhAI</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="contacts">
+            <h2 class="section-title">Contacts & <span class="highlight">Partners</span></h2>
+            
+            <div class="contact-container">
+                <div class="university-info">
+                    <div class="university-logos">
+                        <img src="https://cdn.pixabay.com/photo/2014/04/02/10/35/book-303927_960_720.png" alt="University Logo" class="university-logo-image">
+                    </div>
+                    <div class="contact-details">
+                        <h3 id="conference-admin-title">Organizing committee of the conference</h3>
+                        <ul class="contact-list">
+                            <li><strong>Conference Chair:</strong> <a href="https://education.khai.edu/person/Pievniev-Volodymyr-Yakovlevych-503" target="_blank" class="contact-link">Prof. Volodymir Pevnev</a>, <span class="highlight">PhD student Oles Yudin</span></li>
+                            <li><strong>Program Committee:</strong> <a href="https://education.khai.edu/person/Kharchenko-Viacheslav-Serhiiovych-503" target="_blank" class="contact-link">Prof. Vyacheslav Kharchenko</a>, <a href="https://education.khai.edu/person/Zemlianko-Heorhii-Andriiovych-503" target="_blank" class="contact-link">Dr. Heorhii Zemlianko</a>, <span class="highlight">Mr. Mykyta Shypunov</span>, <span class="highlight">Mis. Daria Fedorenko</span></li>
+                            <li><strong>Technical Support:</strong> <a href="mailto:scific@csn.khai.edu" class="contact-link">scific@csn.khai.edu</a></li>
+                            <li><strong>General Inquiries:</strong> <a href="mailto:scific@csn.khai.edu" class="contact-link">scific@csn.khai.edu</a></li>
+                            <li><strong>Address:</strong> <span class="highlight">National Aerospace University "KhAI", vul. Vadyma Manka 17, Kharkiv, Ukraine</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-image">
+                    <div class="image-container">
+                        <img src="s4v6wf0a24.png" alt="Contact Information" class="responsive-image">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="partners">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="https://www.ieee.org" target="_blank" class="partner-logo-link">
+                        <div class="partner-logo">
+                            <img src="https://cdn.pixabay.com/photo/2020/05/25/08/54/banner-5217683_960_720.jpg" alt="IEEE">
+                        </div>
+                    </a>
+                    <a href="https://www.microsoft.com" target="_blank" class="partner-logo-link">
+                        <div class="partner-logo">
+                            <img src="https://cdn.pixabay.com/photo/2019/11/08/10/34/cyber-4610993_960_720.jpg" alt="Microsoft">
+                        </div>
+                    </a>
+                    <a href="https://www.cisco.com" target="_blank" class="partner-logo-link">
+                        <div class="partner-logo">
+                            <img src="https://cdn.pixabay.com/photo/2020/02/21/17/09/security-4868172_960_720.jpg" alt="Cisco">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Profile Modal -->
+    <!--<div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="profile-details">
+                "Content will be populated by JavaScript"
+            </div>
+        </div>
+    </div> -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">SCIFiC</div>
+                <p>International Conference on Cybersecurity</p>
+                <div class="footer-image">
+                    <img src="4zx5d0amk2.png" alt="Conference Logo" class="footer-logo-image">
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#materials">Materials</a></li>
+                    <li><a href="#participants">Schedule</a></li>
+                    <li><a href="#meetings">Sections</a></li>
+                    <li><a href="#archive">Archive</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/csn.khai.edu503/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="https://www.instagram.com/csn.khai.edu503/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="https://t.me/csn_khai_edu" target="_blank"><ion-icon name="paper-plane-outline"></ion-icon></a>
+                    <a href="https://www.youtube.com/c/ComputerSystemsNetworksandCybersecurity" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a>
+                    <a href="https://education.khai.edu/department/503" target="_blank"><ion-icon name="school-outline"></ion-icon></a>
+                </div>
+                <div class="footer-social-image">
+                    <img src="u399bbtlco.png" alt="Cyberpunk Social Media" class="social-footer-img">
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 <a href="https://github.com/HeorhiiZemlianko?tab=repositories" target="_blank" class="author-link">Heorhii Zemlianko</a><br>
+            City: Kharkiv</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
