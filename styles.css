@@ -1087,63 +1087,6 @@ nav {
   }
 }
 
-/* Optimized glitch animation for smaller screens */
-@media (max-width: 768px) {
-  @keyframes glitch-anim {
-    0% {
-      clip: rect(8px, 9999px, 10px, 0);
-      transform: skew(0.08deg);
-    }
-    20% {
-      clip: rect(4px, 9999px, 40px, 0);
-      transform: skew(-0.08deg);
-    }
-    40% {
-      clip: rect(20px, 9999px, 26px, 0);
-      transform: skew(0.08deg);
-    }
-    60% {
-      clip: rect(14px, 9999px, 4px, 0);
-      transform: skew(0.08deg);
-    }
-    80% {
-      clip: rect(32px, 9999px, 12px, 0);
-      transform: skew(-0.08deg);
-    }
-    100% {
-      clip: rect(18px, 9999px, 54px, 0);
-      transform: skew(0.08deg);
-    }
-  }
-}
-
-@keyframes glitch-anim2 {
-  0% {
-    clip: rect(65px, 9999px, 119px, 0);
-    transform: skew(0.2deg);
-  }
-  20% {
-    clip: rect(24px, 9999px, 34px, 0);
-    transform: skew(-0.2deg);
-  }
-  40% {
-    clip: rect(92px, 9999px, 43px, 0);
-    transform: skew(0.2deg);
-  }
-  60% {
-    clip: rect(23px, 9999px, 74px, 0);
-    transform: skew(-0.2deg);
-  }
-  80% {
-    clip: rect(16px, 9999px, 87px, 0);
-    transform: skew(0.2deg);
-  }
-  100% {
-    clip: rect(81px, 9999px, 5px, 0);
-    transform: skew(-0.2deg);
-  }
-}
-
 /* Optimized second glitch animation for smaller screens */
 @media (max-width: 768px) {
   @keyframes glitch-anim2 {
@@ -1352,26 +1295,33 @@ section.active {
   opacity: 1;
 }
 
-/* Adjust glitch effect for smaller screens */
-@media (max-width: 991px) {
-  .glitch-title::before {
-    animation-duration: 4s;
-    left: 1px;
+/* Completely disable glitch effect on mobile devices */
+@media (max-width: 768px) {
+  .glitch::before,
+  .glitch::after,
+  .glitch-title::before,
+  .glitch-title::after {
+    display: none !important;
   }
   
-  .glitch-title::after {
-    animation-duration: 4s;
-    left: -1px;
-  }
-}
-
-@media (max-width: 576px) {
-  .glitch-title::before {
-    animation-duration: 3s;
+  .glitch,
+  .glitch-title {
+    position: static !important;
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 10px var(--neon-green) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: var(--neon-green) !important;
+    will-change: initial !important;
   }
   
-  .glitch-title::after {
-    animation-duration: 3s;
+  /* Ensure the main text is visible */
+  .glitch span,
+  .glitch-title span {
+    position: static !important;
+    clip: auto !important;
+    opacity: 1 !important;
   }
 }
 
