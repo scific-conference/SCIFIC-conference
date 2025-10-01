@@ -642,6 +642,61 @@ html[lang="uk"] h6 {
   font-family: 'TT Autonomous', sans-serif;
 }
 
+/* FAQ Styles */
+.faq-container {
+    width: 100%;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 255, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1rem;
+    background: rgba(0, 20, 0, 0.5);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    color: var(--neon-green);
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background: rgba(0, 30, 0, 0.7);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '-';
+    transform: rotate(90deg);
+}
+
+.faq-answer {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.faq-answer.active {
+    padding: 1rem;
+    max-height: 500px;
+}
+
 /* Archive Section */
 .archive-container {
   width: 100%;
