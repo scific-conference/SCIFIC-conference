@@ -310,6 +310,7 @@ function setupLanguageSwitcher() {
             meetings: "Sections",
             archive: "Archive",
             registerNow: "Register Now",
+            contactUs: "Contact Us",
             viewSchedule: "View Schedule",
             conferenceDescription: "We are glad to welcome you to the website of the conference, which is held at the Department of Computer Systems, Networks and Cybersecurity, for everyone who is passionate about cybersecurity.",
             dateLocation: "NAU \"KhAI\", Kharkiv • November 27-28, 2025",
@@ -346,15 +347,66 @@ function setupLanguageSwitcher() {
             copyright: "© 2024 Heorhii Zemlianko<br>City: Kharkiv",
             registrationText1: "Abstracts of reports and applications for participation in the conference must be sent using the Google form (you need to press the \"Register\" button), to <span class=\"highlight\">November 15, 2025</span ",
             registrationText2: "Theses are sent electronically with the extension <span class=\"highlight\">«.doc»</span> or <span class=\"highlight\">«.docx»</span> and the name according to the template: <span class=\"highlight\">SURNAME-group_-Section_(1, 2)-Name_of_work. (Example: <a target=\"_blank\" href=\"https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF\" class=\"example-link\">YUDIN-555im-Section_1-Protection_In_ICS</a>)</span ",
-            registrationText3: "The cost of the organizational fee is 5 USD, the organizational fee is paid for one thesis of the report. If you want a printed version of the collection of theses, the amount will be 15 USD. The scientific edition is published from the ISBN. Payment details can be obtained through the organizing committee by writing a letter to <span class=\"highlight\">scific@csn.khai.edu</span",
-            registrationText4: "<span class=\"registration-warning\">Important! Participants who plan to receive printed theses must choose the appropriate option in the form when registering and submitting their theses /span>",
+            registrationText3: "The cost of the organizational fee is 5 USD, the organizational fee is paid for one thesis of the report. If you would like to receive a printed version of the abstract book, the cost will be $15, shipping costs are separate and depend on the delivery location. The scientific edition is published from the ISBN. Payment details can be obtained through the organizing committee by writing a letter to <span class=\"highlight\">scific@csn.khai.edu</span",
+            registrationText4: "<span class=\"registration-warning\">Important! Participants who plan to receive printed theses must choose the appropriate option in the form when registering and submitting their theses </span>",
             conferenceInfoText1: "The conference will be held online. Conference working languages: <span class=\"highlight\">Ukrainian</span>, <span class=\"highlight\">English</span>.",
             conferenceInfoText2: "<span class=\"highlight\">CONFERENCE TOPICS</span>:<br><span class=\"highlight\">Section 1</span>. Information and cybersecurity.<br><span class=\"highlight\">Section 2</span>. Functional safety.",
             conferenceInfoText3: "For more detailed information about the conference, click the \"<span class=\"highlight\">Join us</span>\" button to join a special Telegram group.<br>By clicking the \"<span class=\"highlight\">Conference program</span>\" button, you can review the conference program (up-to-date materials will be available a week before the conference).<br>If you need more detailed information about the conference and paper submission, click the \"<span class=\"highlight\">Information letter</span>\" button.",
             conferenceInfoText4: "Every year, valuable prizes are drawn among the best reports of the conference participants!",
             joinUsButton: "Join us",
             conferenceProgramButton: "Conference program",
-            informationLetterButton: "Information letter"
+            informationLetterButton: "Information letter",
+            faqTitle: "FAQ",
+            faqQuestions: [
+                {
+                    question: "What is the format of the conference?",
+                    answer: "The conference is held in an online format."
+                },
+                {
+                    question: "What are the working languages ​​of the conference?",
+                    answer: "Working languages ​​of the conference: <span class=\"highlight\">Ukrainian</span> or <span class=\"highlight\">English</span>."
+                },
+                {
+                    question: "Can I submit several abstracts from one author?",
+                    answer: "Yes, one author can submit an unlimited number of abstracts for consideration, but during the conference he must reveal and report on all of them."
+                },
+                {
+                    question: "Can I publish abstracts that have already been printed before?",
+                    answer: "No, only original works that have not been published before will be accepted for consideration."
+                },
+                {
+                    question: "Will there be an ISBN/ISSN?",
+                    answer: "Yes, the collection of abstracts will be assigned an ISBN."
+                },
+                {
+                    question: "Is personal presence mandatory?",
+                    answer: "Participants are required to attend online meetings in person, and must connect according to the conference schedule via the designated links on the conference website."
+                },
+                {
+                    question: "How will online access be organized?",
+                    answer: "Instructions for connecting to online sessions will be sent to registered participants by email."
+                },
+                {
+                    question: "Are participant certificates provided?",
+                    answer: "Yes, all conference participants will receive a certificate in electronic form."
+                },
+                {
+                    question: "Is it possible to speak without submitting an abstract?",
+                    answer: "No, participants can only give a presentation if they submit their abstracts by the established deadline."
+                },
+                {
+                    question: "What is the deadline for submitting papers?",
+                    answer: "The deadline for submitting abstracts is <span class=\"highlight\">11/15/2025</span>."
+                },
+                {
+                    question: "What is the format for submitting papers?",
+                    answer: "Abstracts should be submitted in electronic format with the extension <span class=\"highlight\">«.doc»</span> or <span class=\"highlight\">«.docx»</span> and the name according to the template: <span class=\"highlight\">SURNAME-Group-Section_(1,2)-Title_of_paper</span>."
+                },
+                {
+                    question: "How to get a printed collection of abstracts?",
+                    answer: "Printed copies of the collection will be received by those who selected the item <span class=\"highlight\">I need a printed collection</span> during registration and paid the organizational fee."
+                }
+            ]
         },
         uk: {
             sections: "Головна",
@@ -364,6 +416,7 @@ function setupLanguageSwitcher() {
             meetings: "Секції",
             archive: "Архів",
             registerNow: "Зареєструватися",
+            contactUs: "Зв'яжіться з нами",
             viewSchedule: "Переглянути Розклад",
             conferenceDescription: "Ми раді вітати вас на сайті конференції, яка проходить на кафедрі Комп'ютерних систем, мереж і кібербезпеки, для всіх, хто захоплюється кібербезпекою.",
             dateLocation: "НАУ \"ХАІ\", Харків • 27-28 Листопада, 2025",
@@ -400,7 +453,7 @@ function setupLanguageSwitcher() {
             copyright: "© 2024 Георгій Землянко<br>Місто: Харків",
             registrationText1: "Тези доповідей та заявку на участь у конференції, необхідно надіслати за допомогою google-форми (треба натиснути кнопку \"Зареєструватися\"), до <span class=\"highlight\">15 листопада 2025 року</span>.",
             registrationText2: "Тези надсилаються в електронному вигляді з розширенням <span class=\"highlight\">«.doc»</span> або <span class=\"highlight\">«.docx»</span> та назвою згідно шаблону: <span class=\"highlight\">ПРІЗВИЩЕ-група_-Секція_(1,2)-Назва_роботи. (Приклад: <a target=\"_blank\" href=\"https://drive.google.com/drive/folders/17EnEdAhusTHWuP9lOsJ9Oq4YfdM-K1Mj\" class=\"example-link\">ЮДІН-555ім-Секція_1-Захист_Інформації_в_ІКС</a>)</span>.",
-            registrationText3: "Вартість організаційного внеску 50 грн, організаційний внесок сплачується за одні тези доповіді. Якщо бажана друкована версія збірника тез, то сума буде 150 грн. Наукове видання видається з ISBN. Реквізити оплати можна отримати через оргкомітет, написавши листа на пошту <span class=\"highlight\">scific@csn.khai.edu</span>.",
+            registrationText3: "Розмір організаційного внеску складає 50 грн (за одну тезу доповіді). За умови замовлення друкованої версії збірника тез вартість становить 150 грн. Наукове видання видається з ISBN.",
             registrationText4: "<span class=\"registration-warning\">Важливо! Учасники, які планують отримувати друковані тези, повинні вибрати відповідний варіант у формі під час реєстрації та подання своїх тези.</span>",
             conferenceInfoText1: "Конференція буде проходити онлайн. Робочі мови конференції: <span class=\"highlight\">українська</span>, <span class=\"highlight\">англійська</span>.",
             conferenceInfoText2: "<span class=\"highlight\">ТЕМИ КОНФЕРЕНЦІЇ</span>:<br><span class=\"highlight\">Секція 1</span>. Інформаційна безпека та кібербезпека.<br><span class=\"highlight\">Секція 2</span>. Функціональна безпека.",
@@ -408,9 +461,61 @@ function setupLanguageSwitcher() {
             conferenceInfoText4: "Щороку серед найкращих доповідей учасників конференції розігруються цінні призи!",
             joinUsButton: "Приєднатися",
             conferenceProgramButton: "Програма конференції",
-            informationLetterButton: "Інформаційний лист"
+            informationLetterButton: "Інформаційний лист",
+            faqTitle: "ЧаПи",
+            faqQuestions: [
+                {
+                    question: "Який формат проведення конференції?",
+                    answer: "Конференція проводиться у онлайн форматі."
+                },
+                {
+                    question: "Які робочі мови конференції?",
+                    answer: "Робочі мови конференції: <span class=\"highlight\">українська</span> або <span class=\"highlight\">англійська</span>."
+                },
+                {
+                    question: "Чи можна подати кілька тез від одного автора?",
+                    answer: "Так, один автор може подати необмежену кількість тез для розгляду, але підчас конференції повинен всі їх розкрити і доповісти."
+                },
+                {
+                    question: "Чи можна публікувати тези, які вже були раніше надруковані?",
+                    answer: "Ні, до розгляду приймаються лише оригінальні роботи, що раніше не були опубліковані."
+                },
+                {
+                    question: "Чи буде ISBN/ISSN?",
+                    answer: "Так, збірнику тез буде присвоєно ISBN."
+                },
+                {
+                    question: "Чи обов’язкова особиста присутність?",
+                    answer: "Для учасників особиста присутність є обов'язковою на онлайн мітах, необхідно підключитися за розкладом конференції через призначені посилання на сайті конференції."
+                },
+                {
+                    question: "Як буде організовано онлайн-доступ?",
+                    answer: "Інструкції щодо підключення до онлайн-сесій будуть надіслані зареєстрованим учасникам електронною поштою."
+                },
+                {
+                    question: "Чи передбачені сертифікати учасників?",
+                    answer: "Так, усі учасники конференції отримають сертифікат у електронному вигляді."
+                },
+                {
+                    question: "Чи можна виступити без подання тез?",
+                    answer: "Ні, учасники можуть виступити з доповіддю лише за умови подання тез у встановлений дедлайн."
+                },
+                {
+                    question: "Який дедлайн подання робіт?",
+                    answer: "Остаточний термін подання тез: <span class=\"highlight\">15.11.2025</span>."
+                },
+                {
+                    question: "Який формат подання робіт?",
+                    answer: "Тезисы мають подаватися в електронному форматі з розширенням <span class=\"highlight\">«.doc»</span> або <span class=\"highlight\">«.docx»</span> та назвою згідно шаблону: <span class=\"highlight\">ПРІЗВИЩЕ-Група-Секція_(1,2)-Назва_роботи</span>."
+                },
+                {
+                    question: "Як отримати друкований збірник тез?",
+                    answer: "Друковані примірники збірника отримають хто під час регестрації обрав пункт <span class=\"highlight\">Потребую друковоний збірник</span> і сплатив організаційний внесок."
+                }
+            ]
         }
     };
+
 
     // Function to update content based on language
     function updateContent(lang) {
@@ -487,6 +592,28 @@ function setupLanguageSwitcher() {
         const registerButton = document.getElementById('register-button');
         if (registerButton) {
             registerButton.setAttribute('href', lang === 'en' ? 'https://forms.gle/SqmMuFce2XWfuNxp8' : 'https://forms.gle/XPRaouqdcR4yoYNP6');
+        }
+
+        // Update Materials Register Now button URL based on language
+        const materialsRegisterButton = document.querySelector('.materials-register-btn');
+        if (materialsRegisterButton) {
+            materialsRegisterButton.setAttribute('href', lang === 'en' ? 'https://forms.gle/SqmMuFce2XWfuNxp8' : 'https://forms.gle/XPRaouqdcR4yoYNP6');
+        }
+
+        // Update Registration block buttons
+        const registrationBlockButtons = document.querySelectorAll('#registration-block .block-links a');
+        if (registrationBlockButtons.length >= 2) {
+            registrationBlockButtons[0].textContent = data.registerNow;
+            registrationBlockButtons[0].setAttribute('href', lang === 'en' ? 'https://forms.gle/SqmMuFce2XWfuNxp8' : 'https://forms.gle/XPRaouqdcR4yoYNP6');
+            registrationBlockButtons[1].textContent = data.contactUs;
+        }
+
+        // Update Information letter button URL
+        const informationLetterButton = document.querySelector('#conference-info-block .block-links a:nth-child(3)');
+        if (informationLetterButton) {
+            informationLetterButton.setAttribute('href', lang === 'en' ?
+                'https://docs.google.com/document/d/1toJeP2h1hdl_kZuIZyJiLnJRQU_TZiK1/edit' :
+                'https://docs.google.com/document/d/1mVDlj_P_9dG7Qd61tq2E3oQLt66MfTbo/edit');
         }
 
         // Update news ticker
@@ -697,7 +824,7 @@ function setupLanguageSwitcher() {
                     contactItems[1].innerHTML = '<strong>Program Committee:</strong> <a href="https://education.khai.edu/person/Kharchenko-Viacheslav-Serhiiovych-503" target="_blank" class="contact-link">Prof. Vyacheslav Kharchenko</a>, <a href="https://education.khai.edu/person/Zemlianko-Heorhii-Andriiovych-503" target="_blank" class="contact-link">Dr. Heorhii Zemlianko</a>, <span class="highlight">Mis. Daria Fedorenko</span>';
                 }
                 if (contactItems.length >= 3) {
-                    contactItems[2].innerHTML = '<strong>Technical Support:</strong> <a href="mailto:scific@csn.khai.edu" class="contact-link">scific@csn.khai.edu</a>';
+                    contactItems[2].innerHTML = '<strong>Technical Support:</strong> <a href="mailto:g.zemlynko@csn.khai.edu" class="contact-link">g.zemlynko@csn.khai.edu</a>';
                 }
                 if (contactItems.length >= 4) {
                     contactItems[3].innerHTML = '<strong>General Inquiries:</strong> <a href="mailto:scific@csn.khai.edu" class="contact-link">scific@csn.khai.edu</a>';
@@ -714,7 +841,7 @@ function setupLanguageSwitcher() {
                     contactItems[1].innerHTML = '<strong>Програмний комітет:</strong> <a href="https://education.khai.edu/person/Kharchenko-Viacheslav-Serhiiovych-503" target="_blank" class="contact-link">Проф. Харченко В\'ячеслав</a>, <a href="https://education.khai.edu/person/Zemlianko-Heorhii-Andriiovych-503" target="_blank" class="contact-link">Д-р філософії Землянко Георгій</a>, <span class="highlight">Федоренко Дар\'я</span>';
                 }
                 if (contactItems.length >= 3) {
-                    contactItems[2].innerHTML = '<strong>Технічна підтримка:</strong> <a href="mailto:scific@csn.khai.edu" class="contact-link">scific@csn.khai.edu</a>';
+                    contactItems[2].innerHTML = '<strong>Технічна підтримка:</strong> <a href="mailto:g.zemlynko@csn.khai.edu" class="contact-link">g.zemlynko@csn.khai.edu</a>';
                 }
                 if (contactItems.length >= 4) {
                     contactItems[3].innerHTML = '<strong>Загальні запитання:</strong> <a href="mailto:scific@csn.khai.edu" class="contact-link">scific@csn.khai.edu</a>';
@@ -723,6 +850,58 @@ function setupLanguageSwitcher() {
                     contactItems[4].innerHTML = '<strong>Адреса:</strong> <span class="highlight">Національний Аерокосмічний Університет "ХАІ", вул. Вадима Манька 17, м. Харків, Україна</span>';
                 }
             }
+        }
+
+        // Update FAQ block
+        const faqTitle = document.getElementById('faq-title');
+        if (faqTitle) {
+            faqTitle.textContent = data.faqTitle;
+        }
+
+        const faqContainer = document.querySelector('#faq-block .faq-container');
+        if (faqContainer) {
+            // Очистить контейнер
+            faqContainer.innerHTML = '';
+
+            // Создать вопросы и ответы
+            data.faqQuestions.forEach((item, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item';
+
+                const faqQuestion = document.createElement('div');
+                faqQuestion.className = 'faq-question';
+                faqQuestion.innerHTML = item.question;
+
+                const faqAnswer = document.createElement('div');
+                faqAnswer.className = 'faq-answer';
+                faqAnswer.innerHTML = item.answer;
+
+                faqItem.appendChild(faqQuestion);
+                faqItem.appendChild(faqAnswer);
+                faqContainer.appendChild(faqItem);
+            });
+
+            // Установить обработчики кликов ПОСЛЕ создания FAQ блока
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                // Удаляем существующие обработчики, если они есть
+                const newQuestion = question.cloneNode(true);
+                question.parentNode.replaceChild(newQuestion, question);
+
+                // Добавляем новый обработчик
+                newQuestion.addEventListener('click', function () {
+                    // Сначала закрываем все открытые вопросы
+                    const allQuestions = document.querySelectorAll('.faq-question');
+                    const allAnswers = document.querySelectorAll('.faq-answer');
+
+                    allQuestions.forEach(q => q.classList.remove('active'));
+                    allAnswers.forEach(a => a.classList.remove('active'));
+
+                    // Затем открываем текущий вопрос
+                    this.classList.add('active');
+                    this.nextElementSibling.classList.add('active');
+                });
+            });
         }
     }
 
