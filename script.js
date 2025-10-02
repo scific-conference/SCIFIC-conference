@@ -356,6 +356,11 @@ function setupLanguageSwitcher() {
             joinUsButton: "Join us",
             conferenceProgramButton: "Conference program",
             informationLetterButton: "Information letter",
+            thesisTemplate: "Thesis Template",
+            templateLinks: {
+                en: "https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF",
+                uk: "https://drive.google.com/drive/folders/17EnEdAhusTHWuP9lOsJ9Oq4YfdM-K1Mj"
+            },
             faqTitle: "FAQ",
             faqQuestions: [
                 {
@@ -462,6 +467,11 @@ function setupLanguageSwitcher() {
             joinUsButton: "Приєднатися",
             conferenceProgramButton: "Програма конференції",
             informationLetterButton: "Інформаційний лист",
+            thesisTemplate: "Шаблон тез",
+            templateLinks: {
+                en: "https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF",
+                uk: "https://drive.google.com/drive/folders/17EnEdAhusTHWuP9lOsJ9Oq4YfdM-K1Mj"
+            },
             faqTitle: "ЧаПи",
             faqQuestions: [
                 {
@@ -557,6 +567,15 @@ function setupLanguageSwitcher() {
             registrationBlockTexts[1].innerHTML = data.registrationText2;
             registrationBlockTexts[2].innerHTML = data.registrationText3;
             registrationBlockTexts[3].innerHTML = data.registrationText4;
+        }
+
+        // Update Thesis Template button
+        const templateButton = document.querySelector('#registration-block .template-btn');
+        if (templateButton) {
+            templateButton.textContent = data.thesisTemplate;
+            templateButton.setAttribute('href', lang === 'en' ? 
+                data.templateLinks.en : 
+                data.templateLinks.uk);
         }
 
         // Update home section
