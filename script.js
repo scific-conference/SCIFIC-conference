@@ -631,8 +631,8 @@ function setupLanguageSwitcher() {
         const informationLetterButton = document.querySelector('#conference-info-block .block-links a:nth-child(3)');
         if (informationLetterButton) {
             informationLetterButton.setAttribute('href', lang === 'en' ?
-                'https://docs.google.com/document/d/1toJeP2h1hdl_kZuIZyJiLnJRQU_TZiK1/edit' :
-                'https://docs.google.com/document/d/1mVDlj_P_9dG7Qd61tq2E3oQLt66MfTbo/edit');
+                'https://drive.google.com/file/d/1AYjJTM2UWtBEqbtcrnQjf5WKT7kGu8v7/view?usp=drive_link' :
+                'https://drive.google.com/file/d/15SXPiLXMjAFvdX8tnC9L2-yPAo9WyBvN/view?usp=drive_link');
         }
 
         // Update news ticker
