@@ -801,7 +801,7 @@ function setupLanguageSwitcher() {
         // Добавлено: Обновление заголовков архивных блоков
         const archiveBlocks = document.querySelectorAll('.archive-block h3');
         archiveBlocks.forEach((block, index) => {
-            const year = 2025 - index;
+            const year = 2024 - index; // шаг индексирования скифик тезисов после добавления новых материалов, надо увеличивать год публикации
             if (lang === 'en') {
                 block.textContent = `Theses SCIFiC ${year}`;
             } else {
