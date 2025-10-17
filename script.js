@@ -221,7 +221,6 @@
                     addToCalendar: "Add to Calendar",
                     quickLinks: "Quick Links",
                     connectWithUs: "Connect With Us",
-                    copyright: "© 2024 Heorhii Zemlianko<br>City: Kharkiv",
                     registrationText1: "Abstracts of reports and applications for participation in the conference must be sent using the Google form (you need to press the \"Register\" button), to <span class=\"highlight\">November 15, 2025</span>.",
                     registrationText2: "Theses are sent electronically with the extension <span class=\"highlight\">«.doc»</span> or <span class=\"highlight\">«.docx»</span> and the name according to the template: <span class=\"highlight\">SURNAME-group_-Section_(1, 2)-Name_of_work. (Example: <a target=\"_blank\" href=\"https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF\" class=\"example-link\">YUDIN-555im-Section_1-Protection_In_ICS</a>)</span>",
                     registrationText3: "Participation in the conference is <span class=\"highlight\">free</span>. If you would like to receive a printed version of the abstract book, the cost will be <span class=\"highlight\">$15</span>, shipping costs are separate and depend on the delivery location. The scientific edition is published from the ISBN. Payment details can be obtained through the organizing committee by writing a letter to <span class=\"highlight\">scific@csn.khai.edu</span>",
@@ -321,7 +320,6 @@
                     addToCalendar: "Додати до календаря",
                     quickLinks: "Швидкі посилання",
                     connectWithUs: "Зв'яжіться з нами",
-                    copyright: "© 2024 Георгій Землянко<br>Місто: Харків",
                     registrationText1: "Тези доповідей та заявку на участь у конференції, необхідно надіслати за допомогою google-форми (треба натиснути кнопку \"Зареєструватися\"), до <span class=\"highlight\">15 листопада 2025 року</span>.",
                     registrationText2: "Тези надсилаються в електронному вигляді з розширенням <span class=\"highlight\">«.doc»</span> або <span class=\"highlight\">«.docx»</span> та назвою згідно шаблону: <span class=\"highlight\">ПРІЗВИЩЕ-група_-Секція_(1,2)-Назва_роботи. (Приклад: <a target=\"_blank\" href=\"https://drive.google.com/drive/folders/17EnEdAhusTHWuP9lOsJ9Oq4YfdM-K1Mj\" class=\"example-link\">ЮДІН-555ім-Секція_1-Захист_Інформації_в_ІКС</a>)</span>.",
                     registrationText3: "Участь в конференції <span class=\"highlight\">безкоштовна</span>. За умови замовлення друкованої версії збірника тез вартість становить <span class=\"highlight\">150 грн</span>. Наукове видання видається з ISBN.",
@@ -525,11 +523,6 @@
                 const footerSocialHeader = document.querySelector('.footer-social h3');
                 if (footerLinksHeader) footerLinksHeader.textContent = data.quickLinks;
                 if (footerSocialHeader) footerSocialHeader.textContent = data.connectWithUs;
-
-                const copyright = document.querySelector('.copyright p');
-                if (copyright) {
-                    copyright.innerHTML = data.copyright;
-                }
 
                 const tableHeaders = document.querySelectorAll('.conference-schedule th');
                 if (tableHeaders.length >= 3) {
