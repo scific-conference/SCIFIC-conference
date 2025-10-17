@@ -104,7 +104,7 @@
                 if (targetSection) targetSection.classList.add('active');
             }
             function handleNavClick(e) {
-                e.preventDefault();
+                //e.preventDefault();
                 const href = this.getAttribute('href');
                 if (!href || href === '#') return;
                 const targetSection = document.querySelector(href);
@@ -751,17 +751,42 @@
                 document.body.scrollTop = 0;
             }, 100);
 
+            // Обработка хеша из URL при загрузке
             const hash = window.location.hash;
-            if (hash && hash !== '#' && hash !== '#home') {
+            if (hash && hash !== '#') {
                 const targetSection = document.querySelector(hash);
                 if (targetSection) {
+                    // Убираем активный класс со всех секций
+                    document.querySelectorAll('section').forEach(section => section.classList.remove('active'));
+                    // Делаем активной целевую секцию
+                    targetSection.classList.add('active');
+                    
+                    // Обновляем активную ссылку в навигации
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`a[href="${hash}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                    
+                    // Прокручиваем к секции БЕЗ плавности (мгновенно, как при обычной загрузке)
                     const headerOffset = 80;
                     const offsetPosition = targetSection.offsetTop - headerOffset;
-                    setTimeout(() => {
-                        window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'auto' });
-                    }, 300);
+                    window.scrollTo({
+                        top: Math.max(0, offsetPosition),
+                        behavior: 'auto' // ← ВАЖНО: 'auto', а не 'smooth'
+                    });
                 }
             } else {
-                window.scrollTo(0, 0);
+                // Если хеша нет — активируем #home
+                const homeSection = document.getElementById('home');
+                if (homeSection) {
+                    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+                    homeSection.classList.add('active');
+                }
+                const homeLink = document.querySelector('a[href="#home"]');
+                if (homeLink) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    homeLink.classList.add('active');
+                }
             }
         });
