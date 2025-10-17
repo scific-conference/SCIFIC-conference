@@ -327,7 +327,7 @@
                     registrationText3: "Участь в конференції <span class=\"highlight\">безкоштовна</span>. За умови замовлення друкованої версії збірника тез вартість становить <span class=\"highlight\">150 грн</span>. Наукове видання видається з ISBN.",
                     registrationText4: "<span class=\"registration-warning\">Важливо! Учасники, які планують отримувати друковані тези, повинні вибрати відповідний варіант у формі під час реєстрації та подання своїх тези.</span>",
                     conferenceInfoText1: "Конференція буде проходити онлайн. Робочі мови конференції: <span class=\"highlight\">українська</span>, <span class=\"highlight\">англійська</span>.",
-                    conferenceInfoText2: "<span class=\"highlight\">ТЕМИ КОНФЕРЕНЦІЇ</span>:<br><span class=\"highlight\">Секція 1</span>. Інформаційна безпека та кібербезпека.<br><span class=\"highlight\">Секція 2</span>. Функціональна безпека.<br><span class=\"highlight\">Секція 3</span>. Правове забеспечення кібербезпеки.",
+                    conferenceInfoText2: "<span class=\"highlight\">ТЕМИ КОНФЕРЕНЦІЇ</span>:<br><span class=\"highlight\">Секція 1</span>. Інформаційна безпека та кібербезпека.<br><span class=\"highlight\">Секція 2</span>. Функціональна безпека.<br><span class=\"highlight\">Секція 3</span>. Правове забезпечення кібербезпеки.",
                     conferenceInfoText3: "Для отримання докладної інформації про конференцію, натисніть кнопку \"<span class=\"highlight\">Приєднатися</span>\", щоб приєднатися до спеціальної Telegram-групи.<br>Натиснувши кнопку \"<span class=\"highlight\">Програма конференції</span>\", ви зможете ознайомитися з програмою конференції (актуальні матеріали будуть доступні за тиждень до конференції).<br>Якщо вам потрібна докладна інформація про конференцію та подання робіт, натисніть кнопку \"<span class=\"highlight\">Інформаційний лист</span>\".",
                     conferenceInfoText4: "Щороку серед найкращих доповідей учасників конференції розігруються цінні призи!",
                     joinUsButton: "Приєднатися",
@@ -497,7 +497,7 @@
                     sessionTitles[0].textContent = lang === 'en' ? 'Plenary Session' : 'Пленарне засідання';
                     sessionTitles[1].textContent = lang === 'en' ? 'Section 1 - Information and cybersecurity' : 'Секція 1 - Інформаційна безпека та кібербезпека';
                     sessionTitles[2].textContent = lang === 'en' ? 'Section 2 - Functional Safety' : 'Секція 2 - Функціональна безпека';
-                    sessionTitles[3].textContent = lang === 'en' ? 'Section 3 - Legal provision of cybersecurity' : 'Секція 3 - Правове забеспечення кібербезпеки';
+                    sessionTitles[3].textContent = lang === 'en' ? 'Section 3 - Legal provision of cybersecurity' : 'Секція 3 - Правове забезпечення кібербезпеки';
                 }
 
                 const sessionTimes = document.querySelectorAll('.session-card .session-time');
