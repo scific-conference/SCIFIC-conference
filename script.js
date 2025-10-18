@@ -265,6 +265,7 @@
                         YUDIN Oles Viktorovych (PhD student, Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
                         PEVNEV Volodymyr Yakovlevych (Dr. Sc. (Tech.), Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
                         ZEMLIANKO Heorhii Andriiovych (PhD in Cybersecurity, Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
+                        DRAKON Daria Sergeevna (4th-year student, V.N. Karazin Kharkiv National University, Kharkiv, Ukraine);<br>
                         KIRICHENKO Danylo (Master of Science in Applied Computer Science - Focus on Engineering at University of Duisburg-Essen, Duisburg, Germany).
                         </p><br>
                         <h3><span class=\"highlight\">SECRETARY</span></h3>
@@ -364,6 +365,7 @@
                         ЮДІН Олесь Вікторович (аспірант, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
                         ПЄВНЄВ Володимир Яковлевич (д.т.н., доцент, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
                         ЗЕМЛЯНКО Георгій Андрійович (PhD з кібербезпеки, доцент кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ДРАКОН Дар'я Сергіївна (студентка 4 курсу, Харківський національний університет імені В. Н. Каразіна, м. Харків, Україна);<br>
                         KIRICHENKO Danylo (Master of Science in Applied Computer Science - Focus on Engineering at University of Duisburg-Essen, Duisburg, Germany).
                         </p><br>
                         <h3><span class=\"highlight\">СЕКРЕТАР КОМІТЕТУ</span></h3>
