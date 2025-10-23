@@ -253,23 +253,25 @@
                         { question: "How to get a printed collection of abstracts?", answer: "Printed copies of the collection will be received by those who selected the item <span class=\"highlight\">I need a printed collection</span> during registration and paid the organizational fee." }
                     ],
                     contactListHTML: `
-                        <h3><span class=\"highlight\">ORGANIZING COMMITTEE</span></h3>
-                        <p><strong>Chairs of the Organizing Committee:</strong><br>
-                        KHARCHENKO Viacheslav Serhiiovych (Dr. Sc. (Tech.), Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
-                        YUDIN Oles Viktorovych (PhD student, Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine).</p><br>
-                        <p><strong>Co-Chairs of the Organizing Committee:</strong><br>
-                        PEVNEV Volodymyr Yakovlevych (Dr. Sc. (Tech.), Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
-                        ZEMLIANKO Heorhii Andriiovych (PhD in Cybersecurity, Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine).</p><br>
                         <h3><span class=\"highlight\">PROGRAM COMMITTEE</span></h3>
                         <p>
-                        YUDIN Oles Viktorovych (PhD student, Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
+                        LYTVYNOV Oleksiy Mykolayovych (Doctor of Law, Professor, National Aerospace University «Kharkiv Aviation Institute», Kharkiv, Ukraine);<br>
                         PEVNEV Volodymyr Yakovlevych (Dr. Sc. (Tech.), Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
-                        ZEMLIANKO Heorhii Andriiovych (PhD in Cybersecurity, Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
-                        DRAKON Daria Sergeevna (4th-year student, V.N. Karazin Kharkiv National University, Kharkiv, Ukraine);<br>
-                        KIRICHENKO Danylo (Master of Science in Applied Computer Science - Focus on Engineering at University of Duisburg-Essen, Duisburg, Germany).
+                        FESENKO Herman Viktorovych (Ph.D., Professor, Department of Computer Systems, Networks and Cyber Security, NAU «ХАИ», Kharkiv, Ukraine);<br>
+                        TETSKY Artem Hryhorovych (Ph.D., Associate Professor, Department of Computer Systems, Networks and Cyber Security, NAU «KHAI», Kharkiv, Ukraine);<br>
+                        HORBENKO Ivan Dmytrovych (Ph.D., professor, professor of the Department of Security of Information Systems and Technologies, Kharkiv National University named after. V.N. Karazina, Kharkiv, Ukraine);<br>
+                        ZASLAVSKY Volodymyr Anatoliyovych (Ph.D., professor, member of the Board of the Ukrainian Scientific and Educational IT Society, Kharkiv, Ukraine);<br>
+                        MINCHEV Zlatogor (Ph.D., Associate Professor, Head of the Information Technology and Cyber Security Department of the Institute of Information and Communication Technologies of the Bulgarian Academy of Sciences, Sofia, Bulgaria);<br>
+                        PATUREY Krzysztof (President, International Center for Security ICCSS, Warsaw, Poland).<br>
                         </p><br>
+                        <h3><span class=\"highlight\">ORGANIZING COMMITTEE</span></h3>
+                        <p>KHARCHENKO Viacheslav Serhiiovych (Dr. Sc. (Tech.), Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
+                        YUDIN Oles Viktorovych (PhD student, Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
+                        ZEMLIANKO Heorhii Andriiovych (PhD in Cybersecurity, Assoc. Prof., Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine);<br>
+                        STYAGLYK Natalya (candidate of pedagogical sciences, associate professor, head of the department of information technologies and mathematical modeling of the Educational and Scientific Institute «Karazin Banking Institute»).</p><br>
                         <h3><span class=\"highlight\">SECRETARY</span></h3>
                         <p>
+                        DRAKON Daria Sergeevna (4th-year student, V.N. Karazin Kharkiv National University, Kharkiv, Ukraine);<br>
                         FEDORENKO Daria Dmytrivna (Student of group 535-b, Department of Computer Systems, Networks and Cybersecurity, NAU "KhAI", Kharkiv, Ukraine).
                         </p><br>
 
@@ -353,24 +355,26 @@
                         { question: "Як отримати друкований збірник тез?", answer: "Друковані примірники збірника отримають хто під час регестрації обрав пункт <span class=\"highlight\">Потребую друковоний збірник</span> і сплатив організаційний внесок." }
                     ],
                     contactListHTML: `
-                        <h3><span class=\"highlight\">ОРГАНІЗАЦІЙНИЙ КОМІТЕТ</span></h3>
-                        <p><strong>Голови оргкомітету:</strong><br>
-                        ХАРЧЕНКО В’ячеслав Сергійович (д.т.н., проф., кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
-                        ЮДІН Олесь Вікторович (аспірант, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна).</p>
-                        <p><strong>Співголови оргкомітету:</strong><br>
-                        ПЄВНЄВ Володимир Яковлевич (д.т.н., доцент, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
-                        ЗЕМЛЯНКО Георгій Андрійович (PhD з кібербезпеки, доцент кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна).</p><br>
                         <h3><span class=\"highlight\">ПРОГРАМНИЙ КОМІТЕТ</span></h3>
                         <p>
-                        ЮДІН Олесь Вікторович (аспірант, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ЛИТВИНОВ Олексій Миколайович (доктор юридичних наук, професор, Національний аерокосмічний університет «Харківський авіаційний інститут», Харків, Україна);<br>
                         ПЄВНЄВ Володимир Яковлевич (д.т.н., доцент, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
-                        ЗЕМЛЯНКО Георгій Андрійович (PhD з кібербезпеки, доцент кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
-                        ДРАКОН Дар'я Сергіївна (студентка 4 курсу, Харківський національний університет імені В. Н. Каразіна, м. Харків, Україна);<br>
-                        KIRICHENKO Danylo (Master of Science in Applied Computer Science - Focus on Engineering at University of Duisburg-Essen, Duisburg, Germany).
+                        ФЕСЕНКО Герман Вікторович (д.т.н., професор, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ТЕЦЬКИЙ Артем Григорович (к.т.н., доцент кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ГОРБЕНКО Іван Дмитрович (д.т.н., професор, професор кафедри безпеки інформаційних систем і технологій, Харківський національний університет ім. В.Н. Каразіна, Харків, Україна);<br>
+                        ЗАСЛАВСЬКИЙ Володимир Анатолійович (д.т.н., професор, член Правління Українського науково-освітнього ІТ-Товариства, Харків, Україна);<br>
+                        МІНЧЕВ Златогор (доктор філософії, доцент, керівник відділу інформаційних технологій і кібербезпеки  Інституту інформаційних і комунікаційних технологій Болгарської академії наук, Софія, Болгарія);<br>
+                        ПАТУРЕЙ Кшиштоф (президент, Міжнародний центр з безпеки ICCSS, Варшава, Польща).<br>
                         </p><br>
-                        <h3><span class=\"highlight\">СЕКРЕТАР КОМІТЕТУ</span></h3>
+                        <h3><span class=\"highlight\">ОРГАНІЗАЦІЙНИЙ КОМІТЕТ</span></h3>
+                        <p>ХАРЧЕНКО Вячеслав Сергійович (д.т.н., проф., кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ЮДІН Олесь Вікторович (аспірант, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ЗЕМЛЯНКО Георгій Андрійович (доктор філософії з кібербезпеки, доцент кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        СТЯГЛИК Наталя (кандидат педагогічних наук, доцент, завідувач кафедри інформаційних технологій та математичного моделювання Навчально-наукового інституту «Каразінський банківський інститут»).</p><br>
+                        <h3><span class=\"highlight\">СЕКРЕТАРІАТ</span></h3>
                         <p>
-                        ФЕДОРЕНКО Дар'я Дмитрівна (студентка 535-б групи, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна).
+                        ФЕДОРЕНКО Дар'я Дмитрівна (студентка 535-б групи, кафедра комп’ютерних систем, мереж і кібербезпеки, НАУ «ХАІ», Харків, Україна);<br>
+                        ДРАКОН Дар'я Сергіївна (студентка 4 курсу, Харківський національний університет імені В. Н. Каразіна, м. Харків, Україна).
                         </p><br>
 
                         <h3><span class=\"highlight\">КОНТАКТНА ІНФОРМАЦІЯ</span></h3>
