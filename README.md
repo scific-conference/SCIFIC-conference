@@ -141,6 +141,12 @@ See the FAQ section on the website for more details.
 - [Microsoft](https://www.microsoft.com)
 - [Cisco](https://www.cisco.com)
 
+
+---
+
+## 💡 Special webpage
+- [Program Conference 2025 SCIFiK](https://scific-conference.github.io/SCIFIC-conference/plan_conference/planconference.html)
+
 ---
 
 ## 💡 Contributing
