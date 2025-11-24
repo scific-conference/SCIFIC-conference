@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Міжнародна Конференція з Кібербезпеки | SCIFiC 2025</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap&subset=cyrillic"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        :root {
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #1A1A1A;
+            --neon-green: #39E639;
+            --neon-green-dark: #269926;
+            --neon-green-darker: #007633;
+            --neon-green-light: #62DA97;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --glow-shadow: 0 0 10px;
+            --neon-cyan: #00f7ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Roboto', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(57, 230, 57, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        main {
+            padding-top: 80px;
+        }
+
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-green-dark), var(--neon-green-light));
+        }
+
+        .meetings-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .session-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 5px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--neon-cyan);
+        }
+
+        .session-card h3 {
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .session-time {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .session-preview {
+            width: 100%;
+            height: 180px;
+            background: var(--bg-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .session-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .join-button,
+        .calendar-button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .join-button {
+            border-image: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.5), #ffffff) 1;
+        }
+
+        .calendar-button {
+            border-image: linear-gradient(90deg, var(--neon-cyan), rgba(0, 247, 255, 0.5), var(--neon-cyan)) 1;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .join-button:hover,
+        .calendar-button:hover {
+            background: linear-gradient(90deg, rgba(57, 230, 57, 0.1), rgba(57, 230, 57, 0.3));
+            color: var(--text-primary);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(57, 230, 57, 0.5);
+        }
+
+        /* Tabs Navigation */
+        .tabs-navigation {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: rgba(0, 20, 0, 0.7);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-button:hover {
+            background: rgba(0, 30, 0, 0.8);
+            color: var(--neon-green);
+        }
+
+        .tab-button.active {
+            background: rgba(0, 40, 0, 0.9);
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(57, 230, 57, 0.3);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--neon-green);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Day Tabs Navigation */
+        .day-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .day-tab-button {
+            min-width: 200px;
+            padding: 0.8rem;
+        }
+
+        /* Conference Schedule Table */
+        .schedule-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 2rem;
+            padding-bottom: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .conference-schedule {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(10, 10, 10, 0.7);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(57, 230, 57, 0.2);
+            border-radius: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            display: block;
+            min-width: 800px;
+        }
+
+        .conference-schedule thead {
+            background-color: rgba(57, 230, 57, 0.15);
+        }
+
+        .conference-schedule th {
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            border-bottom: 1px solid rgba(57, 230, 57, 0.3);
+        }
+
+        .conference-schedule td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(57, 230, 57, 0.1);
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .conference-schedule tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .conference-schedule tr:nth-child(odd) {
+            background-color: rgba(20, 20, 20, 0.3);
+        }
+
+        .time-column {
+            width: 25%;
+            font-weight: 500;
+            color: var(--neon-green);
+        }
+
+        .presentation-title {
+            font-weight: 600;
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .presentation-speaker {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .presentation-description {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .presentation-topic {
+            display: inline-block;
+            background: rgba(0, 100, 0, 0.3);
+            color: var(--neon-green);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .digital-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: #0A0A0A;
+        }
+
+        .digital-rain span {
+            position: absolute;
+            font-family: monospace;
+            font-size: 16px;
+            color: #00FF00;
+            text-shadow: 0 0 5px #00FF00;
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(0, 247, 255, 0.3);
+            padding: 3rem 5% 1rem;
+            text-align: center;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .conference-schedule {
+                min-width: 600px;
+            }
+
+            .tabs-navigation,
+            .day-tabs {
+                flex-direction: column;
+            }
+
+            .tab-button,
+            .day-tab-button {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conference-schedule {
+                min-width: 400px;
+            }
+        }
+
+                        /* 1. Добавьте эти стили для анимации при наведении на строки таблицы */
+.conference-schedule tbody tr {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.conference-schedule tbody tr:hover {
+    background-color: rgba(57, 230, 57, 0.15) !important;
+    transform: translateX(5px);
+    box-shadow: inset 5px 0 0 var(--neon-green), 0 0 15px rgba(57, 230, 57, 0.3);
+}
+
+.conference-schedule tbody tr:hover .presentation-title {
+    color: #ffffff;
+    text-shadow: 0 0 8px var(--neon-green);
+}
+
+.conference-schedule tbody tr:hover .time-column {
+    color: var(--neon-green-light);
+    font-weight: 700;
+}
+
+/* Добавляем плавную линию подчеркивания при наведении */
+.conference-schedule tbody tr:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* 2. Измените стили для центрирования таблицы */
+.schedule-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.schedule-table-container {
+    width: 100%;
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
+    margin: 2rem auto 0 !important; /* Центрируем контейнер */
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.conference-schedule {
+    margin: 0 auto; /* Центрируем саму таблицу */
+    width: 100%;
+    min-width: 800px;
+}
+    </style>
+</head>
+
+<body>
+    <!-- Digital Rain Effect Background -->
+    <div class="digital-rain" id="digitalRain"></div>
+
+    <!-- Header - Simplified with no navigation menu -->
+    <header>
+        <div class="logo">SCIFiC 2025</div>
+    </header>
+
+    <main>
+        <!-- Combined Sections Page -->
+        <section id="conference">
+            <h2 class="section-title">Посилання на <span class="highlight">Секції</span></h2>
+            <div class="meetings-container">
+                <div class="sessions-grid">
+                    <div class="session-card">
+                        <h3>Пленарне засідання | Секція 1 - Інформаційна безпека та кібербезпека</h3>
+                        <p class="session-time">Усі дні конференції</p>
+                        <div class="session-preview">
+                            <img src="kvybakj2w5.png" alt="Cybersecurity Conference Session" class="session-image">
+                        </div>
+                        <a href="https://meet.google.com/xwr-mxbv-dpc" class="join-button" target="_blank">
+                            <ion-icon name="videocam"></ion-icon>
+                            Приєднатися
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20251127T090000Z/20251128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fxwr-mxbv-dpc&location=NAU%20%22KhAI%22%2C%20Kharkiv"
+                            class="calendar-button" target="_blank">
+                            <ion-icon name="calendar"></ion-icon>
+                            Додати до календаря
+                        </a>
+                    </div>
+                    <div class="session-card">
+                        <h3>Секція 2 - Функційна безпека</h3>
+                        <p class="session-time">Усі дні конференції</p>
+                        <div class="session-preview">
+                            <img src="kgqpkt9tzi.png" alt="Functional Safety Session" class="session-image">
+                        </div>
+                        <a href="https://meet.google.com/afr-deqo-ghv" class="join-button" target="_blank">
+                            <ion-icon name="videocam"></ion-icon>
+                            Приєднатися
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20251127T090000Z/20251128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fafr-deqo-ghv&location=NAU%20%22KhAI%22%2C%20Kharkiv"
+                            class="calendar-button" target="_blank">
+                            <ion-icon name="calendar"></ion-icon>
+                            Додати до календаря
+                        </a>
+                    </div>
+                    <div class="session-card">
+                        <h3>Секція 3 - Правове забезпечення кібербезпеки</h3>
+                        <p class="session-time">Усі дні конференції</p>
+                        <div class="session-preview">
+                            <img src="Copilot_20251014_154338.png" alt="Functional Safety Session"
+                                class="session-image">
+                        </div>
+                        <a href="https://meet.google.com/mvv-asry-mxa" class="join-button" target="_blank">
+                            <ion-icon name="videocam"></ion-icon>
+                            Приєднатися
+                        </a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20251127T090000Z/20251128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fafr-deqo-ghv&location=NAU%20%22KhAI%22%2C%20Kharkiv"
+                            class="calendar-button" target="_blank">
+                            <ion-icon name="calendar"></ion-icon>
+                            Додати до календаря
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conference Schedule with Tabs -->
+            <h2 class="section-title" style="margin-top: 4rem;">Програма <span class="highlight">Конфернеції</span></h2>
+
+            <!-- Tabs Navigation for Tracks -->
+            <div class="tracks-tabs">
+                <div class="tabs-navigation">
+                    <button class="tab-button active" data-tab="track1">
+                        Секція 1: Інформаційна безпека та кібербезпека
+                    </button>
+                    <button class="tab-button" data-tab="track2">
+                        Секція 2: Функційна безпека
+                    </button>
+                    <button class="tab-button" data-tab="track3">
+                        Секція 3: Правове забезпечення кібербезпеки
+                    </button>
+                </div>
+
+                <!-- Track 1 Content -->
+                <div class="tab-content active" id="track1">
+                    <!-- Day Tabs Navigation for Track 1 -->
+                    <div class="day-tabs">
+                        <button class="day-tab-button tab-button active" data-day="day1" data-track="track1">
+                            27 Листопада, 2025
+                        </button>
+                        <button class="day-tab-button tab-button" data-day="day2" data-track="track1">
+                            28 Листопада, 2025
+                        </button>
+                    </div>
+
+                    <!-- Day 1 Content for Track 1 -->
+                    <div class="day-content active" id="track1-day1">
+                        <div class="schedule-container">
+                            <div class="schedule-table-container">
+                                <table class="conference-schedule">
+                                    <thead>
+                                        <tr>
+                                            <th>Час</th>
+                                            <th>Учасник</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="time-column">14:45 – 15:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перевірка з'єднання</h3>
+                                                <p class="presentation-description">Онлайн-перевірка технічного
+                                                    забезпечення</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:00 – 15:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Пленарне засідання (за посиланням в
+                                                    секцію 1)</h3><br>
+                                                <h3 class="presentation-title">Вітальне слово</h3>
+                                                <p class="presentation-speaker">Організаційний комітет конференції,
+                                                    представники Національного аерокосмічного університету "ХАІ"</p>
+                                                <br>
+                                                <h3 class="presentation-title">Вітальне слово спонсора конференції
+                                                    «Харківський IT Кластер»</h3>
+                                                <br>
+                                                <h3 class="presentation-title">From KhAI to a Cybersecurity Leader</h3>
+                                                <p class="presentation-speaker">Експерт з кібербезпеки та захисту даних,
+                                                    Руанда, Jean Pierre Nzabahimana</p>
+                                                <br>
+                                                <h3 class="presentation-title">Cybersecurity Research and Operations at
+                                                    CyberLAB</h3>
+                                                <p class="presentation-speaker">Спеціаліст з кібербезпеки CyberLab /
+                                                    Національний центр ядерних досліджень, Польща, Suchorab Jakub</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:55 – 16:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:00 – 16:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз існуючих проблем пояснюваного ШІ в
+                                                    кібербезпеці</h3>
+                                                <p class="presentation-speaker">Лісних Олександр Ігорович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження проблем пояснюваності
+                                                    штучного інтелекту та їх впливу на кібербезпеку.</p>
+                                                <span class="presentation-topic">Штучний інтелект</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:10 – 16:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз методів захисту протоколів обміну
+                                                    даними в системах IIoT</h3>
+                                                <p class="presentation-speaker">Любченко Максим Сергійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Огляд сучасних методів захисту даних
+                                                    у промислових інтернет-системах.</p>
+                                                <span class="presentation-topic">Промислова безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:20 – 16:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз потокового шифру Grain-128a як
+                                                    обчислювального екстрактора випадковості для QRNG</h3>
+                                                <p class="presentation-speaker">Анохін Даніїл Андрійович, Харківський
+                                                    національний університет імені В. Н. Каразіна</p>
+                                                <p class="presentation-description">Дослідження криптографічних
+                                                    властивостей шифру Grain-128a для генерації випадкових чисел.</p>
+                                                <span class="presentation-topic">Криптографія</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:30 – 16:40</td>
+                                            <td>
+                                                <h3 class="presentation-title">Застосування криптографічної геш-функції
+                                                    SHA-3 як екстрактора випадковості для QRNG</h3>
+                                                <p class="presentation-speaker">Волотковський Дмитро Сергійович,
+                                                    Харківський національний університет імені В. Н. Каразіна</p>
+                                                <p class="presentation-description">Аналіз ефективності геш-функції
+                                                    SHA-3 для екстракції випадковості з квантових джерел.</p>
+                                                <span class="presentation-topic">Криптографія</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:40 – 16:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Вебсервіс для оцінки складності та
+                                                    генерації паролів</h3>
+                                                <p class="presentation-speaker">Загнібеда Анастасія Олександрівна,
+                                                    Харківський національний економічний університет імені Семена
+                                                    Кузнеця</p>
+                                                <p class="presentation-description">Розробка веб-додатку для створення
+                                                    та оцінки надійності паролів.</p>
+                                                <span class="presentation-topic">Кібергігієна</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:50 – 17:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">ШІ-кероване пентестування: аналіз
+                                                    сучасних рішень</h3>
+                                                <p class="presentation-speaker">Мєдвєдєв Богдан Русланович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження можливостей штучного
+                                                    інтелекту для автоматизації тестування на проникнення.</p>
+                                                <span class="presentation-topic">Тестування безпеки</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:00 – 17:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження та впровадження
+                                                    інструментальних засобів забезпечення безпеки у конвеєр безперервної
+                                                    інтеграції</h3>
+                                                <p class="presentation-speaker">Перетятько Роман Сергійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Інтеграція інструментів безпеки в
+                                                    процеси безперервної інтеграції та доставки.</p>
+                                                <span class="presentation-topic">DevSecOps</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:10 – 17:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Кібербезпека роботів: аналіз вразливостей
+                                                    та наслідки їх використання</h3>
+                                                <p class="presentation-speaker">Сіролкин Олександр Віталійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Вивчення кібервразливостей
+                                                    робототехнічних систем та методи їх захисту.</p>
+                                                <span class="presentation-topic">Робототехніка</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:20 – 17:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Методи збору та агрегації інформації про
+                                                    кіберзагрози з відкритих джерел</h3>
+                                                <p class="presentation-speaker">Заїчковська Ірина, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз методів моніторингу та збору
+                                                    даних про кіберзагрози з відкритих джерел.</p>
+                                                <span class="presentation-topic">Кіберрозвідка</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:30 – 17:40</td>
+                                            <td>
+                                                <h3 class="presentation-title">Роль приманок у кібербезпеці</h3>
+                                                <p class="presentation-speaker">Тецький Артем Григорович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження ефективності
+                                                    honeypot-систем для виявлення кібератак.</p>
+                                                <span class="presentation-topic">Активний захист</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:40 – 17:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Технології протидії піратству в системі
+                                                    цифрової дистрибуції відеоігор Steam</h3>
+                                                <p class="presentation-speaker">Літвінов Андрій Андрійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз методів захисту авторських
+                                                    прав у цифрових платформах дистрибуції.</p>
+                                                <span class="presentation-topic">Цифрові права</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:50 – 18:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз ландшафту загроз інтернету речей:
+                                                    вектори атак та стратегії протидії</h3>
+                                                <p class="presentation-speaker">Луговцов Денис Васильович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Комплексний аналіз загроз
+                                                    IoT-пристроїв та стратегії їх захисту.</p>
+                                                <span class="presentation-topic">IoT безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:00 – 18:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз ефективності сучасних методів
+                                                    захисту від фішингових атак</h3>
+                                                <p class="presentation-speaker">Каджаров Анар Аріфович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Оцінка ефективності технологій
+                                                    протидії фішинговим атакам та соціальній інженерії.</p>
+                                                <span class="presentation-topic">Соціальна інженерія</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:10 – 18:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз загроз безпеки в інтернеті речей
+                                                    (IoT) та методів їх усунення</h3>
+                                                <p class="presentation-speaker">Єрофєєв Максим Дмитрович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження основних векторів атак
+                                                    на IoT-мережі та методи підвищення їх безпеки.</p>
+                                                <span class="presentation-topic">IoT безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:20 – 18:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Підсумки роботи секції</h3>
+                                                <p class="presentation-description">Учасники повертаються за посиланням
+                                                    на пленарну сесію</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 Content for Track 1 -->
+                    <div class="day-content" id="track1-day2" style="display: none;">
+                        <div class="schedule-container">
+                            <div class="schedule-table-container">
+                                <table class="conference-schedule">
+                                    <thead>
+                                        <tr>
+                                            <th>Час</th>
+                                            <th>Учасник</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="time-column">14:45 – 15:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перевірка з'єднання</h3>
+                                                <p class="presentation-description">Онлайн-перевірка технічного
+                                                    забезпечення</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:00 – 15:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Пленарне засідання (за посиланням в
+                                                    секцію 1)</h3><br>
+                                                <h3 class="presentation-title">Оголошення Оргкомітету</h3>
+                                                <p class="presentation-speaker">Організаційний комітет конференції,
+                                                    представники Національного аерокосмічного університету "ХАІ"</p>
+                                                <br>
+                                                <h3 class="presentation-title">Machine Learning Analysis Advancing
+                                                    Security Planning</h3>
+                                                <p class="presentation-speaker">Дослідник з Інститут інформаційних і
+                                                    комунікаційних технологій, Болгарська академія наук, Болгарія,
+                                                    Yulian Hristov</p>
+                                                <br>
+                                                <h3 class="presentation-title">Методи і засоби штучного інтелекту для
+                                                    забезпечення кібербезпеки медичних веб-систем</h3>
+                                                <p class="presentation-speaker">Аспірант кафедри 503, НАУ «ХАІ»,
+                                                    Україна, Іван Рябко</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:50 – 15:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:55 – 16:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження та розроблення системи
+                                                    інформаційної безпеки державної організації</h3>
+                                                <p class="presentation-speaker">Олефіренко Іван Сергійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз сучасних підходів до
+                                                    забезпечення інформаційної безпеки державних організацій та розробка
+                                                    комплексної системи захисту.</p>
+                                                <span class="presentation-topic">Державна безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:05 – 16:15</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз тенденцій кіберзагроз на основі
+                                                    OWASP TOP 10:2025 RC</h3>
+                                                <p class="presentation-speaker">Іовенко Іван Євгенович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження актуальних кіберзагроз
+                                                    згідно з OWASP TOP 10 та прогнозування майбутніх тенденцій у сфері
+                                                    веб-безпеки.</p>
+                                                <span class="presentation-topic">Веб-безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:15 – 16:25</td>
+                                            <td>
+                                                <h3 class="presentation-title">Вибір засобів та безпечних сервісів
+                                                    пентестування: аналіз, інформаційна модель та алгоритми</h3>
+                                                <p class="presentation-speaker">Шашкін Мирослав Анатолійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Комплексний аналіз інструментів та
+                                                    методологій тестування на проникнення з розробкою безпечних
+                                                    алгоритмів вибору.</p>
+                                                <span class="presentation-topic">Пентестування</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:25 – 16:35</td>
+                                            <td>
+                                                <h3 class="presentation-title">Використання OSINT та технологій
+                                                    розпізнавання облич для виявлення кіберзагроз</h3>
+                                                <p class="presentation-speaker">Карапетян Арман Суренович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Застосування методів збору відкритої
+                                                    інформації та технологій розпізнавання облич для проактивного
+                                                    виявлення кіберзагроз.</p>
+                                                <span class="presentation-topic">OSINT-аналіз</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:35 – 16:45</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження методів пошуку вразливостей
+                                                    засобами розвідки на основі відкритих джерел</h3>
+                                                <p class="presentation-speaker">Вірський Ярослав Михайлович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз методів виявлення
+                                                    вразливостей у системах безпеки з використанням даних з відкритих
+                                                    джерел.</p>
+                                                <span class="presentation-topic">Вразливості систем</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:45 – 16:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Несанкціоноване отримання та запобігання
+                                                    витоку конфіденційної інформації на кінцевій точці та в
+                                                    мультимедійному контенті</h3>
+                                                <p class="presentation-speaker">Дейнеко Ян Олександрович, Міцик Ілля
+                                                    Володимирович, Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження методів захисту
+                                                    конфіденційної інформації від несанкціонованого доступу на кінцевих
+                                                    пристроях та в мультимедійних даних.</p>
+                                                <span class="presentation-topic">Захист даних</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:55 – 17:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз витоків даних спричинених штучним
+                                                    інтелектом</h3>
+                                                <p class="presentation-speaker">Дарина Гарт, Харківський національний
+                                                    університет внутрішніх справ</p>
+                                                <p class="presentation-description">Дослідження причин та наслідків
+                                                    витоків конфіденційних даних через помилки та вразливості штучного
+                                                    інтелекту.</p>
+                                                <span class="presentation-topic">ШІ безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:05 – 17:15</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження протоколів забезпечення
+                                                    кібербезпеки бездротових мереж з розробкою політики безпеки
+                                                    мережевого адміністратора</h3>
+                                                <p class="presentation-speaker">Олександр Яковлєв, Харківський
+                                                    національний університет внутрішніх справ</p>
+                                                <p class="presentation-description">Аналіз сучасних протоколів безпеки
+                                                    бездротових мереж та розробка ефективної політики управління
+                                                    безпекою для мережевих адміністраторів.</p>
+                                                <span class="presentation-topic">Бездротова безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:15 – 17:25</td>
+                                            <td>
+                                                <h3 class="presentation-title">Безпечна аутентифікація користувачів у
+                                                    сучасних застосунках</h3>
+                                                <p class="presentation-speaker">Дракон Дар'я Сергіївна, Харківський
+                                                    національний університет імені В. Н. Каразіна</p>
+                                                <p class="presentation-description">Дослідження сучасних методів
+                                                    аутентифікації користувачів та розробка безпечних механізмів для
+                                                    веб- та мобільних додатків.</p>
+                                                <span class="presentation-topic">Аутентифікація</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:25 – 17:35</td>
+                                            <td>
+                                                <h3 class="presentation-title">Модель виявлення ботнет-атак у
+                                                    бездротових мережах на основі методів машинного навчання</h3>
+                                                <p class="presentation-speaker">Чорногор Дмитро Анатолійович,
+                                                    Харківський національний університет імені В. Н. Каразіна</p>
+                                                <p class="presentation-description">Розробка моделі для автоматичного
+                                                    виявлення ботнет-атак у бездротових мережах з використанням
+                                                    алгоритмів машинного навчання.</p>
+                                                <span class="presentation-topic">Ботнет-захист</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:35 – 17:45</td>
+                                            <td>
+                                                <h3 class="presentation-title">Limitations of the Solovay-Strassen
+                                                    Primality Test</h3>
+                                                <p class="presentation-speaker">Maksim Stadnichenko, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз обмежень та вразливостей
+                                                    тесту простоти Соловея-Штрассена в контексті сучасної криптографії.
+                                                </p>
+                                                <span class="presentation-topic">Криптографія</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:45 – 17:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз та протидія інсайдерським загрозам
+                                                    в організаціях: оцінка ефективності сучасних методів захисту</h3>
+                                                <p class="presentation-speaker">Подлас Ярослав Олександрович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження методів виявлення та
+                                                    протидії внутрішнім загрозам інформаційній безпеці організацій.</p>
+                                                <span class="presentation-topic">Інсайдерські загрози</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:55 – 18:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз систем адаптивної багатофакторної
+                                                    аутентифікації у CRM-платформах</h3>
+                                                <p class="presentation-speaker">Лейковський Олег Дмитрович, Київський
+                                                    авіаційний інститут</p>
+                                                <p class="presentation-description">Дослідження ефективності адаптивних
+                                                    методів багатофакторної аутентифікації у системах управління
+                                                    клієнтськими відносинами.</p>
+                                                <span class="presentation-topic">CRM безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:05 – 18:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Закриття конференції</h3>
+                                                <p class="presentation-description">Підсумки конференції та оголошення
+                                                    дати наступної події</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 2 Content -->
+                <div class="tab-content" id="track2" style="display: none;">
+                    <!-- Day Tabs Navigation for Track 2 -->
+                    <div class="day-tabs">
+                        <button class="day-tab-button tab-button active" data-day="day1" data-track="track2">
+                            27 Листопада, 2025
+                        </button>
+                        <button class="day-tab-button tab-button" data-day="day2" data-track="track2">
+                            28 Листопада, 2025
+                        </button>
+                    </div>
+
+                    <!-- Day 1 Content for Track 2 -->
+                    <div class="day-content active" id="track2-day1">
+                        <div class="schedule-container">
+                            <div class="schedule-table-container">
+                                <table class="conference-schedule">
+                                    <thead>
+                                        <tr>
+                                            <th>Час</th>
+                                            <th>Учасник</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="time-column">14:45 – 15:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перевірка з'єднання</h3>
+                                                <p class="presentation-description">Онлайн-перевірка технічного
+                                                    забезпечення</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:00 – 15:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Пленарне засідання (за посиланням в
+                                                    секцію 1)</h3><br>
+                                                <h3 class="presentation-title">Вітальне слово</h3>
+                                                <p class="presentation-speaker">Організаційний комітет конференції,
+                                                    представники Національного аерокосмічного університету "ХАІ"</p>
+                                                <br>
+                                                <h3 class="presentation-title">Вітальне слово спонсора конференції
+                                                    «Харківський IT Кластер»</h3>
+                                                <br>
+                                                <h3 class="presentation-title">From KhAI to a Cybersecurity Leader</h3>
+                                                <p class="presentation-speaker">Експерт з кібербезпеки та захисту даних,
+                                                    Руанда, Jean Pierre Nzabahimana</p>
+                                                <br>
+                                                <h3 class="presentation-title">Cybersecurity Research and Operations at
+                                                    CyberLAB</h3>
+                                                <p class="presentation-speaker">Спеціаліст з кібербезпеки CyberLab /
+                                                    Національний центр ядерних досліджень, Польща, Suchorab Jakub</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:55 – 16:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:00 – 16:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Gitless Ops as a Method for
+                                                    Infrastructure Deployment</h3>
+                                                <p class="presentation-speaker">Косаревський Богдан Валерійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз підходів до розгортання
+                                                    інфраструктури без використання Git та порівняння з традиційними
+                                                    методами.</p>
+                                                <span class="presentation-topic">DevOps</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:10 – 16:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Threat Model and Attack Surface: GitOps
+                                                    vs Gitless Ops</h3>
+                                                <p class="presentation-speaker">Косаревський Богдан Валерійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Порівняльний аналіз моделей загроз
+                                                    та поверхонь атак для GitOps та Gitless Ops підходів.</p>
+                                                <span class="presentation-topic">Кібербезпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:20 – 16:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз і забезпечення функційної безпеки
+                                                    HMI-LLM-систем</h3>
+                                                <p class="presentation-speaker">Васик Дмитро Володимирович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження методів забезпечення
+                                                    функціональної безпеки систем із людино-машинним інтерфейсом на
+                                                    основі великих мовних моделей.</p>
+                                                <span class="presentation-topic">Штучний інтелект</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:30 – 16:40</td>
+                                            <td>
+                                                <h3 class="presentation-title">Використання штучного інтелекту для
+                                                    виявлення вразливостей у веб-додатках</h3>
+                                                <p class="presentation-speaker">Гродецький Олексій Сергійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Застосування методів штучного
+                                                    інтелекту для автоматизованого виявлення вразливостей у
+                                                    веб-додатках.</p>
+                                                <span class="presentation-topic">Веб-безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:40 – 16:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз кібербезпекових викликів в
+                                                    застосуванні БПЛА у цивільній та безпековій сферах</h3>
+                                                <p class="presentation-speaker">Олейников Єгор Євгенійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження кіберзагроз та методів
+                                                    захисту безпілотних повітряних апаратів у цивільному та військовому
+                                                    застосуванні.</p>
+                                                <span class="presentation-topic">Безпека БПЛА</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:50 – 17:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження методів аналізу вразливостей
+                                                    смарт-контрактів</h3>
+                                                <p class="presentation-speaker">Карпенко Руслан Костянтинович,
+                                                    Дніпровський державний технічний університет</p>
+                                                <p class="presentation-description">Аналіз сучасних методів та
+                                                    інструментів для виявлення вразливостей у смарт-контрактах
+                                                    блокчейн-платформ.</p>
+                                                <span class="presentation-topic">Блокчейн</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:00 – 17:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження та розроблення системи
+                                                    контролю використання автомобіля у системі каршерингу</h3>
+                                                <p class="presentation-speaker">Ткаченко Ігор Дмитрович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Розробка системи моніторингу та
+                                                    контролю використання транспортних засобів у сервісах каршерингу для
+                                                    запобігання зловживанням.</p>
+                                                <span class="presentation-topic">Транспортна безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:10 – 17:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Розроблення мобільного застосунку для
+                                                    управління криптовалютним портфоліо</h3>
+                                                <p class="presentation-speaker">Закладний Олег Олексійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Створення мобільного додатку з
+                                                    функціями моніторингу криптовалютних активів та аналізу їх
+                                                    доходності.</p>
+                                                <span class="presentation-topic">Криптовалюти</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:20 – 17:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Інформаційна безпека систем доповненої
+                                                    реальності</h3>
+                                                <p class="presentation-speaker">Дудка Богдан Андрійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз загроз та методів
+                                                    забезпечення безпеки даних у системах доповненої реальності.</p>
+                                                <span class="presentation-topic">Доповнена реальність</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:30 – 17:40</td>
+                                            <td>
+                                                <h3 class="presentation-title">Підходи до адаптації моделей зору та мови
+                                                    у задачах з обмеженими даними</h3>
+                                                <p class="presentation-speaker">Туз Аліна Володимирівна, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження методів адаптації
+                                                    комп'ютерного зору та обробки мови для роботи з обмеженими наборами
+                                                    даних.</p>
+                                                <span class="presentation-topic">Машинне навчання</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:40 – 17:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Захищене стиснення одновимірних
+                                                    акустичних сигналів кодером на основі нейромережі</h3>
+                                                <p class="presentation-speaker">Петро Брисін, Національний аерокосмічний
+                                                    університет "ХАІ"</p>
+                                                <p class="presentation-description">Розробка методів безпечного
+                                                    стиснення аудіосигналів з використанням нейронних мереж.</p>
+                                                <span class="presentation-topic">Обробка сигналів</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:50 – 18:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Застосування сіамських нейронних мереж
+                                                    для підвищення надійності систем виявлення маніпуляцій із
+                                                    зображеннями</h3>
+                                                <p class="presentation-speaker">Нікітін Андрій Олексійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Використання сіамських нейронних
+                                                    мереж для виявлення підроблених зображень та підвищення надійності
+                                                    систем безпеки.</p>
+                                                <span class="presentation-topic">Комп'ютерний зір</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:00 – 18:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Мультимодальна інформаційна система
+                                                    квантифікації ризиків повітряних загроз</h3>
+                                                <p class="presentation-speaker">Астраханцев Олексій Андрійович,
+                                                    Київський національний університет імені Тараса Шевченка</p>
+                                                <p class="presentation-description">Розробка системи для оцінки та
+                                                    квантифікації ризиків повітряних загроз з використанням
+                                                    мультимодальних даних.</p>
+                                                <span class="presentation-topic">Безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:10 – 18:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Питання інтеграції функціональної безпеки
+                                                    та принципів циркулярної економіки в управлінні відходами</h3>
+                                                <p class="presentation-speaker">Васильчук Микола, Київський національний
+                                                    університет імені Тараса Шевченка</p>
+                                                <p class="presentation-description">Дослідження методів інтеграції
+                                                    безпеки та екологічних принципів у системах управління відходами.
+                                                </p>
+                                                <span class="presentation-topic">Екологічна безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:20 – 18:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Підсумки роботи секції</h3>
+                                                <p class="presentation-description">Учасники повертаються за посиланням
+                                                    на пленарну сесію</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 Content for Track 2 -->
+                    <div class="day-content" id="track2-day2" style="display: none;">
+                        <div class="schedule-container">
+                            <div class="schedule-table-container">
+                                <table class="conference-schedule">
+                                    <thead>
+                                        <tr>
+                                            <th>Час</th>
+                                            <th>Учасник</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="time-column">14:45 – 15:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перевірка з'єднання</h3>
+                                                <p class="presentation-description">Онлайн-перевірка технічного
+                                                    забезпечення</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:00 – 15:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Пленарне засідання (за посиланням в
+                                                    секцію 1)</h3><br>
+                                                <h3 class="presentation-title">Оголошення Оргкомітету</h3>
+                                                <p class="presentation-speaker">Організаційний комітет конференції,
+                                                    представники Національного аерокосмічного університету "ХАІ"</p>
+                                                <br>
+                                                <h3 class="presentation-title">Machine Learning Analysis Advancing
+                                                    Security Planning</h3>
+                                                <p class="presentation-speaker">Дослідник з Інститут інформаційних і
+                                                    комунікаційних технологій, Болгарська академія наук, Болгарія,
+                                                    Yulian Hristov</p>
+                                                <br>
+                                                <h3 class="presentation-title">Методи і засоби штучного інтелекту для
+                                                    забезпечення кібербезпеки медичних веб-систем</h3>
+                                                <p class="presentation-speaker">Аспірант кафедри 503, НАУ «ХАІ»,
+                                                    Україна, Іван Рябко</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:50 – 15:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:55 – 16:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Tailscale як основа для Zero Trust мереж
+                                                </h3>
+                                                <p class="presentation-speaker">Ахтирська Софія Вячеславівна,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження можливостей Tailscale
+                                                    для реалізації архітектури Zero Trust та забезпечення безпеки
+                                                    корпоративних мереж.</p>
+                                                <span class="presentation-topic">Мережева безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:05 – 16:15</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз застосування згорткових нейронних
+                                                    мереж у системах контролю доступу на основі розпізнавання облич</h3>
+                                                <p class="presentation-speaker">Ахтирська Софія Вячеславівна,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Вивчення ефективності CNN-архітектур
+                                                    для систем біометричного розпізнавання та їх застосування у сучасних
+                                                    системах безпеки.</p>
+                                                <span class="presentation-topic">Штучний інтелект</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:15 – 16:25</td>
+                                            <td>
+                                                <h3 class="presentation-title">Розробка власного експорту та постобробки
+                                                    даних OpenStreetMap для геопросторового зіставлення адрес</h3>
+                                                <p class="presentation-speaker">Сатановський Дмитро Васильович,
+                                                    Київський національний університет імені Тараса Шевченка</p>
+                                                <p class="presentation-description">Створення методів експорту та
+                                                    обробки геоданих OpenStreetMap для покращення точності геокодування
+                                                    та просторового аналізу.</p>
+                                                <span class="presentation-topic">Геоінформаційні системи</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:25 – 16:35</td>
+                                            <td>
+                                                <h3 class="presentation-title">Adversarial Approaches to Bot Evasion and
+                                                    Detection Countermeasures</h3>
+                                                <p class="presentation-speaker">Vladyslav Miachkov, Київський
+                                                    національний університет імені Тараса Шевченка</p>
+                                                <p class="presentation-description">Аналіз методів обходу систем
+                                                    виявлення ботів та розробка контрзаходів проти адверсарних атак на
+                                                    системи безпеки.</p>
+                                                <span class="presentation-topic">Кібербезпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:35 – 16:45</td>
+                                            <td>
+                                                <h3 class="presentation-title">Проектування безпечної архітектури
+                                                    інтелектуального ШІ-помічника для освітнього процесу</h3>
+                                                <p class="presentation-speaker">Федоренко Дар'я Дмитрівна, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Розробка архітектурних рішень для
+                                                    забезпечення безпеки освітніх AI-асистентів та захисту персональних
+                                                    даних користувачів.</p>
+                                                <span class="presentation-topic">Освітні технології</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:45 – 16:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Модель верифікації дотримання GDPR для
+                                                    інтелектуального освітнього асистента</h3>
+                                                <p class="presentation-speaker">Федоренко Дар'я Дмитрівна, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Створення моделі для автоматичної
+                                                    перевірки відповідності освітніх AI-систем вимогам GDPR та захисту
+                                                    особистих даних.</p>
+                                                <span class="presentation-topic">Правова безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:55 – 17:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Application of Machine Learning
+                                                    Technologies for Predictive Cyber Protection in Smart Home Systems
+                                                </h3>
+                                                <p class="presentation-speaker">Danylo Kirichenko, University of
+                                                    Duisburg-Essen</p>
+                                                <p class="presentation-description">Застосування методів машинного
+                                                    навчання для прогнозування кіберзагроз та активного захисту
+                                                    інтелектуальних систем "розумного будинку".</p>
+                                                <span class="presentation-topic">Прогнозна аналітика</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:05 – 17:15</td>
+                                            <td>
+                                                <h3 class="presentation-title">Using Machine Learning Methods to Predict
+                                                    Failures and Ensure the Functional Safety of Smart Home Subsystems
+                                                    when Climatic Conditions</h3>
+                                                <p class="presentation-speaker">Danylo Kirichenko, University of
+                                                    Duisburg-Essen</p>
+                                                <p class="presentation-description">Дослідження методів прогнозування
+                                                    відмов підсистем "розумного будинку" за кліматичних умов та
+                                                    забезпечення їх функціональної безпеки.</p>
+                                                <span class="presentation-topic">Функціональна безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:15 – 17:25</td>
+                                            <td>
+                                                <h3 class="presentation-title">Minimization of Risks Associated with
+                                                    Incorrect Filter Parameter Settings for Improving the Quality of SAR
+                                                    Images</h3>
+                                                <p class="presentation-speaker">Raed Al-Senaikh, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Оптимізація параметрів фільтрів для
+                                                    радарних зображень SAR та мінімізація ризиків, пов'язаних з
+                                                    некоректними налаштуваннями обробки.</p>
+                                                <span class="presentation-topic">Обробка зображень</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:25 – 17:35</td>
+                                            <td>
+                                                <h3 class="presentation-title">Забезпечення кібербезпеки у вебдодатку
+                                                    для автоматизації складських процесів із використанням сучасних
+                                                    методів захисту даних</h3>
+                                                <p class="presentation-speaker">Іванов Андрій Геннадійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Реалізація сучасних механізмів
+                                                    захисту даних у вебдодатках для управління складськими операціями та
+                                                    запобігання витокам інформації.</p>
+                                                <span class="presentation-topic">Складська автоматизація</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:35 – 17:45</td>
+                                            <td>
+                                                <h3 class="presentation-title">Удосконалений процес верифікації та
+                                                    валідації FPGA модулів на основі застосування штучного інтелекту
+                                                </h3>
+                                                <p class="presentation-speaker">Стряпунін Антон Олександрович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Впровадження AI-методів для
+                                                    автоматизації процесів тестування та верифікації FPGA-модулів, що
+                                                    підвищує надійність та швидкість розробки.</p>
+                                                <span class="presentation-topic">Апаратна безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:45 – 17:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Конфіденційність даних у системах
+                                                    штучного інтелекту: ризики витоку та підходи до захисту</h3>
+                                                <p class="presentation-speaker">Антонов Єгор Олексійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз загроз конфіденційності даних
+                                                    у AI-системах та розробка методів захисту від витоків під час
+                                                    навчання та експлуатації моделей.</p>
+                                                <span class="presentation-topic">Конфіденційність даних</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:55 – 18:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Функціональна безпека інтерфейсів
+                                                    доповненої реальності для безпілотних систем моніторингу</h3>
+                                                <p class="presentation-speaker">Суходольський Марк Олексійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Забезпечення безпеки AR-інтерфейсів
+                                                    у безпілотних системах моніторингу для запобігання помилковим
+                                                    рішенням та забезпечення надійності операцій.</p>
+                                                <span class="presentation-topic">Безпілотні технології</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:05 – 18:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Закриття конференції</h3>
+                                                <p class="presentation-description">Підсумки конференції та оголошення
+                                                    дати наступної події</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Track 3 Content -->
+                <div class="tab-content" id="track3" style="display: none;">
+                    <!-- Day Tabs Navigation for Track 3 -->
+                    <div class="day-tabs">
+                        <button class="day-tab-button tab-button active" data-day="day1" data-track="track3">
+                            27 Листопада, 2025
+                        </button>
+                        <button class="day-tab-button tab-button" data-day="day2" data-track="track3">
+                            28 Листопада, 2025
+                        </button>
+                    </div>
+
+                    <!-- Day 1 Content for Track 3 -->
+                    <div class="day-content active" id="track3-day1">
+                        <div class="schedule-container">
+                            <div class="schedule-table-container">
+                                <table class="conference-schedule">
+                                    <thead>
+                                        <tr>
+                                            <th>Час</th>
+                                            <th>Учасник</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="time-column">14:45 – 15:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перевірка з'єднання</h3>
+                                                <p class="presentation-description">Онлайн-перевірка технічного
+                                                    забезпечення</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:00 – 15:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Пленарне засідання (за посиланням в
+                                                    секцію 1)</h3><br>
+                                                <h3 class="presentation-title">Вітальне слово</h3>
+                                                <p class="presentation-speaker">Організаційний комітет конференції,
+                                                    представники Національного аерокосмічного університету "ХАІ"</p>
+                                                <br>
+                                                <h3 class="presentation-title">Вітальне слово спонсора конференції
+                                                    «Харківський IT Кластер»</h3>
+                                                <br>
+                                                <h3 class="presentation-title">From KhAI to a Cybersecurity Leader</h3>
+                                                <p class="presentation-speaker">Експерт з кібербезпеки та захисту даних,
+                                                    Руанда, Jean Pierre Nzabahimana</p>
+                                                <br>
+                                                <h3 class="presentation-title">Cybersecurity Research and Operations at
+                                                    CyberLAB</h3>
+                                                <p class="presentation-speaker">Спеціаліст з кібербезпеки CyberLab /
+                                                    Національний центр ядерних досліджень, Польща, Suchorab Jakub</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:55 – 16:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:00 – 16:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Цілісність даних супутникового
+                                                    моніторингу як фундамент оцінки забруднення пластиком у системі
+                                                    аерокосмічного моніторингу океанів</h3>
+                                                <p class="presentation-speaker">Кифорук Юрій Миколайович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз методів забезпечення
+                                                    цілісності даних супутників для точного моніторингу пластикових
+                                                    відходів у світових океанах.</p>
+                                                <span class="presentation-topic">Супутниковий моніторинг</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:10 – 16:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Захист потоків телеметрії в реальному
+                                                    часі від DoS-атак та маніпуляцій</h3>
+                                                <p class="presentation-speaker">Савченко Катерина Віталіївна, Гурток
+                                                    "Основи електроніки" Малої академії наук Дніпропетровської області
+                                                </p>
+                                                <p class="presentation-description">Розробка методів захисту
+                                                    телеметричних даних від атак типу "відмова в обслуговуванні" та
+                                                    несанкціонованих маніпуляцій.</p>
+                                                <span class="presentation-topic">Кіберзахист</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:20 – 16:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Управління доступом та рольові моделі в
+                                                    системах моніторингу океану</h3>
+                                                <p class="presentation-speaker">Рябчун Максим Андрійович, Дніпровський
+                                                    науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Дослідження ефективних систем
+                                                    управління доступом для захисту даних моніторингу океанічних
+                                                    екосистем.</p>
+                                                <span class="presentation-topic">Управління доступом</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:30 – 16:40</td>
+                                            <td>
+                                                <h3 class="presentation-title">Валідація вимірювальної точності сенсорів
+                                                    для нормативних та наукових вимог</h3>
+                                                <p class="presentation-speaker">Пученіна Міланія Романівна, Дніпровський
+                                                    науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Методи перевірки та підтвердження
+                                                    точності вимірювань сенсорів для відповідності міжнародним
+                                                    стандартам та науковим вимогам.</p>
+                                                <span class="presentation-topic">Сенсорні технології</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:40 – 16:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Відповідальність за інциденти: механізми
+                                                    оповіщення, розслідування та публічного звітування</h3>
+                                                <p class="presentation-speaker">Соболєва Марія Олексіївна, Дніпровський
+                                                    науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Розробка процедур реагування на
+                                                    кіберінциденти, включаючи механізми оперативного оповіщення та
+                                                    звітування про події безпеки.</p>
+                                                <span class="presentation-topic">Інцидент-менеджмент</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:50 – 17:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Архітектура збору поведінкових даних:
+                                                    баланс між персоналізацією та безпекою користувача</h3>
+                                                <p class="presentation-speaker">Тітов Богдан Олегович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження архітектурних рішень для
+                                                    збору даних про поведінку користувачів з урахуванням приватності та
+                                                    безпеки.</p>
+                                                <span class="presentation-topic">Приватність даних</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:00 – 17:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Інформаційна війна: дезінформація навколо
+                                                    моніторингу сміття та роль кібербезпеки</h3>
+                                                <p class="presentation-speaker">Божко Валерія Вікторівна, Дніпровський
+                                                    науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Аналіз методів протидії
+                                                    дезінформації щодо проблеми пластикових відходів та забезпечення
+                                                    достовірності даних моніторингу.</p>
+                                                <span class="presentation-topic">Протидія дезінформації</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:10 – 17:20</td>
+                                            <td>
+                                                <h3 class="presentation-title">Механізми фінансування та правової
+                                                    підтримки національних програм моніторингу</h3>
+                                                <p class="presentation-speaker">Бобошко Ксенія Дмитрівна, Дніпровський
+                                                    науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Дослідження джерел фінансування
+                                                    екологічних програм моніторингу, включаючи гранти та державні
+                                                    тендери з обов'язковими вимогами щодо кібербезпеки.</p>
+                                                <span class="presentation-topic">Правові аспекти</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:20 – 17:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Правові аспекти використання
+                                                    блокчейн-технологій для збереження доказових даних</h3>
+                                                <p class="presentation-speaker">Кондрачук Сніжана Станіславівна,
+                                                    Дніпровський науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Аналіз правових механізмів
+                                                    застосування блокчейну для забезпечення недоторканності та
+                                                    достовірності екологічних даних.</p>
+                                                <span class="presentation-topic">Блокчейн</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:30 – 17:40</td>
+                                            <td>
+                                                <h3 class="presentation-title">International Law and Data Exchange on
+                                                    Pollution: Treaties, Agreements, and Standards</h3>
+                                                <p class="presentation-speaker">Башкат Софія Володимирівна, Дніпровський
+                                                    науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Аналіз міжнародно-правових
+                                                    механізмів обміну даними про забруднення навколишнього середовища та
+                                                    стандартизації моніторингу.</p>
+                                                <span class="presentation-topic">Міжнародне право</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:40 – 17:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Requirements for algorithm transparency
+                                                    and their legal protection/regulation</h3>
+                                                <p class="presentation-speaker">Шеіна Мирослава Костянтинівна,
+                                                    Дніпровський науковий українсько-американський ліцей</p>
+                                                <p class="presentation-description">Дослідження вимог до прозорості
+                                                    алгоритмів обробки даних моніторингу та їх правового регулювання для
+                                                    запобігання зловживанням.</p>
+                                                <span class="presentation-topic">Алгоритмічна прозорість</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:50 – 18:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Етико-правові норми при публікації даних
+                                                    про забруднення з урахуванням впливу на рибальство та туризм</h3>
+                                                <p class="presentation-speaker">Сиваш Тимофій Тарасович, Дніпровський
+                                                    фаховий коледж радіоелектроніки</p>
+                                                <p class="presentation-description">Розробка етичних та правових
+                                                    принципів оприлюднення даних про екологічний стан водойм з
+                                                    мінімізацією негативного впливу на економічні сфери.</p>
+                                                <span class="presentation-topic">Екологічна етика</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:00 – 18:10</td>
+                                            <td>
+                                                <h3 class="presentation-title">Кіберзагрози сенсорам та їх зовнішнім
+                                                    інтерфейсам у системах супутникового моніторингу забруднення океанів
+                                                    та морів пластиком</h3>
+                                                <p class="presentation-speaker">Коваленко Георгій Олександрович,
+                                                    Дніпровський фаховий коледж радіоелектроніки</p>
+                                                <p class="presentation-description">Аналіз векторів кібератак на
+                                                    сенсорні системи моніторингу океанів та розробка методів захисту від
+                                                    компрометації даних.</p>
+                                                <span class="presentation-topic">Кіберзахист сенсорів</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:10 – 18:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Підсумки роботи секції</h3>
+                                                <p class="presentation-description">Учасники повертаються за посиланням
+                                                    на пленарну сесію</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2 Content for Track 3 -->
+                    <div class="day-content" id="track3-day2" style="display: none;">
+                        <div class="schedule-container">
+                            <div class="schedule-table-container">
+                                <table class="conference-schedule">
+                                    <thead>
+                                        <tr>
+                                            <th>Час</th>
+                                            <th>Учасник</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="time-column">14:45 – 15:00</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перевірка з'єднання</h3>
+                                                <p class="presentation-description">Онлайн-перевірка технічного
+                                                    забезпечення</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:00 – 15:50</td>
+                                            <td>
+                                                <h3 class="presentation-title">Пленарне засідання (за посиланням в
+                                                    секцію 1)</h3><br>
+                                                <h3 class="presentation-title">Оголошення Оргкомітету</h3>
+                                                <p class="presentation-speaker">Організаційний комітет конференції,
+                                                    представники Національного аерокосмічного університету "ХАІ"</p>
+                                                <br>
+                                                <h3 class="presentation-title">Machine Learning Analysis Advancing
+                                                    Security Planning</h3>
+                                                <p class="presentation-speaker">Дослідник з Інститут інформаційних і
+                                                    комунікаційних технологій, Болгарська академія наук, Болгарія,
+                                                    Yulian Hristov</p>
+                                                <br>
+                                                <h3 class="presentation-title">Методи і засоби штучного інтелекту для
+                                                    забезпечення кібербезпеки медичних веб-систем</h3>
+                                                <p class="presentation-speaker">Аспірант кафедри 503, НАУ «ХАІ»,
+                                                    Україна, Іван Рябко</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:50 – 15:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">15:55 – 16:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження методів забезпечення безпеки
+                                                    технології WebAR</h3>
+                                                <p class="presentation-speaker">Андрійчук Максим Сергійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз сучасних методів забезпечення
+                                                    безпеки веб-розширеної реальності та захисту від кібератак.</p>
+                                                <span class="presentation-topic">Розширена реальність</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:05 – 16:15</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження процесу аналізу томографічних
+                                                    зображень з використанням нейромереж для діагностування
+                                                    неврологічних захворювань</h3>
+                                                <p class="presentation-speaker">Байда Валерія Романівна, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження застосування нейронних
+                                                    мереж для автоматичної діагностики неврологічних захворювань за
+                                                    томографічними зображеннями.</p>
+                                                <span class="presentation-topic">Медична діагностика</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:15 – 16:25</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження та розроблення вебсистеми
+                                                    обробки заявок служби підтримки з автоматичною класифікацією та
+                                                    контролем SLA</h3>
+                                                <p class="presentation-speaker">Сорокін Владімір Володимирович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Розробка веб-системи автоматичної
+                                                    обробки заявок служби підтримки з класифікацією та контролем
+                                                    SLA-показників.</p>
+                                                <span class="presentation-topic">Служба підтримки</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:25 – 16:35</td>
+                                            <td>
+                                                <h3 class="presentation-title">Аналіз патентоздатних рішень та методів
+                                                    вибору факторів автентифікації в багатофакторних системах контролю
+                                                    доступу</h3>
+                                                <p class="presentation-speaker">Кручина Євгеній Валерійович,
+                                                    Національний аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз патентоздатних рішень для
+                                                    вибору оптимальних факторів автентифікації в системах
+                                                    багатофакторного контролю доступу.</p>
+                                                <span class="presentation-topic">Автентифікація</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:35 – 16:45</td>
+                                            <td>
+                                                <h3 class="presentation-title">Технології кібербезпеки ігрової платформи
+                                                    Steam</h3>
+                                                <p class="presentation-speaker">Ганзера Марина Олексіївна, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження методів захисту ігрової
+                                                    платформи Steam від кібератак та несанкціонованого доступу.</p>
+                                                <span class="presentation-topic">Ігрова безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:45 – 16:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Гейміфікація як інструмент формування
+                                                    мотивації до вибору спеціальностей у сфері кібербезпеки серед молоді
+                                                </h3>
+                                                <p class="presentation-speaker">Дмитро Дзюба, Національний аерокосмічний
+                                                    університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз застосування гейміфікації для
+                                                    формування інтересу до кібербезпеки серед молоді та залучення до
+                                                    навчання.</p>
+                                                <span class="presentation-topic">Освіта</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">16:55 – 17:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Кібербулінг і безпечне спілкування в
+                                                    інтернеті серед молоді</h3>
+                                                <p class="presentation-speaker">Орешко Дарʼя Василівна, Харківський
+                                                    національний університет імені В. Н. Каразіна</p>
+                                                <p class="presentation-description">Дослідження проблеми кібербулінгу та
+                                                    розробка рекомендацій щодо забезпечення безпечної комунікації в
+                                                    інтернеті для молоді.</p>
+                                                <span class="presentation-topic">Соціальна безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:05 – 17:15</td>
+                                            <td>
+                                                <h3 class="presentation-title">Безпекові аспекти розробки інклюзивної
+                                                    веб-платформи для перекладу жестової мови у текст</h3>
+                                                <p class="presentation-speaker">Хорунжий Денис Юрійович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз безпекових аспектів розробки
+                                                    веб-платформи для перекладу жестової мови в текст з врахуванням
+                                                    інклюзивності.</p>
+                                                <span class="presentation-topic">Інклюзивність</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:15 – 17:25</td>
+                                            <td>
+                                                <h3 class="presentation-title">Research and development of an augmented
+                                                    reality interfaces quality assessment system using artificial
+                                                    intelligence</h3>
+                                                <p class="presentation-speaker">Асєєв Данило Олегович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Розробка системи оцінки якості
+                                                    інтерфейсів доповненої реальності з використанням методів штучного
+                                                    інтелекту.</p>
+                                                <span class="presentation-topic">Штучний інтелект</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:25 – 17:35</td>
+                                            <td>
+                                                <h3 class="presentation-title">Використання нетипових DCT-кодерів для
+                                                    забезпечення конфіденційності медичних зображень</h3>
+                                                <p class="presentation-speaker">Пліско Олег Олегович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Дослідження застосування нетипових
+                                                    DCT-кодерів для забезпечення конфіденційності медичних зображень при
+                                                    зберіганні та передачі.</p>
+                                                <span class="presentation-topic">Медична безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:35 – 17:45</td>
+                                            <td>
+                                                <h3 class="presentation-title">Дослідження надійності безеталонних
+                                                    метрик якості після обробки DRUNet</h3>
+                                                <p class="presentation-speaker">Черепанов Ілля Олегович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз надійності безеталонних
+                                                    метрик якості зображень після обробки з використанням нейромережі
+                                                    DRUNet.</p>
+                                                <span class="presentation-topic">Обробка зображень</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:45 – 17:55</td>
+                                            <td>
+                                                <h3 class="presentation-title">Забезпечення кібербезпеки у правовому
+                                                    механізмі публічного управління</h3>
+                                                <p class="presentation-speaker">Джунь Семен Сергійович, Сумський
+                                                    обласний інститут післядипломної педагогічної освіти</p>
+                                                <p class="presentation-description">Дослідження правових механізмів
+                                                    забезпечення кібербезпеки в системі публічного управління та захисту
+                                                    державних інтересів.</p>
+                                                <span class="presentation-topic">Правова безпека</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">17:55 – 18:05</td>
+                                            <td>
+                                                <h3 class="presentation-title">Methods of detecting and preventing
+                                                    personal data leakage</h3>
+                                                <p class="presentation-speaker">Зубань Олег Костянтинович, Національний
+                                                    аерокосмічний університет "ХАІ"</p>
+                                                <p class="presentation-description">Аналіз сучасних методів виявлення та
+                                                    запобігання витоку персональних даних в інформаційних системах.</p>
+                                                <span class="presentation-topic">Захист даних</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="time-column">18:05 – 18:30</td>
+                                            <td>
+                                                <h3 class="presentation-title">Закриття конференції</h3>
+                                                <p class="presentation-description">Підсумки конференції та оголошення
+                                                    дати наступної події</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 International Conference on Cybersecurity "SCIFiC". All Rights Reserved.</p>
+        </div>
+        <div class="copyright">
+            National Aerospace University "Kharkiv Aviation Institute"
+        </div>
+    </footer>
+
+    <script>
+        // Digital Rain Effect
+        function createDigitalRain() {
+            const digitalRain = document.getElementById('digitalRain');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const fontSize = 16;
+            const columns = Math.floor(width / fontSize);
+            const characters = "01";
+            let drops = [];
+
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * -100);
+            }
+
+            function draw() {
+                digitalRain.innerHTML = '';
+                for (let i = 0; i < drops.length; i++) {
+                    const charSpan = document.createElement('span');
+                    charSpan.innerHTML = characters[Math.floor(Math.random() * characters.length)];
+                    charSpan.style.left = i * fontSize + 'px';
+                    charSpan.style.top = (drops[i] * fontSize) + 'px';
+                    charSpan.style.fontSize = fontSize + 'px';
+                    digitalRain.appendChild(charSpan);
+                    drops[i]++;
+                    if (drops[i] * fontSize > height && Math.random() > 0.95) {
+                        drops[i] = Math.floor(Math.random() * -100);
+                    }
+                }
+            }
+
+            setInterval(draw, 100);
+        }
+
+        // Track Tabs
+        function setupTrackTabs() {
+            const trackButtons = document.querySelectorAll('.tab-button:not(.day-tab-button)');
+            const trackContents = document.querySelectorAll('.tab-content');
+
+            trackButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const tabId = this.getAttribute('data-tab');
+
+                    // Remove active class from all track buttons
+                    trackButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked track button
+                    this.classList.add('active');
+
+                    // Hide all track contents
+                    trackContents.forEach(content => content.style.display = 'none');
+                    // Show selected track content
+                    document.getElementById(tabId).style.display = 'block';
+
+                    // Reset day tabs to show first day by default
+                    const dayButtons = document.querySelectorAll(`[data-track="${tabId}"]`);
+                    const dayContents = document.querySelectorAll(`#${tabId} .day-content`);
+
+                    // Reset day buttons
+                    dayButtons.forEach(btn => btn.classList.remove('active'));
+                    dayButtons[0].classList.add('active');
+
+                    // Reset day contents
+                    dayContents.forEach(content => content.style.display = 'none');
+                    document.getElementById(`${tabId}-day1`).style.display = 'block';
+                });
+            });
+        }
+
+        // Day Tabs within each track
+        function setupDayTabs() {
+            const dayButtons = document.querySelectorAll('.day-tab-button');
+
+            dayButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const day = this.getAttribute('data-day');
+                    const track = this.getAttribute('data-track');
+
+                    // Remove active class from all day buttons in this track
+                    document.querySelectorAll(`[data-track="${track}"]`).forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    // Add active class to clicked day button
+                    this.classList.add('active');
+
+                    // Hide all day contents in this track
+                    document.querySelectorAll(`#${track} .day-content`).forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    // Show selected day content
+                    document.getElementById(`${track}-${day}`).style.display = 'block';
+                });
+            });
+        }
+
+        // Initialize all functions when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            createDigitalRain();
+            setupTrackTabs();
+            setupDayTabs();
+        });
+
+        // Handle window resize for digital rain
+        window.addEventListener('resize', () => {
+            document.getElementById('digitalRain').innerHTML = '';
+            createDigitalRain();
+        });
+    </script>
+</body>
+
+</html>
