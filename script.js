@@ -554,26 +554,26 @@
                 const secondDayTimes = document.querySelectorAll('.second-day-time');
                 if (lang === 'en') {
                     if (firstDayTimes.length >= 8) {
-                        firstDayTimes[0].textContent = '02:45 – 03:00 pm';
-                        firstDayTimes[1].textContent = '03:00 – 04:00 pm';
-                        firstDayTimes[2].textContent = '04:00 - 04:05 pm';
-                        firstDayTimes[3].textContent = '04:05 - 05:15 pm';
-                        firstDayTimes[4].textContent = '05:15 - 05:20 pm';
-                        firstDayTimes[5].textContent = '05:20 – 06:30 pm';
-                        firstDayTimes[6].textContent = '06:30 – 06:45 pm';
-                        firstDayTimes[7].textContent = '06:45 – 07:00 pm';
-                    }
-                    if (secondDayTimes.length >= 9) {
-                        secondDayTimes[0].textContent = '09:45 – 10:00 am';
-                        secondDayTimes[1].textContent = '10:00 – 10:55 am';
-                        secondDayTimes[2].textContent = '10:55 – 11:00 am';
-                        secondDayTimes[3].textContent = '11:00 am – 12:20 pm';
-                        secondDayTimes[4].textContent = '12:20 – 12:25 pm';
-                        secondDayTimes[5].textContent = '12:25 – 01:30 pm';
-                        secondDayTimes[6].textContent = '01:30 – 01:45 pm';
-                        secondDayTimes[7].textContent = '01:45 – 02:00 pm';
-                        secondDayTimes[8].textContent = '01:55 – 02:00 pm';
-                    }
+    firstDayTimes[0].textContent = '2:45 PM – 3:00 PM';
+    firstDayTimes[1].textContent = '3:00 PM – 3:55 PM';
+    firstDayTimes[2].textContent = '3:55 PM - 4:00 PM';
+    firstDayTimes[3].textContent = '4:00 PM - 5:15 PM';
+    firstDayTimes[4].textContent = '5:15 PM - 5:20 PM';
+    firstDayTimes[5].textContent = '5:20 PM – 6:15 PM';
+    firstDayTimes[6].textContent = '6:15 PM – 6:20 PM';
+    firstDayTimes[7].textContent = '6:20 PM – 6:30 PM';
+}
+if (secondDayTimes.length >= 9) {
+    secondDayTimes[0].textContent = '2:45 PM – 3:00 PM';
+    secondDayTimes[1].textContent = '3:00 PM – 3:50 PM';
+    secondDayTimes[2].textContent = '3:50 PM - 3:55 PM';
+    secondDayTimes[3].textContent = '3:55 PM – 5:15 PM';
+    secondDayTimes[4].textContent = '5:15 PM – 5:20 PM';
+    secondDayTimes[5].textContent = '5:20 PM – 6:05 PM';
+    secondDayTimes[6].textContent = '6:05 PM – 6:10 PM';
+    secondDayTimes[7].textContent = '6:10 PM – 6:20 PM';
+    secondDayTimes[8].textContent = '6:20 PM – 6:30 PM';
+}
                 } else {
                     if (firstDayTimes.length >= 8) {
                         firstDayTimes[0].textContent = '14:45 – 15:00';
