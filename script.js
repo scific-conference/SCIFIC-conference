@@ -577,24 +577,24 @@
                 } else {
                     if (firstDayTimes.length >= 8) {
                         firstDayTimes[0].textContent = '14:45 – 15:00';
-                        firstDayTimes[1].textContent = '15:00 – 15:45';
-                        firstDayTimes[2].textContent = '16:00 - 16:05';
-                        firstDayTimes[3].textContent = '16:05 - 17:15';
+                        firstDayTimes[1].textContent = '15:00 – 15:55';
+                        firstDayTimes[2].textContent = '15:55 - 16:00';
+                        firstDayTimes[3].textContent = '16:00 - 17:15';
                         firstDayTimes[4].textContent = '17:15 - 17:20';
-                        firstDayTimes[5].textContent = '17:20 – 18:30';
-                        firstDayTimes[6].textContent = '18:30 – 18:45';
-                        firstDayTimes[7].textContent = '18:45 – 19:00';
+                        firstDayTimes[5].textContent = '17:20 – 18:15';
+                        firstDayTimes[6].textContent = '18:15 – 18:20';
+                        firstDayTimes[7].textContent = '18:20 – 18:30';
                     }
                     if (secondDayTimes.length >= 9) {
-                        secondDayTimes[0].textContent = '09:50 – 10:00';
-                        secondDayTimes[1].textContent = '10:00 – 10:50';
-                        secondDayTimes[2].textContent = '10:50 - 10:55';
-                        secondDayTimes[3].textContent = '10:55 – 12:20';
-                        secondDayTimes[4].textContent = '12:20 – 12:25';
-                        secondDayTimes[5].textContent = '12:25 – 14:00';
-                        secondDayTimes[6].textContent = '14:00 – 14:15';
-                        secondDayTimes[7].textContent = '14:15 – 14:25';
-                        secondDayTimes[8].textContent = '14:25 – 14:30';
+                        secondDayTimes[0].textContent = '14:45 – 15:00';
+                        secondDayTimes[1].textContent = '15:00 – 15:50';
+                        secondDayTimes[2].textContent = '15:50 - 15:55';
+                        secondDayTimes[3].textContent = '15:55 – 17:15';
+                        secondDayTimes[4].textContent = '17:15 – 17:20';
+                        secondDayTimes[5].textContent = '17:20 – 18:05';
+                        secondDayTimes[6].textContent = '18:05 – 18:10';
+                        secondDayTimes[7].textContent = '18:10 – 18:20';
+                        secondDayTimes[8].textContent = '18:20 – 18:30';
                     }
                 }
 
