@@ -618,7 +618,7 @@ if (secondDayTimes.length >= 9) {
 
                 const archiveBlocks = document.querySelectorAll('.archive-block h3');
                 archiveBlocks.forEach((block, index) => {
-                    const year = 2024 - index;
+                    const year = 2025 - index;
                     block.textContent = lang === 'en' ? `Theses SCIFiC ${year}` : `Збірник тез СКІФіК ${year}`;
                 });
 
