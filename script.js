@@ -232,6 +232,7 @@
                     joinUsButton: "Join us",
                     conferenceProgramButton: "Conference program",
                     informationLetterButton: "Information letter",
+                    certificateVerificationButton: "Certificate verification",
                     thesisTemplate: "Thesis Template",
                     templateLinks: {
                         en: "https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF",
@@ -334,6 +335,7 @@
                     joinUsButton: "Приєднатися",
                     conferenceProgramButton: "Програма конференції",
                     informationLetterButton: "Інформаційний лист",
+                    certificateVerificationButton: "Перевірка сертифіката",
                     thesisTemplate: "Шаблон тез",
                     templateLinks: {
                         en: "https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF",
@@ -444,10 +446,11 @@
                 }
 
                 const conferenceInfoBlockButtons = document.querySelectorAll('#conference-info-block .block-links a');
-                if (conferenceInfoBlockButtons.length >= 3) {
+                if (conferenceInfoBlockButtons.length >= 4) {
                     conferenceInfoBlockButtons[0].textContent = data.joinUsButton;
                     conferenceInfoBlockButtons[1].textContent = data.conferenceProgramButton;
                     conferenceInfoBlockButtons[2].textContent = data.informationLetterButton;
+                    conferenceInfoBlockButtons[3].textContent = data.certificateVerificationButton;
                 }
 
                 const registerButton = document.getElementById('register-button');
