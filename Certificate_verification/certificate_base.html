@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка сертифікатів | SCIFiC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cyber-green: #00FF00;
+            --cyber-green-dark: #00CC00;
+            --black: #000000;
+            --white: #FFFFFF;
+            --text-primary: #E0E0E0;
+            --text-secondary: #B0B0B0;
+            --neon-green: #00FF00;
+            --neon-green-dark: #00CC00;
+            --section-bg: rgba(10, 10, 10, 0.8);
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --error-red: #FF3333;
+            --error-red-dark: #CC0000;
+            --info-blue: #00AAFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .digital-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .certificate-verification {
+            background: var(--section-bg);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-verification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--neon-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .highlight {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            background: rgba(0, 30, 0, 0.7);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-btn {
+            padding: 0 2rem;
+            background: var(--neon-green);
+            color: var(--black);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+        .search-instructions {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .result-container {
+            display: none;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results-summary {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(0, 50, 0, 0.2);
+            border-radius: 8px;
+            border-left: 4px solid var(--neon-green);
+        }
+
+        .results-summary h3 {
+            color: var(--neon-green);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.1);
+            border-color: var(--neon-green);
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(0, 255, 0, 0.1));
+        }
+
+        .certificate-index {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--neon-green);
+            color: var(--black);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .result-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: var(--neon-green);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .result-content {
+            margin-top: 0.5rem;
+        }
+
+        .result-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: var(--neon-green);
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .result-value {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .error-message {
+            background: rgba(255, 50, 50, 0.1);
+            border-left: 4px solid var(--error-red);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #ff9999;
+        }
+
+        .error-message h3 {
+            color: var(--error-red);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .info-message {
+            background: rgba(0, 100, 255, 0.1);
+            border-left: 4px solid var(--info-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #aaddff;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-message h3 {
+            color: var(--info-blue);
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 255, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--neon-green);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .verification-note {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 255, 0, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .certificate-verification {
+                padding: 2rem 1.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .search-box {
+                flex-direction: column;
+            }
+            .search-input,
+            .search-btn {
+                width: 100%;
+            }
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+            .result-label {
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .search-input {
+                padding: 1rem;
+            }
+            .search-btn {
+                padding: 0.8rem;
+            }
+            .result-card {
+                padding: 1.2rem 1rem;
+            }
+            .result-item {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .result-label {
+                min-width: auto;
+            }
+            .certificate-index {
+                top: 0.8rem;
+                right: 0.8rem;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="digital-rain"></div>
+
+    <div class="container">
+        <div class="certificate-verification">
+            <h2 class="section-title">Перевірка <span class="highlight">Сертифікатів</span></h2>
+
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" id="searchQuery" placeholder="Введіть ПІБ учасника або номер сертифікату..." autocomplete="off">
+                    <button class="search-btn" id="searchButton">
+                        <i class="fas fa-search"></i> Перевірити
+                    </button>
+                </div>
+                <p class="search-instructions">
+                    Введіть повне ім'я учасника (наприклад, "Іванов Іван Іванович") або номер сертифікату для перевірки його дійсності.
+                </p>
+            </div>
+
+            <div class="loading" id="loadingIndicator">
+                <div class="loading-spinner"></div>
+                <p>Перевіряємо сертифікат у базі даних...</p>
+            </div>
+
+            <div class="result-container" id="resultContainer">
+                <!-- Results will be inserted here -->
+            </div>
+
+            <div class="verification-note">
+                <p>Ця сторінка перевіряє сертифікати конференції SCIFiC з офіційної Google Таблиці.
+                    Дані оновлюються щодня. Для додаткових питань звертайтеся за адресою:
+                    <a href="mailto:scific@csn.khai.edu" style="color: var(--neon-green);">scific@csn.khai.edu</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Конфигурация Google Sheets API
+        const SPREADSHEET_ID = '1Nu9d1JIiOqFS2ZlybPf-kmTf-WZshoONUvH7SVgnOdE';
+        const API_KEY = 'AIzaSyBIbE5q15SNU3QxC4kQWuxlPQTSSe9xs9g';
+        const SHEET_NAME = 'Лист1';
+        
+        // Digital Rain Effect
+        function createDigitalRain() {
+            const digitalRain = document.querySelector('.digital-rain');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const fontSize = 16;
+            const columns = Math.floor(width / fontSize);
+            const characters = "01";
+            let drops = [];
+
+            if (!digitalRain) return;
+
+            digitalRain.innerHTML = '';
+
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * -100);
+            }
+
+            function draw() {
+                if (!digitalRain) return;
+
+                digitalRain.innerHTML = '';
+                for (let i = 0; i < drops.length; i++) {
+                    const charSpan = document.createElement('span');
+                    charSpan.innerHTML = characters[Math.floor(Math.random() * characters.length)];
+                    charSpan.style.position = 'absolute';
+                    charSpan.style.left = i * fontSize + 'px';
+                    charSpan.style.top = (drops[i] * fontSize) + 'px';
+                    charSpan.style.fontSize = fontSize + 'px';
+                    charSpan.style.color = '#00FF00';
+                    charSpan.style.opacity = Math.random() * 0.5 + 0.5;
+                    charSpan.style.textShadow = '0 0 10px #00FF00';
+                    digitalRain.appendChild(charSpan);
+
+                    drops[i]++;
+
+                    if (drops[i] * fontSize > height && Math.random() > 0.95) {
+                        drops[i] = Math.floor(Math.random() * -100);
+                    }
+                }
+            }
+
+            setInterval(draw, 100);
+        }
+
+        // Function to fetch data from Google Sheets
+        async function fetchSheetData() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                return data.values || [];
+            } catch (error) {
+                console.error('Error fetching data from Google Sheets:', error);
+                throw error;
+            }
+        }
+
+        // Function to search certificate in Google Sheets
+        async function searchCertificate(query) {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const resultContainer = document.getElementById('resultContainer');
+
+            // Show loading indicator
+            loadingIndicator.style.display = 'block';
+            resultContainer.style.display = 'none';
+
+            try {
+                // Fetch data from Google Sheets
+                const sheetData = await fetchSheetData();
+                
+                if (!sheetData || sheetData.length === 0) {
+                    return {
+                        found: false,
+                        message: "Не вдалося завантажити дані з таблиці. Спробуйте пізніше."
+                    };
+                }
+
+                // Get headers (first row)
+                const headers = sheetData[0].map(header => header.trim());
+                
+                // Map headers to column indices
+                const headerMap = {};
+                headers.forEach((header, index) => {
+                    headerMap[header.toLowerCase()] = index;
+                });
+
+                // Normalize query for case-insensitive search
+                const normalizedQuery = query.toLowerCase().trim();
+
+                // Search through data rows (skip header row)
+                let foundRows = [];
+                
+                for (let i = 1; i < sheetData.length; i++) {
+                    const row = sheetData[i];
+                    
+                    // Check Participation column (assuming it contains ФИО)
+                    const participationIndex = headerMap['participation'] !== undefined ? headerMap['participation'] : 
+                                               headerMap['учасник'] !== undefined ? headerMap['учасник'] : 1;
+                    
+                    // Check Number_certificate column
+                    const certNumberIndex = headerMap['number_certificate'] !== undefined ? headerMap['number_certificate'] : 
+                                           headerMap['номер сертифікату'] !== undefined ? headerMap['номер сертифікату'] : 3;
+                    
+                    const participantName = row[participationIndex] ? row[participationIndex].toString().toLowerCase().trim() : '';
+                    const certNumber = row[certNumberIndex] ? row[certNumberIndex].toString().toLowerCase().trim() : '';
+                    
+                    // Search by participant name or certificate number
+                    if (participantName.includes(normalizedQuery) || 
+                        certNumber === normalizedQuery ||
+                        certNumber.includes(normalizedQuery) ||
+                        participantName === normalizedQuery) {
+                        
+                        // Extract data based on column indices
+                        const resultData = {
+                            participant: row[headerMap['participation'] !== undefined ? headerMap['participation'] : 
+                                         headerMap['учасник'] !== undefined ? headerMap['учасник'] : 1] || 'Не вказано',
+                            year: row[headerMap['year'] !== undefined ? headerMap['year'] : 
+                                  headerMap['рік'] !== undefined ? headerMap['рік'] : 2] || 'Не вказано',
+                            certificateNumber: row[headerMap['number_certificate'] !== undefined ? headerMap['number_certificate'] : 
+                                          headerMap['номер сертифікату'] !== undefined ? headerMap['номер сертифікату'] : 3] || 'Не вказано',
+                            conferenceDate: row[headerMap['data_conference'] !== undefined ? headerMap['data_conference'] : 
+                                        headerMap['дата конференції'] !== undefined ? headerMap['дата конференції'] : 4] || 'Не вказано',
+                            number: row[headerMap['number'] !== undefined ? headerMap['number'] : 
+                                    headerMap['номер'] !== undefined ? headerMap['номер'] : 0] || 'Не вказано'
+                        };
+                        
+                        foundRows.push(resultData);
+                    }
+                }
+
+                // Hide loading indicator
+                loadingIndicator.style.display = 'none';
+
+                if (foundRows.length > 0) {
+                    return {
+                        found: true,
+                        data: foundRows,
+                        count: foundRows.length
+                    };
+                } else {
+                    return {
+                        found: false,
+                        message: "Сертифікат не знайдено в базі даних. Переконайтеся, що ви правильно ввели ПІБ або номер сертифікату."
+                    };
+                }
+            } catch (error) {
+                // Hide loading indicator
+                loadingIndicator.style.display = 'none';
+                
+                console.error('Search error:', error);
+                
+                return {
+                    found: false,
+                    message: "Сталася помилка під час перевірки сертифіката. Спробуйте пізніше або зверніться до організаторів конференції."
+                };
+            }
+        }
+
+        // Function to display search result
+        function displayResult(result) {
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = '';
+
+            if (result.found) {
+                const certificates = result.data;
+                const count = result.count;
+                
+                // Create summary section
+                const summaryHtml = `
+                    <div class="results-summary">
+                        <h3><i class="fas fa-search"></i> Результати пошуку</h3>
+                        <p>Знайдено <strong>${count}</strong> сертифікат(ів) для запиту</p>
+                        <p><i class="fas fa-info-circle"></i> ${count > 1 ? 'Учасник має кілька сертифікатів у базі даних' : 'Сертифікат знайдено у базі даних'}</p>
+                    </div>
+                `;
+                
+                // Create grid for certificates
+                let certificatesHtml = `<div class="certificates-grid">`;
+                
+                certificates.forEach((cert, index) => {
+                    certificatesHtml += `
+                        <div class="result-card">
+                            <div class="certificate-index">${index + 1}</div>
+                            <h3 class="result-title"><i class="fas fa-certificate"></i> Сертифікат дійсний</h3>
+                            
+                            <div class="result-content">
+                                <div class="result-item">
+                                    <div class="result-label"><i class="fas fa-user"></i> ПІБ учасника</div>
+                                    <div class="result-value">${cert.participant}</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-label"><i class="fas fa-hashtag"></i> Номер запису</div>
+                                    <div class="result-value">${cert.number}</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-label"><i class="fas fa-calendar"></i> Рік конференції</div>
+                                    <div class="result-value">${cert.year}</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-label"><i class="fas fa-id-card"></i> Номер сертифікату</div>
+                                    <div class="result-value">${cert.certificateNumber}</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-label"><i class="fas fa-calendar-alt"></i> Дата конференції</div>
+                                    <div class="result-value">${cert.conferenceDate}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                certificatesHtml += `</div>`;
+                
+                resultContainer.innerHTML = summaryHtml + certificatesHtml;
+                
+            } else {
+                resultContainer.innerHTML = `
+                    <div class="error-message">
+                        <h3><i class="fas fa-exclamation-circle"></i> Сертифікат не знайдено</h3>
+                        <p>${result.message}</p>
+                        <p style="margin-top: 10px; font-size: 0.9em;">
+                            <i class="fas fa-lightbulb"></i> Порада: Спробуйте ввести повне ПІБ або точний номер сертифікату.
+                        </p>
+                    </div>
+                `;
+            }
+
+            resultContainer.style.display = 'block';
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const searchButton = document.getElementById('searchButton');
+            const searchInput = document.getElementById('searchQuery');
+
+            searchButton.addEventListener('click', async () => {
+                const query = searchInput.value.trim();
+                if (query) {
+                    const result = await searchCertificate(query);
+                    displayResult(result);
+                } else {
+                    alert('Будь ласка, введіть ПІБ або номер сертифікату для пошуку.');
+                }
+            });
+
+            // Allow search on Enter key
+            searchInput.addEventListener('keypress', async (e) => {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        const result = await searchCertificate(query);
+                        displayResult(result);
+                    } else {
+                        alert('Будь ласка, введіть ПІБ або номер сертифікату для пошуку.');
+                    }
+                }
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            createDigitalRain();
+            setupEventListeners();
+        });
+    </script>
+</body>
+</html>
