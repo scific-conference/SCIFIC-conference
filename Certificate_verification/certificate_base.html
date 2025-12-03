@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Стили остаются такими же как в предыдущем коде */
         :root {
             --cyber-green: #00FF00;
             --cyber-green-dark: #00CC00;
@@ -497,7 +496,7 @@
             </div>
 
             <div class="verification-note">
-                <p>Ця сторінка перевіряє сертифікати конференції SCIFiC з офіційної бази.
+                <p>Ця сторінка перевіряє сертифікати конференції SCIFiC з офіційної Google Таблиці.
                     Дані оновлюються щодня. Для додаткових питань звертайтеся за адресою:
                     <a href="mailto:scific@csn.khai.edu" style="color: var(--neon-green);">scific@csn.khai.edu</a>
                 </p>
@@ -511,7 +510,7 @@
         const API_KEY = 'AIzaSyBIbE5q15SNU3QxC4kQWuxlPQTSSe9xs9g';
         const SHEET_NAME = 'Лист1';
         
-        // Официальная украинская транслитерация
+        // Официальная украинская транслитерация (согласно постановлению №55)
         const officialTransliterationMap = {
             'а': 'a', 'б': 'b', 'в': 'v', 'г': 'h', 'ґ': 'g', 'д': 'd',
             'е': 'e', 'є': 'ie', 'ж': 'zh', 'з': 'z', 'и': 'y', 'і': 'i',
@@ -526,6 +525,34 @@
             'Ф': 'F', 'Х': 'Kh', 'Ц': 'Ts', 'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Shch',
             'Ь': '', 'Ю': 'Yu', 'Я': 'Ya',
             'зг': 'zgh', 'Зг': 'Zgh', 'ЗГ': 'ZGH'
+        };
+
+        // Дополнительные варианты транслитерации (упрощенные, которые часто используются)
+        const simplifiedTransliterationMap = {
+            'є': 'e', 'Є': 'E',
+            'ї': 'i', 'Ї': 'I',
+            'й': 'i', 'Й': 'I',
+            'ю': 'yu', 'Ю': 'Yu',
+            'я': 'ya', 'Я': 'Ya',
+            'г': 'g', 'Г': 'G',
+            'х': 'h', 'Х': 'H',
+            'ц': 'ts', 'Ц': 'Ts',
+            'ч': 'ch', 'Ч': 'Ch',
+            'ш': 'sh', 'Ш': 'Sh',
+            'щ': 'shch', 'Щ': 'Shch',
+            'ь': '', 'Ь': '',
+            'ы': 'y', 'Ы': 'Y'
+        };
+
+        // Альтернативные варианты для сложных окончаний
+        const endingVariations = {
+            'ий': ['iy', 'y', 'ij', 'yi', 'ii'],
+            'ый': ['y', 'iy', 'ij', 'yi'],
+            'ой': ['oy', 'oi', 'y'],
+            'ая': ['aya', 'aia', 'a'],
+            'яя': ['yaya', 'iaia', 'ya'],
+            'ое': ['oe', 'oje', 'oye'],
+            'ее': ['ee', 'eje', 'eye']
         };
 
         // Digital Rain Effect
@@ -587,63 +614,217 @@
             return 'unknown';
         }
 
-        // Транслитерация украинского текста
-        function transliterateUkrainian(text) {
-            if (!text || text.length === 0) return '';
+        // Расширенная транслитерация украинского текста с несколькими вариантами
+        function transliterateUkrainianExtended(text) {
+            if (!text || text.length === 0) return [];
             
-            let result = '';
-            let i = 0;
+            const variants = new Set();
+            const lowerText = text.toLowerCase();
             
-            while (i < text.length) {
+            // Официальная транслитерация
+            let official = '';
+            for (let i = 0; i < text.length; i++) {
+                let currentChar = text[i];
+                let nextChar = i < text.length - 1 ? text[i + 1] : '';
+                let twoChars = currentChar + nextChar;
+                let threeChars = twoChars + (i < text.length - 2 ? text[i + 2] : '');
+                
+                // Сначала проверяем специальные комбинации (зг)
+                if (i < text.length - 1 && twoChars.toLowerCase() === 'зг') {
+                    official += (twoChars === 'зг') ? 'zgh' : (twoChars === 'Зг') ? 'Zgh' : 'ZGH';
+                    i++; // Пропускаем следующий символ
+                    continue;
+                }
+                
+                // Проверяем специальные окончания
+                if (i < text.length - 2) {
+                    const threeLower = threeChars.toLowerCase();
+                    if (threeLower === 'цький' || threeLower === 'цкий' || threeLower === 'тский') {
+                        if (threeLower === 'цький') {
+                            official += (threeChars === 'цький') ? 'tsky' : 'Tsky';
+                        } else if (threeLower === 'цкий') {
+                            official += (threeChars === 'цкий') ? 'tsky' : 'Tsky';
+                        }
+                        i += 2;
+                        continue;
+                    }
+                }
+                
+                if (officialTransliterationMap[currentChar]) {
+                    official += officialTransliterationMap[currentChar];
+                } else {
+                    official += currentChar;
+                }
+            }
+            
+            variants.add(official.toLowerCase());
+            
+            // Упрощенная транслитерация (вариант 1: базовое упрощение)
+            let simplified1 = '';
+            for (let i = 0; i < text.length; i++) {
                 let currentChar = text[i];
                 let nextChar = i < text.length - 1 ? text[i + 1] : '';
                 let twoChars = currentChar + nextChar;
                 
-                // Сначала проверяем специальные комбинации (зг)
-                if (i < text.length - 1 && twoChars.toLowerCase() === 'зг') {
-                    if (twoChars === 'зг') result += 'zgh';
-                    else if (twoChars === 'Зг') result += 'Zgh';
-                    else if (twoChars === 'ЗГ') result += 'ZGH';
-                    i += 2;
+                // Специальная обработка для "Тецький" -> "Tetskiy"
+                if (twoChars.toLowerCase() === 'ць') {
+                    simplified1 += (twoChars === 'ць') ? 't' : 'T';
+                    i++; // Пропускаем мягкий знак
                     continue;
                 }
                 
-                // Обычная транслитерация
-                if (officialTransliterationMap[currentChar]) {
-                    result += officialTransliterationMap[currentChar];
-                } else {
-                    result += currentChar;
+                // Обработка "кий" окончаний
+                if (i < text.length - 2) {
+                    let threeChars = twoChars + (i < text.length - 2 ? text[i + 2] : '');
+                    if (threeChars.toLowerCase() === 'кий') {
+                        simplified1 += (threeChars === 'кий') ? 'kiy' : 'Kiy';
+                        i += 2;
+                        continue;
+                    }
                 }
                 
-                i++;
+                if (simplifiedTransliterationMap[currentChar]) {
+                    simplified1 += simplifiedTransliterationMap[currentChar];
+                } else if (officialTransliterationMap[currentChar]) {
+                    simplified1 += officialTransliterationMap[currentChar];
+                } else {
+                    simplified1 += currentChar;
+                }
             }
             
-            return result;
+            variants.add(simplified1.toLowerCase());
+            
+            // Упрощенная транслитерация (вариант 2: дополнительное упрощение для "ц")
+            let simplified2 = simplified1.replace(/ts/g, 't').replace(/Ts/g, 'T');
+            variants.add(simplified2.toLowerCase());
+            
+            // Упрощенная транслитерация (вариант 3: максимальное упрощение)
+            let simplified3 = '';
+            for (let i = 0; i < text.length; i++) {
+                let currentChar = text[i];
+                
+                // Максимальное упрощение
+                const maxSimplifiedMap = {
+                    'є': 'e', 'Є': 'E',
+                    'ї': 'i', 'Ї': 'I',
+                    'й': 'y', 'Й': 'Y',
+                    'ю': 'u', 'Ю': 'U',
+                    'я': 'ya', 'Я': 'Ya',
+                    'х': 'h', 'Х': 'H',
+                    'г': 'g', 'Г': 'G',
+                    'щ': 'sh', 'Щ': 'Sh',
+                    'ц': 't', 'Ц': 'T',
+                    'ч': 'ch', 'Ч': 'Ch',
+                    'ш': 'sh', 'Ш': 'Sh',
+                    'ь': '', 'Ь': '',
+                    'ы': 'y', 'Ы': 'Y'
+                };
+                
+                if (maxSimplifiedMap[currentChar]) {
+                    simplified3 += maxSimplifiedMap[currentChar];
+                } else if (officialTransliterationMap[currentChar]) {
+                    simplified3 += officialTransliterationMap[currentChar];
+                } else {
+                    simplified3 += currentChar;
+                }
+            }
+            
+            variants.add(simplified3.toLowerCase());
+            
+            // Специальные варианты для окончаний
+            const baseName = text.toLowerCase();
+            for (const [ukrEnding, engVariations] of Object.entries(endingVariations)) {
+                if (baseName.endsWith(ukrEnding)) {
+                    const baseWithoutEnding = baseName.slice(0, -ukrEnding.length);
+                    
+                    for (const engEnding of engVariations) {
+                        variants.add(baseWithoutEnding + engEnding);
+                        
+                        if (baseWithoutEnding.endsWith('ц') || baseWithoutEnding.endsWith('тс')) {
+                            variants.add(baseWithoutEnding.slice(0, -1) + 't' + engEnding);
+                        }
+                    }
+                }
+            }
+            
+            // Специально для фамилии "Тецький"
+            if (baseName.includes('тец') || baseName.includes('тec')) {
+                variants.add('tetskiy');
+                variants.add('tetsky');
+                variants.add('tetskij');
+                variants.add('tetskii');
+            }
+            
+            console.log(`Для "${text}" созданы варианты:`, Array.from(variants));
+            return Array.from(variants);
         }
 
-        // Обратная транслитерация
-        function reverseTransliterate(text) {
-            if (!text || text.length === 0) return '';
+        // Обратная транслитерация с несколькими вариантами
+        function reverseTransliterateExtended(text) {
+            if (!text || text.length === 0) return [];
             
-            let result = text.toLowerCase();
+            const variants = new Set();
+            const lowerText = text.toLowerCase();
             
-            const reverseMap = {
-                'zgh': 'зг', 'zh': 'ж', 'kh': 'х', 'ts': 'ц', 'ch': 'ч', 
-                'sh': 'ш', 'shch': 'щ', 'ye': 'є', 'yi': 'ї', 'yu': 'ю', 
-                'ya': 'я', 'iu': 'ю', 'ia': 'я', 'ie': 'є', 'i': 'і', 
-                'y': 'и'
-            };
+            // Добавляем оригинальный текст
+            variants.add(lowerText);
             
-            for (const [key, value] of Object.entries(reverseMap)) {
-                const regex = new RegExp(key, 'gi');
+            // Специальные случаи для распространенных английских окончаний
+            if (lowerText.endsWith('kiy') || lowerText.endsWith('ky') || lowerText.endsWith('kij')) {
+                const base = lowerText.replace(/kiy$|ky$|kij$|kii$/i, '');
+                
+                // Варианты с "ц" и "тс"
+                variants.add(base + 'цький');
+                variants.add(base + 'цкий');
+                variants.add(base + 'тский');
+                
+                // Вариант с "т" вместо "ц"
+                if (base.endsWith('t')) {
+                    variants.add(base.slice(0, -1) + 'цький');
+                    variants.add(base.slice(0, -1) + 'цкий');
+                }
+            }
+            
+            // Основные замены для обратной транслитерации
+            const reverseMap = [
+                { from: 'zgh', to: 'зг' },
+                { from: 'zh', to: 'ж' },
+                { from: 'kh', to: 'х' },
+                { from: 'ch', to: 'ч' },
+                { from: 'shch', to: 'щ' },
+                { from: 'sh', to: 'ш' },
+                { from: 'ts', to: 'ц' },
+                { from: 'tc', to: 'ц' },
+                { from: 'c', to: 'ц' },
+                { from: 't', to: 'т' },
+                { from: 'ye', to: 'є' },
+                { from: 'yi', to: 'ї' },
+                { from: 'yu', to: 'ю' },
+                { from: 'ya', to: 'я' },
+                { from: 'ie', to: 'є' },
+                { from: 'iu', to: 'ю' },
+                { from: 'ia', to: 'я' },
+                { from: 'i', to: 'і' },
+                { from: 'y', to: 'и' },
+                { from: 'j', to: 'й' },
+                { from: 'ii', to: 'ий' },
+                { from: 'ij', to: 'ий' },
+                { from: 'iy', to: 'ий' }
+            ];
+            
+            // Сначала длинные комбинации
+            let result = lowerText;
+            for (const { from, to } of reverseMap) {
+                const regex = new RegExp(from, 'gi');
                 result = result.replace(regex, match => {
                     if (match[0] === match[0].toUpperCase()) {
-                        return value.charAt(0).toUpperCase() + value.slice(1);
+                        return to.charAt(0).toUpperCase() + to.slice(1);
                     }
-                    return value;
+                    return to;
                 });
             }
             
+            // Одиночные буквы
             const singleLetters = {
                 'a': 'а', 'b': 'б', 'v': 'в', 'h': 'г', 'g': 'ґ', 
                 'd': 'д', 'e': 'е', 'z': 'з', 'k': 'к', 'l': 'л',
@@ -656,46 +837,339 @@
                 result = result.replace(regex, value);
             }
             
-            return result;
+            variants.add(result);
+            
+            // Специальная обработка для "tetskiy" -> "тецький"
+            if (lowerText.includes('tetskiy') || lowerText.includes('tetsky') || lowerText.includes('tetskij')) {
+                variants.add('тецький');
+                variants.add('тэцький');
+                variants.add('тецкий');
+                variants.add('тетский');
+            }
+            
+            // Обработка "ts" комбинаций
+            if (lowerText.includes('ts')) {
+                let withTs = result;
+                const tsRegex = /ц/g;
+                let match;
+                while ((match = tsRegex.exec(withTs)) !== null) {
+                    const position = match.index;
+                    const before = withTs.slice(0, position);
+                    const after = withTs.slice(position + 1);
+                    variants.add(before + 'тс' + after);
+                }
+            }
+            
+            console.log(`Обратная транслитерация для "${text}":`, Array.from(variants));
+            return Array.from(variants);
         }
 
-        // Создание вариантов для поиска
-        function createSearchVariants(query, languageMode) {
-            const normalizedQuery = query.toLowerCase().trim();
-            const variants = new Set([normalizedQuery]);
-            const inputLanguage = detectLanguage(query);
+        // Функция для специальной обработки проблемных фамилий
+        function handleProblematicNames(name, searchVariants) {
+            const lowerName = name.toLowerCase();
+            const variants = new Set(searchVariants);
             
-            if (languageMode === 'all') {
-                if (inputLanguage === 'uk' || inputLanguage === 'mixed') {
-                    const transliterated = transliterateUkrainian(normalizedQuery).toLowerCase();
-                    if (transliterated && transliterated !== normalizedQuery) {
-                        variants.add(transliterated);
-                    }
+            // Специальные случаи для конкретных фамилий
+            const specialCases = {
+                'тецький': ['tetskiy', 'tetsky', 'tetskij', 'tetskii', 'tetckiy', 'tetski'],
+                'тэцький': ['tetskiy', 'tetsky', 'tetskij'],
+                'тецкий': ['tetskiy', 'tetsky', 'tetskij', 'teckiy'],
+                'землянко': ['zemlianko', 'zemlyanko', 'zemlanko'],
+                'пєвнєв': ['pevnev', 'pievniev', 'pevniev'],
+                'шевченко': ['shevchenko', 'shevcenko', 'sevtchenko'],
+                'кравченко': ['kravchenko', 'kravcenko', 'krawchenko']
+            };
+            
+            // Проверяем, является ли имя одним из проблемных случаев
+            for (const [ukrName, engVariants] of Object.entries(specialCases)) {
+                if (lowerName.includes(ukrName) || ukrName.includes(lowerName)) {
+                    engVariants.forEach(variant => variants.add(variant));
+                }
+            }
+            
+            // Обработка окончаний "ский"/"цкий"
+            if (lowerName.endsWith('ский') || lowerName.endsWith('цкий') || lowerName.endsWith('цький')) {
+                const base = lowerName.replace(/ский$|цкий$|цький$/i, '');
+                
+                // Разные варианты транслитерации окончания
+                const endingVariants = ['sky', 'skiy', 'skij', 'skii', 'ski'];
+                
+                // Разные варианты транслитерации основы
+                const baseVariants = [];
+                
+                // Если основа заканчивается на "ц" или "т"
+                if (base.endsWith('ц') || base.endsWith('т')) {
+                    const baseWithoutLast = base.slice(0, -1);
+                    baseVariants.push(baseWithoutLast + 't');
+                    baseVariants.push(baseWithoutLast + 'ts');
                 }
                 
-                if (inputLanguage === 'en' || inputLanguage === 'mixed') {
-                    const reverse = reverseTransliterate(normalizedQuery);
-                    if (reverse && reverse !== normalizedQuery) {
-                        variants.add(reverse);
-                    }
-                }
-            } else if (languageMode === 'uk') {
-                if (inputLanguage === 'en' || inputLanguage === 'mixed') {
-                    const reverse = reverseTransliterate(normalizedQuery);
-                    if (reverse && reverse !== normalizedQuery) {
-                        variants.add(reverse);
-                    }
-                }
-            } else if (languageMode === 'en') {
-                if (inputLanguage === 'uk' || inputLanguage === 'mixed') {
-                    const transliterated = transliterateUkrainian(normalizedQuery).toLowerCase();
-                    if (transliterated && transliterated !== normalizedQuery) {
-                        variants.add(transliterated);
+                baseVariants.push(base);
+                
+                // Генерируем все комбинации
+                for (const baseVariant of baseVariants) {
+                    for (const endingVariant of endingVariants) {
+                        variants.add(baseVariant + endingVariant);
                     }
                 }
             }
             
             return Array.from(variants);
+        }
+
+        // Функция для вычисления схожести строк (расстояние Левенштейна)
+        function stringSimilarity(str1, str2) {
+            const len1 = str1.length;
+            const len2 = str2.length;
+            
+            if (len1 === 0) return len2 === 0 ? 1 : 0;
+            if (len2 === 0) return 0;
+            
+            // Создаем матрицу
+            const matrix = [];
+            for (let i = 0; i <= len1; i++) {
+                matrix[i] = [i];
+            }
+            for (let j = 0; j <= len2; j++) {
+                matrix[0][j] = j;
+            }
+            
+            // Заполняем матрицу
+            for (let i = 1; i <= len1; i++) {
+                for (let j = 1; j <= len2; j++) {
+                    const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
+                    matrix[i][j] = Math.min(
+                        matrix[i - 1][j] + 1,     // удаление
+                        matrix[i][j - 1] + 1,     // вставка
+                        matrix[i - 1][j - 1] + cost // замена
+                    );
+                }
+            }
+            
+            // Вычисляем схожесть
+            const maxLen = Math.max(len1, len2);
+            if (maxLen === 0) return 1;
+            
+            return 1 - matrix[len1][len2] / maxLen;
+        }
+
+        // Функция для точного сравнения имен - ОБНОВЛЕННАЯ ВЕРСИЯ
+        function isExactNameMatch(queryVariants, participantName, searchType = 'name') {
+            const normalizedParticipantName = participantName.toLowerCase().trim();
+            
+            for (const searchVariant of queryVariants) {
+                const searchVariantLower = searchVariant.toLowerCase();
+                
+                // Для поиска по ФИО
+                if (searchType === 'name') {
+                    // 1. Проверяем точное совпадение (для полных ФИО)
+                    if (normalizedParticipantName === searchVariantLower) {
+                        console.log(`Точное совпадение: "${searchVariantLower}" === "${normalizedParticipantName}"`);
+                        return true;
+                    }
+                    
+                    // 2. Проверяем, содержит ли имя участника все слова из поискового запроса
+                    const searchWords = searchVariantLower.split(/\s+/).filter(w => w.length > 0);
+                    const participantWords = normalizedParticipantName.split(/\s+/).filter(w => w.length > 0);
+                    
+                    // Если поисковый запрос состоит из нескольких слов
+                    if (searchWords.length > 0) {
+                        let allWordsMatch = true;
+                        
+                        for (const searchWord of searchWords) {
+                            // Ищем хотя бы одно слово в имени участника, которое начинается с поискового слова
+                            // или содержит его
+                            let wordFound = false;
+                            
+                            for (const participantWord of participantWords) {
+                                // Проверяем полное совпадение слова
+                                if (participantWord === searchWord) {
+                                    wordFound = true;
+                                    break;
+                                }
+                                
+                                // Проверяем, начинается ли слово участника с поискового слова
+                                // (например, "андрійович" для поиска "андрій")
+                                if (participantWord.startsWith(searchWord) && searchWord.length >= 3) {
+                                    wordFound = true;
+                                    break;
+                                }
+                                
+                                // Проверяем на частичное совпадение (для транслитерированных вариантов)
+                                if (participantWord.includes(searchWord) && searchWord.length >= 3) {
+                                    wordFound = true;
+                                    break;
+                                }
+                            }
+                            
+                            if (!wordFound) {
+                                allWordsMatch = false;
+                                break;
+                            }
+                        }
+                        
+                        if (allWordsMatch) {
+                            console.log(`Все слова совпали: "${searchVariantLower}" в "${normalizedParticipantName}"`);
+                            return true;
+                        }
+                    }
+                    
+                    // 3. Проверяем обратное - содержит ли поисковый запрос слова из имени участника
+                    // (например, если в таблице "Землянко", а ищут "Землянко Георгій")
+                    let allParticipantWordsFound = true;
+                    for (const participantWord of participantWords) {
+                        if (participantWord.length >= 2 && !searchVariantLower.includes(participantWord)) {
+                            allParticipantWordsFound = false;
+                            break;
+                        }
+                    }
+                    
+                    if (allParticipantWordsFound && participantWords.length > 0) {
+                        console.log(`Все слова участника найдены в запросе: "${searchVariantLower}" содержит "${normalizedParticipantName}"`);
+                        return true;
+                    }
+                    
+                    // 4. Проверяем похожесть через расстояние Левенштейна для коротких запросов
+                    if (searchVariantLower.length >= 3 && normalizedParticipantName.length >= 3) {
+                        const similarity = stringSimilarity(searchVariantLower, normalizedParticipantName);
+                        if (similarity > 0.8) { // Порог схожести 80%
+                            console.log(`Высокая схожесть (${similarity}): "${searchVariantLower}" ~ "${normalizedParticipantName}"`);
+                            return true;
+                        }
+                    }
+                    
+                    // 5. Проверяем, содержит ли имя участника поисковую строку (частичное совпадение)
+                    if (normalizedParticipantName.includes(searchVariantLower)) {
+                        console.log(`Частичное совпадение: "${normalizedParticipantName}" содержит "${searchVariantLower}"`);
+                        return true;
+                    }
+                    
+                    // 6. Проверяем, содержит ли поисковая строка имя участника (обратное частичное совпадение)
+                    if (searchVariantLower.includes(normalizedParticipantName)) {
+                        console.log(`Обратное частичное совпадение: "${searchVariantLower}" содержит "${normalizedParticipantName}"`);
+                        return true;
+                    }
+                }
+                // Для поиска по номеру сертификата
+                else if (searchType === 'certificate') {
+                    if (normalizedParticipantName === searchVariantLower) {
+                        return true;
+                    }
+                    
+                    // Также проверяем частичное совпадение для номеров
+                    if (normalizedParticipantName.includes(searchVariantLower)) {
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
+        }
+
+        // Улучшенная функция создания вариантов поиска
+        function createSearchVariants(query, languageMode) {
+            const normalizedQuery = query.toLowerCase().trim();
+            const variants = new Set([normalizedQuery]);
+            const inputLanguage = detectLanguage(query);
+            
+            console.log(`Создание вариантов для: "${query}", язык: ${inputLanguage}, режим: ${languageMode}`);
+            
+            // Добавляем оригинальный запрос с разными форматами
+            variants.add(normalizedQuery);
+            
+            // Удаляем лишние пробелы и приводим к разным форматам
+            const words = normalizedQuery.split(/\s+/).filter(w => w.length > 0);
+            
+            // Добавляем варианты с разным порядком слов (для фамилия+имя)
+            if (words.length >= 2) {
+                // Вариант: только фамилия
+                variants.add(words[0]);
+                
+                // Вариант: фамилия + первая буква имени
+                if (words[1].length > 0) {
+                    variants.add(words[0] + ' ' + words[1].charAt(0));
+                    variants.add(words[0] + ' ' + words[1].charAt(0) + '.');
+                }
+                
+                // Вариант: имя + фамилия (меняем порядок)
+                if (words.length === 2) {
+                    variants.add(words[1] + ' ' + words[0]);
+                }
+            }
+            
+            if (languageMode === 'all') {
+                if (inputLanguage === 'uk' || inputLanguage === 'mixed') {
+                    // Получаем все варианты транслитерации
+                    const transliteratedVariants = transliterateUkrainianExtended(normalizedQuery);
+                    transliteratedVariants.forEach(variant => {
+                        if (variant && variant !== normalizedQuery) {
+                            variants.add(variant);
+                        }
+                    });
+                    
+                    // Специальная обработка для проблемных имен
+                    const specialHandled = handleProblematicNames(normalizedQuery, Array.from(variants));
+                    specialHandled.forEach(variant => variants.add(variant));
+                    
+                    // Транслитерируем каждое слово отдельно
+                    words.forEach(word => {
+                        const wordVariants = transliterateUkrainianExtended(word);
+                        wordVariants.forEach(variant => {
+                            if (variant && variant.length >= 2) {
+                                variants.add(variant);
+                            }
+                        });
+                    });
+                }
+                
+                if (inputLanguage === 'en' || inputLanguage === 'mixed') {
+                    // Получаем все варианты обратной транслитерации
+                    const reverseVariants = reverseTransliterateExtended(normalizedQuery);
+                    reverseVariants.forEach(variant => {
+                        if (variant && variant !== normalizedQuery) {
+                            variants.add(variant);
+                        }
+                    });
+                    
+                    // Обратная транслитерация каждого слова отдельно
+                    words.forEach(word => {
+                        const wordVariants = reverseTransliterateExtended(word);
+                        wordVariants.forEach(variant => {
+                            if (variant && variant.length >= 2) {
+                                variants.add(variant);
+                            }
+                        });
+                    });
+                }
+            } else if (languageMode === 'uk') {
+                if (inputLanguage === 'en' || inputLanguage === 'mixed') {
+                    const reverseVariants = reverseTransliterateExtended(normalizedQuery);
+                    reverseVariants.forEach(variant => {
+                        if (variant && variant !== normalizedQuery) {
+                            variants.add(variant);
+                        }
+                    });
+                }
+            } else if (languageMode === 'en') {
+                if (inputLanguage === 'uk' || inputLanguage === 'mixed') {
+                    const transliteratedVariants = transliterateUkrainianExtended(normalizedQuery);
+                    transliteratedVariants.forEach(variant => {
+                        if (variant && variant !== normalizedQuery) {
+                            variants.add(variant);
+                        }
+                    });
+                    
+                    // Специальная обработка для проблемных имен
+                    const specialHandled = handleProblematicNames(normalizedQuery, Array.from(variants));
+                    specialHandled.forEach(variant => variants.add(variant));
+                }
+            }
+            
+            // Удаляем дубликаты и слишком короткие варианты
+            const finalVariants = Array.from(variants).filter(v => v && v.length >= 2);
+            
+            console.log('Итоговые варианты поиска:', finalVariants);
+            return finalVariants;
         }
 
         // Получение данных из Google Sheets
@@ -715,53 +1189,7 @@
             }
         }
 
-        // Функция для точного сравнения имен с учетом транслитерации
-        function isExactNameMatch(queryVariants, participantName, searchType = 'name') {
-            const normalizedParticipantName = participantName.toLowerCase().trim();
-            
-            for (const searchVariant of queryVariants) {
-                // Для поиска по ФИО: проверяем точное совпадение
-                if (searchType === 'name') {
-                    // Точное совпадение строк
-                    if (normalizedParticipantName === searchVariant) {
-                        return true;
-                    }
-                    
-                    // Для многословных запросов: проверяем, что все слова из запроса присутствуют в имени
-                    const searchWords = searchVariant.split(/\s+/);
-                    const nameWords = normalizedParticipantName.split(/\s+/);
-                    
-                    let allWordsFound = true;
-                    for (const searchWord of searchWords) {
-                        let wordFound = false;
-                        for (const nameWord of nameWords) {
-                            if (nameWord === searchWord) {
-                                wordFound = true;
-                                break;
-                            }
-                        }
-                        if (!wordFound) {
-                            allWordsFound = false;
-                            break;
-                        }
-                    }
-                    
-                    if (allWordsFound && searchWords.length > 0) {
-                        return true;
-                    }
-                }
-                // Для поиска по номеру сертификата: точное совпадение
-                else if (searchType === 'certificate') {
-                    if (normalizedParticipantName === searchVariant) {
-                        return true;
-                    }
-                }
-            }
-            
-            return false;
-        }
-
-        // Поиск сертификатов - ИСПРАВЛЕННАЯ ВЕРСИЯ (точный поиск)
+        // Поиск сертификатов
         async function searchCertificate(query, languageMode) {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const resultContainer = document.getElementById('resultContainer');
@@ -811,16 +1239,15 @@
                 
                 let foundRows = [];
                 
-                console.log('Search variants:', searchVariants);
-                console.log('Total rows in sheet:', sheetData.length - 1);
-                
-                // Определяем, ищем ли мы по номеру сертификата (если запрос похож на номер)
+                // Определяем, ищем ли мы по номеру сертификата
                 const isCertificateNumberSearch = /^SCIFiC-/.test(query) || /^\d+$/.test(query);
+                
+                console.log(`Поиск по таблице: ${sheetData.length - 1} записей`);
+                console.log(`Варианты поиска: ${searchVariants.join(', ')}`);
                 
                 for (let i = 1; i < sheetData.length; i++) {
                     const row = sheetData[i];
                     
-                    // Индексы колонок
                     const participationIndex = headerMap['participation'] !== undefined ? headerMap['participation'] : 
                                              headerMap['учасник'] !== undefined ? headerMap['учасник'] : 1;
                     
@@ -830,21 +1257,57 @@
                     const participantName = row[participationIndex] ? row[participationIndex].toString().trim() : '';
                     const certNumber = row[certNumberIndex] ? row[certNumberIndex].toString().trim() : '';
                     
+                    if (!participantName && !certNumber) {
+                        continue; // Пропускаем пустые строки
+                    }
+                    
                     let matchFound = false;
                     
                     if (isCertificateNumberSearch) {
-                        // Поиск по номеру сертификата (точное совпадение)
+                        // Поиск по номеру сертификата
                         if (certNumber && isExactNameMatch(searchVariants, certNumber.toLowerCase(), 'certificate')) {
                             matchFound = true;
                         }
                     } else {
-                        // Поиск по имени (точное совпадение или совпадение всех слов)
-                        if (participantName && isExactNameMatch(searchVariants, participantName.toLowerCase(), 'name')) {
-                            matchFound = true;
+                        // Поиск по имени
+                        if (participantName) {
+                            const participantNameLower = participantName.toLowerCase();
+                            
+                            // Проверяем разные варианты
+                            for (const searchVariant of searchVariants) {
+                                // Простая проверка на вхождение (частичное совпадение)
+                                if (participantNameLower.includes(searchVariant)) {
+                                    matchFound = true;
+                                    console.log(`Найдено частичное совпадение: "${searchVariant}" в "${participantNameLower}"`);
+                                    break;
+                                }
+                                
+                                // Проверяем через улучшенную функцию isExactNameMatch
+                                if (isExactNameMatch([searchVariant], participantNameLower, 'name')) {
+                                    matchFound = true;
+                                    break;
+                                }
+                                
+                                // Для многословных запросов проверяем, содержатся ли все слова поиска в имени
+                                const searchWords = searchVariant.split(/\s+/);
+                                let allWordsFound = true;
+                                
+                                for (const searchWord of searchWords) {
+                                    if (searchWord.length >= 2 && !participantNameLower.includes(searchWord)) {
+                                        allWordsFound = false;
+                                        break;
+                                    }
+                                }
+                                
+                                if (allWordsFound && searchWords.length > 0) {
+                                    matchFound = true;
+                                    console.log(`Все слова найдены: ${searchWords.join(', ')} в "${participantNameLower}"`);
+                                    break;
+                                }
+                            }
                         }
                     }
                     
-                    // Если найдено совпадение - добавляем запись
                     if (matchFound) {
                         const resultData = {
                             participant: participantName,
@@ -854,18 +1317,15 @@
                             conferenceDate: row[headerMap['data_conference'] !== undefined ? headerMap['data_conference'] : 
                                         headerMap['дата конференції'] !== undefined ? headerMap['дата конференції'] : 4] || 'Не вказано',
                             number: row[headerMap['number'] !== undefined ? headerMap['number'] : 
-                                    headerMap['номер'] !== undefined ? headerMap['номер'] : 0] || 'Не вказано',
-                            rowIndex: i
+                                    headerMap['номер'] !== undefined ? headerMap['номер'] : 0] || 'Не вказано'
                         };
                         
                         foundRows.push(resultData);
+                        console.log(`Найден сертификат: ${participantName}, №${certNumber}`);
                     }
                 }
 
                 loadingIndicator.style.display = 'none';
-
-                console.log('Found rows:', foundRows.length);
-                console.log('Found certificates:', foundRows);
 
                 if (foundRows.length > 0) {
                     return {
@@ -923,7 +1383,6 @@
                 
                 let certificatesHtml = `<div class="certificates-grid">`;
                 
-                // Сортируем по году (по убыванию)
                 certificates.sort((a, b) => {
                     const yearA = parseInt(a.year) || 0;
                     const yearB = parseInt(b.year) || 0;
@@ -1061,6 +1520,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             createDigitalRain();
             setupEventListeners();
+            
         });
     </script>
 </body>
