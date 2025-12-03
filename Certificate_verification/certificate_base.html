@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Стили остаются такими же как в предыдущем коде */
         :root {
             --cyber-green: #00FF00;
             --cyber-green-dark: #00CC00;
@@ -23,6 +24,7 @@
             --error-red: #FF3333;
             --error-red-dark: #CC0000;
             --info-blue: #00AAFF;
+            --warning-yellow: #FFAA00;
         }
 
         * {
@@ -78,12 +80,8 @@
         }
 
         @keyframes gradientFlow {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         .section-title {
@@ -108,25 +106,55 @@
         }
 
         @keyframes pulse {
-            0% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0.5;
-            }
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
 
-        .highlight {
-            color: var(--neon-green);
-            text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
-        }
+        .highlight { color: var(--neon-green); text-shadow: 0 0 8px rgba(0, 255, 0, 0.5); }
 
         .search-container {
             max-width: 700px;
             margin: 0 auto 2.5rem;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            background: rgba(0, 30, 0, 0.7);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: var(--text-primary);
+            padding: 0.7rem 1.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .lang-btn.active {
+            background: var(--neon-green);
+            color: var(--black);
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .lang-btn:hover:not(.active) {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            transform: translateY(-2px);
         }
 
         .search-box {
@@ -152,9 +180,7 @@
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
 
-        .search-input::placeholder {
-            color: var(--text-secondary);
-        }
+        .search-input::placeholder { color: var(--text-secondary); }
 
         .search-btn {
             padding: 0 2rem;
@@ -177,15 +203,29 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .search-btn:active {
-            transform: translateY(0);
-        }
+        .search-btn:active { transform: translateY(0); }
 
         .search-instructions {
             text-align: center;
             color: var(--text-secondary);
             margin-top: 1rem;
             font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .language-hint {
+            background: rgba(0, 50, 0, 0.3);
+            border-radius: 5px;
+            padding: 0.8rem;
+            margin-top: 1rem;
+            border-left: 3px solid var(--neon-green);
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .language-hint i {
+            color: var(--neon-green);
+            margin-right: 0.5rem;
         }
 
         .result-container {
@@ -195,14 +235,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .results-summary {
@@ -286,9 +320,7 @@
             border-bottom: 1px solid rgba(0, 255, 0, 0.2);
         }
 
-        .result-content {
-            margin-top: 0.5rem;
-        }
+        .result-content { margin-top: 0.5rem; }
 
         .result-item {
             display: flex;
@@ -322,6 +354,22 @@
 
         .error-message h3 {
             color: var(--error-red);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .warning-message {
+            background: rgba(255, 170, 0, 0.1);
+            border-left: 4px solid var(--warning-yellow);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: #ffd699;
+        }
+
+        .warning-message h3 {
+            color: var(--warning-yellow);
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -363,9 +411,7 @@
         }
 
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         .verification-note {
@@ -379,54 +425,26 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .certificate-verification {
-                padding: 2rem 1.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .search-box {
-                flex-direction: column;
-            }
-            .search-input,
-            .search-btn {
-                width: 100%;
-            }
-            .certificates-grid {
-                grid-template-columns: 1fr;
-            }
-            .result-label {
-                min-width: 120px;
-            }
+            .certificate-verification { padding: 2rem 1.5rem; }
+            .section-title { font-size: 2rem; }
+            .language-toggle { gap: 0.7rem; }
+            .lang-btn { padding: 0.6rem 1.2rem; min-width: 120px; font-size: 0.9rem; }
+            .search-box { flex-direction: column; }
+            .search-input, .search-btn { width: 100%; }
+            .certificates-grid { grid-template-columns: 1fr; }
+            .result-label { min-width: 120px; }
         }
 
         @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.7rem;
-            }
-            .search-input {
-                padding: 1rem;
-            }
-            .search-btn {
-                padding: 0.8rem;
-            }
-            .result-card {
-                padding: 1.2rem 1rem;
-            }
-            .result-item {
-                flex-direction: column;
-                gap: 0.3rem;
-            }
-            .result-label {
-                min-width: auto;
-            }
-            .certificate-index {
-                top: 0.8rem;
-                right: 0.8rem;
-                width: 25px;
-                height: 25px;
-                font-size: 0.8rem;
-            }
+            .section-title { font-size: 1.7rem; }
+            .language-toggle { flex-direction: column; align-items: center; }
+            .lang-btn { width: 100%; max-width: 250px; }
+            .search-input { padding: 1rem; }
+            .search-btn { padding: 0.8rem; }
+            .result-card { padding: 1.2rem 1rem; }
+            .result-item { flex-direction: column; gap: 0.3rem; }
+            .result-label { min-width: auto; }
+            .certificate-index { top: 0.8rem; right: 0.8rem; width: 25px; height: 25px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -439,14 +457,33 @@
             <h2 class="section-title">Перевірка <span class="highlight">Сертифікатів</span></h2>
 
             <div class="search-container">
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="all" id="langAll">
+                        <i class="fas fa-globe"></i> Всі мови
+                    </button>
+                    <button class="lang-btn" data-lang="uk" id="langUk">
+                        <i class="fas fa-language"></i> Українська
+                    </button>
+                    <button class="lang-btn" data-lang="en" id="langEn">
+                        <i class="fas fa-language"></i> English
+                    </button>
+                </div>
+                
                 <div class="search-box">
                     <input type="text" class="search-input" id="searchQuery" placeholder="Введіть ПІБ учасника або номер сертифікату..." autocomplete="off">
                     <button class="search-btn" id="searchButton">
                         <i class="fas fa-search"></i> Перевірити
                     </button>
                 </div>
+                
+                <div class="language-hint" id="languageHint">
+                    <i class="fas fa-info-circle"></i> 
+                    <span id="hintText">У режимі "Всі мови" система шукатиме українські та англійські варіанти імен.</span>
+                </div>
+                
                 <p class="search-instructions">
-                    Введіть прізвище на англійскій або українській мові, або повне ім'я учасника (наприклад, "Іванов Іван Іванович"), або номер сертифікату для перевірки його дійсності.
+                    Введіть повне ім'я учасника або номер сертифікату для перевірки його дійсності.
+                    <br>У режимі "Всі мови" система автоматично шукатиме українські та англійські варіанти.
                 </p>
             </div>
 
@@ -460,7 +497,7 @@
             </div>
 
             <div class="verification-note">
-                <p>Ця сторінка перевіряє сертифікати конференції SCIFiC з офіційної бази.
+                <p>Ця сторінка перевіряє сертифікати конференції SCIFiC з офіційної Google Таблиці.
                     Дані оновлюються щодня. Для додаткових питань звертайтеся за адресою:
                     <a href="mailto:scific@csn.khai.edu" style="color: var(--neon-green);">scific@csn.khai.edu</a>
                 </p>
@@ -474,17 +511,34 @@
         const API_KEY = 'AIzaSyBIbE5q15SNU3QxC4kQWuxlPQTSSe9xs9g';
         const SHEET_NAME = 'Лист1';
         
+        // Официальная украинская транслитерация
+        const officialTransliterationMap = {
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'h', 'ґ': 'g', 'д': 'd',
+            'е': 'e', 'є': 'ie', 'ж': 'zh', 'з': 'z', 'и': 'y', 'і': 'i',
+            'ї': 'i', 'й': 'i', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+            'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+            'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch',
+            'ь': '', 'ю': 'iu', 'я': 'ia',
+            'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'H', 'Ґ': 'G', 'Д': 'D',
+            'Е': 'E', 'Є': 'Ye', 'Ж': 'Zh', 'З': 'Z', 'И': 'Y', 'І': 'I',
+            'Ї': 'Yi', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
+            'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U',
+            'Ф': 'F', 'Х': 'Kh', 'Ц': 'Ts', 'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Shch',
+            'Ь': '', 'Ю': 'Yu', 'Я': 'Ya',
+            'зг': 'zgh', 'Зг': 'Zgh', 'ЗГ': 'ZGH'
+        };
+
         // Digital Rain Effect
         function createDigitalRain() {
             const digitalRain = document.querySelector('.digital-rain');
+            if (!digitalRain) return;
+
             const width = window.innerWidth;
             const height = window.innerHeight;
             const fontSize = 16;
             const columns = Math.floor(width / fontSize);
             const characters = "01";
             let drops = [];
-
-            if (!digitalRain) return;
 
             digitalRain.innerHTML = '';
 
@@ -519,7 +573,132 @@
             setInterval(draw, 100);
         }
 
-        // Function to fetch data from Google Sheets
+        // Функция для определения языка текста
+        function detectLanguage(text) {
+            const cyrillicPattern = /[\u0400-\u04FF\u0500-\u052F]/;
+            const latinPattern = /[A-Za-z]/;
+            
+            const hasCyrillic = cyrillicPattern.test(text);
+            const hasLatin = latinPattern.test(text);
+            
+            if (hasCyrillic && !hasLatin) return 'uk';
+            if (hasLatin && !hasCyrillic) return 'en';
+            if (hasCyrillic && hasLatin) return 'mixed';
+            return 'unknown';
+        }
+
+        // Транслитерация украинского текста
+        function transliterateUkrainian(text) {
+            if (!text || text.length === 0) return '';
+            
+            let result = '';
+            let i = 0;
+            
+            while (i < text.length) {
+                let currentChar = text[i];
+                let nextChar = i < text.length - 1 ? text[i + 1] : '';
+                let twoChars = currentChar + nextChar;
+                
+                // Сначала проверяем специальные комбинации (зг)
+                if (i < text.length - 1 && twoChars.toLowerCase() === 'зг') {
+                    if (twoChars === 'зг') result += 'zgh';
+                    else if (twoChars === 'Зг') result += 'Zgh';
+                    else if (twoChars === 'ЗГ') result += 'ZGH';
+                    i += 2;
+                    continue;
+                }
+                
+                // Обычная транслитерация
+                if (officialTransliterationMap[currentChar]) {
+                    result += officialTransliterationMap[currentChar];
+                } else {
+                    result += currentChar;
+                }
+                
+                i++;
+            }
+            
+            return result;
+        }
+
+        // Обратная транслитерация
+        function reverseTransliterate(text) {
+            if (!text || text.length === 0) return '';
+            
+            let result = text.toLowerCase();
+            
+            const reverseMap = {
+                'zgh': 'зг', 'zh': 'ж', 'kh': 'х', 'ts': 'ц', 'ch': 'ч', 
+                'sh': 'ш', 'shch': 'щ', 'ye': 'є', 'yi': 'ї', 'yu': 'ю', 
+                'ya': 'я', 'iu': 'ю', 'ia': 'я', 'ie': 'є', 'i': 'і', 
+                'y': 'и'
+            };
+            
+            for (const [key, value] of Object.entries(reverseMap)) {
+                const regex = new RegExp(key, 'gi');
+                result = result.replace(regex, match => {
+                    if (match[0] === match[0].toUpperCase()) {
+                        return value.charAt(0).toUpperCase() + value.slice(1);
+                    }
+                    return value;
+                });
+            }
+            
+            const singleLetters = {
+                'a': 'а', 'b': 'б', 'v': 'в', 'h': 'г', 'g': 'ґ', 
+                'd': 'д', 'e': 'е', 'z': 'з', 'k': 'к', 'l': 'л',
+                'm': 'м', 'n': 'н', 'o': 'о', 'p': 'п', 'r': 'р',
+                's': 'с', 't': 'т', 'u': 'у', 'f': 'ф'
+            };
+            
+            for (const [key, value] of Object.entries(singleLetters)) {
+                const regex = new RegExp(key, 'g');
+                result = result.replace(regex, value);
+            }
+            
+            return result;
+        }
+
+        // Создание вариантов для поиска
+        function createSearchVariants(query, languageMode) {
+            const normalizedQuery = query.toLowerCase().trim();
+            const variants = new Set([normalizedQuery]);
+            const inputLanguage = detectLanguage(query);
+            
+            if (languageMode === 'all') {
+                if (inputLanguage === 'uk' || inputLanguage === 'mixed') {
+                    const transliterated = transliterateUkrainian(normalizedQuery).toLowerCase();
+                    if (transliterated && transliterated !== normalizedQuery) {
+                        variants.add(transliterated);
+                    }
+                }
+                
+                if (inputLanguage === 'en' || inputLanguage === 'mixed') {
+                    const reverse = reverseTransliterate(normalizedQuery);
+                    if (reverse && reverse !== normalizedQuery) {
+                        variants.add(reverse);
+                    }
+                }
+            } else if (languageMode === 'uk') {
+                if (inputLanguage === 'en' || inputLanguage === 'mixed') {
+                    const reverse = reverseTransliterate(normalizedQuery);
+                    if (reverse && reverse !== normalizedQuery) {
+                        variants.add(reverse);
+                    }
+                }
+            } else if (languageMode === 'en') {
+                if (inputLanguage === 'uk' || inputLanguage === 'mixed') {
+                    const transliterated = transliterateUkrainian(normalizedQuery).toLowerCase();
+                    if (transliterated && transliterated !== normalizedQuery) {
+                        variants.add(transliterated);
+                    }
+                }
+            }
+            
+            return Array.from(variants);
+        }
+
+        // Получение данных из Google Sheets
         async function fetchSheetData() {
             const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
             
@@ -536,98 +715,177 @@
             }
         }
 
-        // Function to search certificate in Google Sheets
-        async function searchCertificate(query) {
+        // Функция для точного сравнения имен с учетом транслитерации
+        function isExactNameMatch(queryVariants, participantName, searchType = 'name') {
+            const normalizedParticipantName = participantName.toLowerCase().trim();
+            
+            for (const searchVariant of queryVariants) {
+                // Для поиска по ФИО: проверяем точное совпадение
+                if (searchType === 'name') {
+                    // Точное совпадение строк
+                    if (normalizedParticipantName === searchVariant) {
+                        return true;
+                    }
+                    
+                    // Для многословных запросов: проверяем, что все слова из запроса присутствуют в имени
+                    const searchWords = searchVariant.split(/\s+/);
+                    const nameWords = normalizedParticipantName.split(/\s+/);
+                    
+                    let allWordsFound = true;
+                    for (const searchWord of searchWords) {
+                        let wordFound = false;
+                        for (const nameWord of nameWords) {
+                            if (nameWord === searchWord) {
+                                wordFound = true;
+                                break;
+                            }
+                        }
+                        if (!wordFound) {
+                            allWordsFound = false;
+                            break;
+                        }
+                    }
+                    
+                    if (allWordsFound && searchWords.length > 0) {
+                        return true;
+                    }
+                }
+                // Для поиска по номеру сертификата: точное совпадение
+                else if (searchType === 'certificate') {
+                    if (normalizedParticipantName === searchVariant) {
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
+        }
+
+        // Поиск сертификатов - ИСПРАВЛЕННАЯ ВЕРСИЯ (точный поиск)
+        async function searchCertificate(query, languageMode) {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const resultContainer = document.getElementById('resultContainer');
+            const inputLanguage = detectLanguage(query);
 
-            // Show loading indicator
+            // Проверка соответствия языка
+            if (languageMode === 'uk' && inputLanguage === 'en') {
+                return {
+                    found: false,
+                    isLanguageError: true,
+                    message: "❌ Помилка: Вибрано українську мову, але введено англійський текст." +
+                           "<br>Будь ласка, введіть ПІБ українською мовою (наприклад, 'Землянко Георгій')."
+                };
+            }
+            
+            if (languageMode === 'en' && inputLanguage === 'uk') {
+                return {
+                    found: false,
+                    isLanguageError: true,
+                    message: "❌ Error: English language selected, but Ukrainian text entered." +
+                           "<br>Please enter the name in English (e.g., 'Zemlianko Heorhiy')."
+                };
+            }
+
             loadingIndicator.style.display = 'block';
             resultContainer.style.display = 'none';
 
             try {
-                // Fetch data from Google Sheets
                 const sheetData = await fetchSheetData();
                 
                 if (!sheetData || sheetData.length === 0) {
+                    loadingIndicator.style.display = 'none';
                     return {
                         found: false,
                         message: "Не вдалося завантажити дані з таблиці. Спробуйте пізніше."
                     };
                 }
 
-                // Get headers (first row)
                 const headers = sheetData[0].map(header => header.trim());
-                
-                // Map headers to column indices
                 const headerMap = {};
                 headers.forEach((header, index) => {
                     headerMap[header.toLowerCase()] = index;
                 });
 
-                // Normalize query for case-insensitive search
-                const normalizedQuery = query.toLowerCase().trim();
-
-                // Search through data rows (skip header row)
+                // Варианты для поиска
+                const searchVariants = createSearchVariants(query, languageMode);
+                
                 let foundRows = [];
+                
+                console.log('Search variants:', searchVariants);
+                console.log('Total rows in sheet:', sheetData.length - 1);
+                
+                // Определяем, ищем ли мы по номеру сертификата (если запрос похож на номер)
+                const isCertificateNumberSearch = /^SCIFiC-/.test(query) || /^\d+$/.test(query);
                 
                 for (let i = 1; i < sheetData.length; i++) {
                     const row = sheetData[i];
                     
-                    // Check Participation column (assuming it contains ФИО)
+                    // Индексы колонок
                     const participationIndex = headerMap['participation'] !== undefined ? headerMap['participation'] : 
-                                               headerMap['учасник'] !== undefined ? headerMap['учасник'] : 1;
+                                             headerMap['учасник'] !== undefined ? headerMap['учасник'] : 1;
                     
-                    // Check Number_certificate column
                     const certNumberIndex = headerMap['number_certificate'] !== undefined ? headerMap['number_certificate'] : 
                                            headerMap['номер сертифікату'] !== undefined ? headerMap['номер сертифікату'] : 3;
                     
-                    const participantName = row[participationIndex] ? row[participationIndex].toString().toLowerCase().trim() : '';
-                    const certNumber = row[certNumberIndex] ? row[certNumberIndex].toString().toLowerCase().trim() : '';
+                    const participantName = row[participationIndex] ? row[participationIndex].toString().trim() : '';
+                    const certNumber = row[certNumberIndex] ? row[certNumberIndex].toString().trim() : '';
                     
-                    // Search by participant name or certificate number
-                    if (participantName.includes(normalizedQuery) || 
-                        certNumber === normalizedQuery ||
-                        certNumber.includes(normalizedQuery) ||
-                        participantName === normalizedQuery) {
-                        
-                        // Extract data based on column indices
+                    let matchFound = false;
+                    
+                    if (isCertificateNumberSearch) {
+                        // Поиск по номеру сертификата (точное совпадение)
+                        if (certNumber && isExactNameMatch(searchVariants, certNumber.toLowerCase(), 'certificate')) {
+                            matchFound = true;
+                        }
+                    } else {
+                        // Поиск по имени (точное совпадение или совпадение всех слов)
+                        if (participantName && isExactNameMatch(searchVariants, participantName.toLowerCase(), 'name')) {
+                            matchFound = true;
+                        }
+                    }
+                    
+                    // Если найдено совпадение - добавляем запись
+                    if (matchFound) {
                         const resultData = {
-                            participant: row[headerMap['participation'] !== undefined ? headerMap['participation'] : 
-                                         headerMap['учасник'] !== undefined ? headerMap['учасник'] : 1] || 'Не вказано',
+                            participant: participantName,
                             year: row[headerMap['year'] !== undefined ? headerMap['year'] : 
                                   headerMap['рік'] !== undefined ? headerMap['рік'] : 2] || 'Не вказано',
-                            certificateNumber: row[headerMap['number_certificate'] !== undefined ? headerMap['number_certificate'] : 
-                                          headerMap['номер сертифікату'] !== undefined ? headerMap['номер сертифікату'] : 3] || 'Не вказано',
+                            certificateNumber: certNumber,
                             conferenceDate: row[headerMap['data_conference'] !== undefined ? headerMap['data_conference'] : 
                                         headerMap['дата конференції'] !== undefined ? headerMap['дата конференції'] : 4] || 'Не вказано',
                             number: row[headerMap['number'] !== undefined ? headerMap['number'] : 
-                                    headerMap['номер'] !== undefined ? headerMap['номер'] : 0] || 'Не вказано'
+                                    headerMap['номер'] !== undefined ? headerMap['номер'] : 0] || 'Не вказано',
+                            rowIndex: i
                         };
                         
                         foundRows.push(resultData);
                     }
                 }
 
-                // Hide loading indicator
                 loadingIndicator.style.display = 'none';
+
+                console.log('Found rows:', foundRows.length);
+                console.log('Found certificates:', foundRows);
 
                 if (foundRows.length > 0) {
                     return {
                         found: true,
                         data: foundRows,
-                        count: foundRows.length
+                        count: foundRows.length,
+                        query: query,
+                        languageMode: languageMode,
+                        searchVariants: searchVariants
                     };
                 } else {
                     return {
                         found: false,
-                        message: "Сертифікат не знайдено в базі даних. Переконайтеся, що ви правильно ввели ПІБ або номер сертифікату."
+                        message: "Сертифікат не знайдено в базі даних. Переконайтеся, що ви правильно ввели ПІБ або номер сертифікату." +
+                               (searchVariants.length > 1 ? 
+                                `<br><br>Система шукала такі варіанти: ${searchVariants.map(v => `"${v}"`).join(', ')}` : '')
                     };
                 }
             } catch (error) {
-                // Hide loading indicator
                 loadingIndicator.style.display = 'none';
-                
                 console.error('Search error:', error);
                 
                 return {
@@ -637,7 +895,7 @@
             }
         }
 
-        // Function to display search result
+        // Отображение результатов
         function displayResult(result) {
             const resultContainer = document.getElementById('resultContainer');
             resultContainer.innerHTML = '';
@@ -646,23 +904,39 @@
                 const certificates = result.data;
                 const count = result.count;
                 
-                // Create summary section
+                let languageInfo = '';
+                if (result.languageMode !== 'all') {
+                    languageInfo = result.languageMode === 'uk' ? 
+                        ' (пошук українською мовою)' : 
+                        ' (пошук англійською мовою)';
+                }
+                
                 const summaryHtml = `
                     <div class="results-summary">
-                        <h3><i class="fas fa-search"></i> Результати пошуку</h3>
-                        <p>Знайдено <strong>${count}</strong> сертифікат(ів) для запиту</p>
-                        <p><i class="fas fa-info-circle"></i> ${count > 1 ? 'Учасник має кілька сертифікатів у базі даних' : 'Сертифікат знайдено у базі даних'}</p>
+                        <h3><i class="fas fa-search"></i> Результати пошуку${languageInfo}</h3>
+                        <p>За запитом "<strong>${result.query}</strong>" знайдено <strong>${count}</strong> сертифікат(ів)</p>
+                        ${result.searchVariants && result.searchVariants.length > 1 ? 
+                         `<p><i class="fas fa-info-circle"></i> Використані варіанти пошуку: ${result.searchVariants.slice(1).map(v => `"${v}"`).join(', ')}</p>` : ''}
+                        <p><i class="fas fa-certificate"></i> ${count > 1 ? 'Знайдено всі сертифікати учасника' : 'Сертифікат знайдено у базі даних'}</p>
                     </div>
                 `;
                 
-                // Create grid for certificates
                 let certificatesHtml = `<div class="certificates-grid">`;
+                
+                // Сортируем по году (по убыванию)
+                certificates.sort((a, b) => {
+                    const yearA = parseInt(a.year) || 0;
+                    const yearB = parseInt(b.year) || 0;
+                    return yearB - yearA;
+                });
                 
                 certificates.forEach((cert, index) => {
                     certificatesHtml += `
                         <div class="result-card">
                             <div class="certificate-index">${index + 1}</div>
-                            <h3 class="result-title"><i class="fas fa-certificate"></i> Сертифікат дійсний</h3>
+                            <h3 class="result-title">
+                                <i class="fas fa-certificate"></i> Сертифікат дійсний
+                            </h3>
                             
                             <div class="result-content">
                                 <div class="result-item">
@@ -691,16 +965,31 @@
                 });
                 
                 certificatesHtml += `</div>`;
-                
                 resultContainer.innerHTML = summaryHtml + certificatesHtml;
                 
+            } else if (result.isLanguageError) {
+                resultContainer.innerHTML = `
+                    <div class="warning-message">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Неправильна мова вводу</h3>
+                        <p>${result.message}</p>
+                        <p style="margin-top: 10px; font-size: 0.9em;">
+                            <i class="fas fa-lightbulb"></i> Спробуйте змінити мову пошуку або ввести текст відповідної мови.
+                        </p>
+                    </div>
+                `;
             } else {
                 resultContainer.innerHTML = `
                     <div class="error-message">
                         <h3><i class="fas fa-exclamation-circle"></i> Сертифікат не знайдено</h3>
                         <p>${result.message}</p>
                         <p style="margin-top: 10px; font-size: 0.9em;">
-                            <i class="fas fa-lightbulb"></i> Порада: Спробуйте ввести повне ПІБ або точний номер сертифікату.
+                            <i class="fas fa-lightbulb"></i> Поради:
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>Введіть повне ПІБ учасника (наприклад, "Землянко Георгій Андрійович")</li>
+                                <li>Для пошуку по номеру сертифіката введіть точний номер (наприклад, "SCIFiC-2025-001")</li>
+                                <li>Переконайтеся, що немає зайвих пробілів на початку або в кінці</li>
+                                <li>Спробуйте змінити мову пошуку, якщо потрібно</li>
+                            </ul>
                         </p>
                     </div>
                 `;
@@ -709,36 +998,66 @@
             resultContainer.style.display = 'block';
         }
 
-        // Setup event listeners
+        // Инициализация страницы
         function setupEventListeners() {
             const searchButton = document.getElementById('searchButton');
             const searchInput = document.getElementById('searchQuery');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const languageHint = document.getElementById('languageHint');
+            const hintText = document.getElementById('hintText');
+            
+            let currentLanguage = 'all';
+
+            langButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    currentLanguage = button.dataset.lang;
+                    
+                    languageHint.style.display = 'block';
+                    
+                    switch(currentLanguage) {
+                        case 'all':
+                            hintText.innerHTML = '<strong>Всі мови:</strong> Система автоматично шукатиме українські та англійські варіанти. Можна вводити текст будь-якою мовою.';
+                            searchInput.placeholder = 'Введіть ПІБ учасника або номер сертифікату...';
+                            break;
+                        case 'uk':
+                            hintText.innerHTML = '<strong>Українська мова:</strong> Вводьте текст лише українською мовою. Система не прийматиме англійський текст.';
+                            searchInput.placeholder = 'Введіть ПІБ учасника українською...';
+                            break;
+                        case 'en':
+                            hintText.innerHTML = '<strong>English language:</strong> Enter text only in English. The system will not accept Ukrainian text.';
+                            searchInput.placeholder = 'Enter participant name in English...';
+                            break;
+                    }
+                });
+            });
 
             searchButton.addEventListener('click', async () => {
                 const query = searchInput.value.trim();
                 if (query) {
-                    const result = await searchCertificate(query);
+                    const result = await searchCertificate(query, currentLanguage);
                     displayResult(result);
                 } else {
                     alert('Будь ласка, введіть ПІБ або номер сертифікату для пошуку.');
                 }
             });
 
-            // Allow search on Enter key
             searchInput.addEventListener('keypress', async (e) => {
                 if (e.key === 'Enter') {
                     const query = searchInput.value.trim();
                     if (query) {
-                        const result = await searchCertificate(query);
+                        const result = await searchCertificate(query, currentLanguage);
                         displayResult(result);
                     } else {
                         alert('Будь ласка, введіть ПІБ або номер сертифікату для пошуку.');
                     }
                 }
             });
+
+            document.querySelector('.lang-btn[data-lang="all"]').click();
         }
 
-        // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             createDigitalRain();
             setupEventListeners();
