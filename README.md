@@ -1,182 +1,117 @@
-# SCIFiC — International Student Conference on Cybersecurity
+# SCIFiC – International Student Conference on Cybersecurity
 
-![SCIFiC Banner](./4zx5d0amk2.png)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen)](https://scific-conference.github.io/SCIFIC-conference/)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-Welcome to the official repository of the **5th International Student Conference on Cybersecurity (SCIFiC)**, held at the Department of Computer Systems, Networks and Cybersecurity, National Aerospace University "KhAI", Kharkiv, Ukraine.
+**SCIFiC** (Student Conference on Information, Functional and Cyber Security) is an annual international online conference organised by the **National Aerospace University "Kharkiv Aviation Institute" (KhAI)**. The event brings together students, young researchers, and professionals to share knowledge and innovations in cybersecurity, functional safety, and legal aspects of information protection.
 
----
-
-## 🌐 [Visit the Conference Website](https://scific-conference.github.io/SCIFIC-conference/)
-
----
-
-## 🚀 About the Conference
-
-SCIFiC is an annual international student conference dedicated to cybersecurity, information security, functional safety, and legal aspects of cyber protection. The event brings together students, young researchers, and professionals to share knowledge, present research, and discuss the latest trends in cybersecurity.
-
-- **Dates:** November 27–28, 2025
-- **Location:** NAU "KhAI", Kharkiv, Ukraine (Online)
-- **Languages:** English, Ukrainian
-- **Participation:** Free (printed proceedings available for a fee)
+This repository contains the complete source code of the official SCIFiC conference website – a modern, responsive, bilingual (English / Ukrainian) static site hosted on **GitHub Pages**.
 
 ---
 
-## 🖥️ Features
+## 🌐 Live Website
 
-- **Modern cyberpunk design** with digital rain and glitch effects
-- **Multilingual support** (EN/UA) — instant language switcher
-- **Responsive layout** for desktop and mobile
-- **Dynamic schedule and sections** with direct Google Meet links
-- **Archive of previous years’ proceedings**
-- **FAQ and contact forms**
-- **Animated loading screen and countdown timer**
-- **Easy navigation and accessibility**
+[https://scific-conference.github.io/SCIFIC-conference/](https://scific-conference.github.io/SCIFIC-conference/)
 
 ---
 
-## 📂 Project Structure
+## 📁 Repository Structure
 
 ```
-/
-├── index.html         # Main HTML file (see код.docx)
-├── styles.css         # Main stylesheet
-├── script.js          # Main JavaScript (included in index.html)
-├── images/            # Conference and section images, icons, logos
-├── image_archive/     # Archive covers for previous years
-├── 4zx5d0amk2.ico     # Favicon
-├── README.md          # This file
-└── ...                # Other assets (see repo)
+SCIFIC-conference/
+├── en/                          # English version
+│   ├── index.html
+│   ├── materials.html
+│   ├── schedule.html
+│   ├── sections.html
+│   ├── archive.html
+│   ├── contacts.html
+│   └── certificate-verification.html
+├── uk/                          # Ukrainian version (identical structure)
+│   └── ...
+├── assets/
+│   ├── css/
+│   │   └── styles.css           # main stylesheet (cyberpunk theme)
+│   ├── js/
+│   │   └── script.js            # common JS (digital rain, mobile menu, countdown, FAQ)
+│   └── images/                  # all images, logos, and archive thumbnails
+│       ├── image_archive/       # proceedings covers (2021–2025)
+│       └── ...
+├── sitemap.xml                  # SEO sitemap for both languages
+├── robots.txt                   # crawl instructions
+└── README.md                    # this file
 ```
 
 ---
 
-## 🛠️ Getting Started
+## ✨ Features
 
-### 1. **Clone the repository**
+- **Bilingual support** – seamless switching between English and Ukrainian.
+- **Fully responsive** – works on desktops, tablets, and smartphones.
+- **Cyberpunk visual theme** – neon glitches, digital rain, lock‑loading animation.
+- **Interactive elements**:
+  - Countdown timer to the next conference.
+  - Live FAQ accordion.
+  - Certificate verification tool (Google Sheets API integration).
+  - Mobile‑friendly hamburger menu.
+- **SEO / GEO ready**:
+  - Unique meta tags and Open Graph / Twitter Card data for each page.
+  - Structured data (JSON‑LD) – Event, FAQPage, Schedule, CollectionPage, ContactPage.
+  - `sitemap.xml` and `robots.txt` included.
+- **No external dependencies** – pure HTML/CSS/JS, easily deployable on any static hosting.
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5 / CSS3 (Flexbox, Grid, CSS animations)
+- JavaScript (ES6+)
+- [Google Fonts](https://fonts.google.com/) (Orbitron, Rajdhani)
+- [IonIcons](https://ionic.io/ionicons) for vector icons
+- Google Sheets API (for certificate verification)
+- GitHub Pages (hosting)
+
+---
+
+## 🚀 Local Development
+
+To run the site locally:
 
 ```bash
 git clone https://github.com/scific-conference/SCIFIC-conference.git
 cd SCIFIC-conference
 ```
 
-### 2. **Open locally**
+Then open any `.html` file (e.g., `en/index.html`) in your browser.  
+For a better experience, use a local static server:
 
-Just open `index.html` in your browser. All styles and scripts are included or loaded via CDN.
-
-### 3. **Deploy to GitHub Pages**
-
-1. Push your changes to the `main` branch.
-2. In your repository settings, enable GitHub Pages and set the source to the `main` branch.
-3. Your site will be available at `https://<your-username>.github.io/SCIFIC-conference/`.
-
----
-
-## 📝 Conference Sections
-
-- **Plenary Session**
-- **Section 1:** Information and Cybersecurity
-- **Section 2:** Functional Safety
-- **Section 3:** Legal Provision of Cybersecurity
-
-Each section has its own Google Meet link and calendar integration.
+```bash
+npx serve .
+# or
+python3 -m http.server
+```
 
 ---
 
-## 📅 Schedule Example
+## 📄 License
 
-| Tasks                                      | First day         | Second day        |
-|---------------------------------------------|-------------------|-------------------|
-| Registration and connection verification    | 02:45 – 03:00 pm  | 09:45 – 10:00 am  |
-| Plenary session                            | 03:00 – 04:00 pm  | 10:00 – 10:55 am  |
-| Coffee-break                               | 04:00 - 04:05 pm  | 10:55 – 11:00 am  |
-| Work of the sections                       | 04:05 - 05:15 pm  | 11:00 am – 12:20 pm |
-| ...                                        | ...               | ...               |
+This project is open‑source and available under the **MIT License**.  
+You are free to use, modify, and distribute the code with proper attribution.
 
 ---
 
-## 📚 Archive
+## 👥 Authors & Contact
 
-Access proceedings and materials from previous years (2021–2024) via Google Drive, ResearchGate, and KhAI Library.  
-See the **Archive** section on the website for direct links.
-
----
-
-## 📝 How to Participate
-
-- **Register:** [Google Form](https://forms.gle/SqmMuFce2XWfuNxp8)
-- **Submit Abstracts:** Upload `.doc` or `.docx` files named as `SURNAME-Group-Section-Title.docx`
-- **Templates:** [EN Template](https://drive.google.com/drive/folders/1ktg8FOQ__DUgoMT-h3jEWuMpgGRrn9pF) | [UA Template](https://drive.google.com/drive/folders/17EnEdAhusTHWuP9lOsJ9Oq4YfdM-K1Mj)
-- **Deadline:** November 15, 2025
-
----
-
-## ❓ FAQ
-
-- **Format:** Online (Google Meet)
-- **Languages:** Ukrainian, English
-- **Certificates:** All participants receive e-certificates
-- **ISBN:** Proceedings are published with ISBN
-- **Participation:** Free (printed version available for a fee)
-
-See the FAQ section on the website for more details.
-
----
-
-## 👥 Contacts
-
-**Organizing Committee:**  
-- Prof. Volodymir Pevnev (Chair)  
-- Prof. Vyacheslav Kharchenko (Program Committee)  
-- Dr. Heorhii Zemlianko (Technical Support)  
-- Email: [scific@csn.khai.edu](mailto:scific@csn.khai.edu)  
-- Address: National Aerospace University "KhAI", vul. Vadyma Manka 17, Kharkiv, Ukraine
-
----
-
-## 🤝 Partners
-
-- National Aerospace University "KhAI"
-- [Department of Computer Systems, Networks and Cybersecurity](https://education.khai.edu/department/503)
-- [IEEE](https://www.ieee.org)
-- [Microsoft](https://www.microsoft.com)
-- [Cisco](https://www.cisco.com)
-
-
----
-
-## 💡 Special webpage
-- [Program Conference 2025 SCIFiK](https://scific-conference.github.io/SCIFIC-conference/plan_conference/planconference.html)
-
----
-
-## 💡 Contributing
-
-Pull requests are welcome!  
-If you want to improve the site, add new features, or fix bugs, please fork the repository and submit a PR.
-
----
-
-## 📜 License
-
-This project is open-source and available under the MIT License.
+- **Heorhii Zemlianko** – [GitHub](https://github.com/HeorhiiZemlianko)
+- Organising Committee: [scific@csn.khai.edu](mailto:scific@csn.khai.edu)
 
 ---
 
 ## 🙏 Acknowledgements
 
-Developed and maintained by [Heorhii Zemlianko](https://github.com/HeorhiiZemlianko).  
-Special thanks to all contributors and the SCIFiC community!
+- National Aerospace University "KhAI" – for continuous support.
+- All past and future participants, reviewers, and partners of SCIFiC.
 
 ---
 
-> _"Cyberthreats evolve — we learn faster. Share expertise at our conference!"_
-
----
-
-**[⬆ Back to top](#scific--international-student-conference-on-cybersecurity)**
-
----
-
-> _For more details, visit the [official website](https://scific-conference.github.io/SCIFIC-conference/) or contact the organizing committee._
-
----
+*Made with 💚 for the global cybersecurity community.*
