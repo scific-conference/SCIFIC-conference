@@ -2003,38 +2003,6 @@
     </footer>
 
     <script>
-        // Digital Rain Effect
-        function createDigitalRain() {
-            const digitalRain = document.getElementById('digitalRain');
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            const fontSize = 16;
-            const columns = Math.floor(width / fontSize);
-            const characters = "01";
-            let drops = [];
-
-            for (let i = 0; i < columns; i++) {
-                drops[i] = Math.floor(Math.random() * -100);
-            }
-
-            function draw() {
-                digitalRain.innerHTML = '';
-                for (let i = 0; i < drops.length; i++) {
-                    const charSpan = document.createElement('span');
-                    charSpan.innerHTML = characters[Math.floor(Math.random() * characters.length)];
-                    charSpan.style.left = i * fontSize + 'px';
-                    charSpan.style.top = (drops[i] * fontSize) + 'px';
-                    charSpan.style.fontSize = fontSize + 'px';
-                    digitalRain.appendChild(charSpan);
-                    drops[i]++;
-                    if (drops[i] * fontSize > height && Math.random() > 0.95) {
-                        drops[i] = Math.floor(Math.random() * -100);
-                    }
-                }
-            }
-
-            setInterval(draw, 100);
-        }
 
         // Track Tabs
         function setupTrackTabs() {
