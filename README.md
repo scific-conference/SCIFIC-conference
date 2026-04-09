@@ -11,7 +11,7 @@ This repository contains the complete source code of the official SCIFiC confere
 
 ## 🌐 Live Website
 
-[https://scific-conference.github.io/SCIFIC-conference/](https://scific-conference.github.io/SCIFIC-conference/)
+[[https://scific-conference.github.io/SCIFIC-conference/en/](https://scific-conference.github.io/SCIFIC-conference/en/)]
 
 ---
 
