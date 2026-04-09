@@ -1,308 +1,662 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Програма конференції | SCIFiC</title>
-    <meta name="description" content="Детальна програма Міжнародної студентської конференції з кібербезпеки SCIFiC 2026. Розклад пленарних засідань, секцій, доповідей. 27-28 листопада, онлайн.">
-    <meta name="keywords" content="програма конференції, SCIFiC, розклад, секції, кібербезпека">
+    <title>SCIFiC 2026 – Conference Program</title>
+    <meta name="description"
+        content="Full program of SCIFiC 2026: detailed schedule for 3 sections over 2 days. Times, speakers, and presentation titles.">
     <link rel="icon" href="../assets/images/4zx5d0amk2.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- Open Graph / Twitter Card -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Програма конференції | SCIFiC">
-    <meta property="og:description" content="Детальна програма SCIFiC: пленарні засідання, секції, доповіді. 27-28 листопада онлайн.">
-    <meta property="og:image" content="https://scific-conference.github.io/SCIFIC-conference/assets/images/4zx5d0amk2.png">
-    <meta property="og:url" content="https://scific-conference.github.io/SCIFIC-conference/planconference/planconference.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Програма конференції | SCIFiC">
-    <meta name="twitter:description" content="Детальна програма SCIFiC: пленарні засідання, секції, доповіді. 27-28 листопада онлайн.">
-    <!-- Structured Data for Schedule -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Schedule",
-      "name": "SCIFiC Conference Schedule",
-      "description": "Two‑day schedule of the cybersecurity conference with parallel sections",
-      "byMonth": "November",
-      "scheduledEvent": [
-        {"@type": "Event", "name": "Plenary session (Day 1)", "startDate": "2026-11-27T15:00+02:00", "endDate": "2026-11-27T15:55+02:00"},
-        {"@type": "Event", "name": "Section work (Day 1)", "startDate": "2026-11-27T16:00+02:00", "endDate": "2026-11-27T18:30+02:00"},
-        {"@type": "Event", "name": "Plenary session (Day 2)", "startDate": "2026-11-28T15:00+02:00", "endDate": "2026-11-28T15:50+02:00"},
-        {"@type": "Event", "name": "Section work (Day 2)", "startDate": "2026-11-28T15:55+02:00", "endDate": "2026-11-28T18:05+02:00"},
-        {"@type": "Event", "name": "Closing ceremony", "startDate": "2026-11-28T18:05+02:00", "endDate": "2026-11-28T18:30+02:00"}
-      ]
-    }
-    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <style>
-        /* Додаткові стилі для цієї сторінки (таби, таблиці) */
-        .tabs-navigation, .day-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .tab-button, .day-tab-button {
-            flex: 1;
-            min-width: 200px;
+        /* Additional styles for program page */
+        .program-container {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 1rem;
+        }
+
+        .tabs-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
             background: rgba(0, 20, 0, 0.7);
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            border-radius: 8px;
+            border: 1px solid rgba(57, 230, 57, 0.3);
             color: var(--text-secondary);
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-align: center;
         }
-        .tab-button:hover, .day-tab-button:hover {
-            background: rgba(0, 30, 0, 0.8);
-            color: var(--neon-green);
-        }
-        .tab-button.active, .day-tab-button.active {
-            background: rgba(0, 40, 0, 0.9);
+
+        .tab-btn.active {
+            background: rgba(57, 230, 57, 0.2);
             border-color: var(--neon-green);
             color: var(--neon-green);
             box-shadow: 0 0 15px rgba(57, 230, 57, 0.3);
         }
-        .tab-content, .day-content {
+
+        .tab-content {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.4s ease;
         }
-        .tab-content.active, .day-content.active {
+
+        .tab-content.active {
             display: block;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .schedule-table-container {
-            width: 100%;
+
+        .schedule-table-wrapper {
             overflow-x: auto;
-            margin: 2rem 0;
-            -webkit-overflow-scrolling: touch;
+            margin: 1rem 0;
         }
-        .conference-schedule {
+
+        .program-table {
             width: 100%;
             border-collapse: collapse;
-            background-color: rgba(10, 10, 10, 0.7);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(57, 230, 57, 0.2);
-            border-radius: 8px;
+            background: rgba(10, 10, 10, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
             font-family: 'Rajdhani', sans-serif;
-            min-width: 800px;
         }
-        .conference-schedule th, .conference-schedule td {
+
+        .program-table th {
+            background: rgba(57, 230, 57, 0.15);
+            color: var(--neon-green);
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            border-bottom: 1px solid rgba(57, 230, 57, 0.3);
+        }
+
+        .program-table td {
             padding: 1rem;
             border-bottom: 1px solid rgba(57, 230, 57, 0.1);
-            text-align: left;
+            color: var(--text-primary);
             vertical-align: top;
         }
-        .conference-schedule th {
-            background-color: rgba(57, 230, 57, 0.15);
-            color: var(--neon-green);
-            font-size: 1.2rem;
+
+        .program-table tr:hover {
+            background: rgba(57, 230, 57, 0.1);
+            transition: background 0.2s;
         }
-        .time-column {
-            width: 25%;
+
+        .time-col {
+            white-space: nowrap;
+            font-family: 'Orbitron', monospace;
             font-weight: 500;
             color: var(--neon-green);
+            width: 120px;
         }
-        .presentation-title {
+
+        .speaker-name {
             font-weight: 600;
-            color: var(--neon-green);
-            margin-bottom: 0.5rem;
+            color: var(--neon-green-light);
         }
-        .presentation-speaker {
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 0.5rem;
+
+        .presentation-title {
+            font-weight: 500;
         }
-        .presentation-description {
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-        .presentation-topic {
-            display: inline-block;
-            background: rgba(0, 100, 0, 0.3);
-            color: var(--neon-green);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            border: 1px solid rgba(0, 255, 0, 0.2);
-        }
-        .conference-schedule tbody tr:hover {
-            background-color: rgba(57, 230, 57, 0.1);
-        }
+
         @media (max-width: 768px) {
-            .tabs-navigation, .day-tabs { flex-direction: column; }
-            .tab-button, .day-tab-button { min-width: 100%; }
-            .conference-schedule { min-width: 600px; }
-        }
-        @media (max-width: 480px) {
-            .conference-schedule { min-width: 400px; }
+
+            .program-table th,
+            .program-table td {
+                padding: 0.7rem;
+                font-size: 0.85rem;
+            }
+
+            .time-col {
+                width: 90px;
+            }
+
+            .tab-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="digital-rain"></div>
 
     <header>
-        <div class="logo"><a href="../uk/index.html">СКІФіК</a></div>
+        <div class="logo"><a href="../en/index.html">SCIFiC</a></div>
         <nav>
             <ul>
-                <li><a href="../uk/index.html">Головна</a></li>
-                <li><a href="../uk/materials.html">Матеріали</a></li>
-                <li><a href="../uk/schedule.html">Розклад</a></li>
-                <li><a href="../uk/sections.html">Секції</a></li>
-                <li><a href="../uk/archive.html">Архів</a></li>
-                <li><a href="../uk/contacts.html">Контакти</a></li>
+                <li><a href="../en/index.html" id="nav-home">Home</a></li>
+                <li><a href="../en/materials.html" id="nav-materials">Materials</a></li>
+                <li><a href="../en/schedule.html" id="nav-schedule">Schedule</a></li>
+                <li><a href="../en/sections.html" id="nav-sections">Sections</a></li>
+                <li><a href="../en/archive.html" id="nav-archive">Archive</a></li>
+                <li><a href="../en/contacts.html" id="nav-contacts">Contacts</a></li>
             </ul>
             <div class="language-switcher">
-                <a href="../en/planconference.html" class="lang-link en">🇬🇧 EN</a>
-                <a href="../uk/planconference.html" class="lang-link uk active">🇺🇦 UA</a>
+                <button class="lang-link en active" data-lang="en">🇬🇧 EN</button>
+                <button class="lang-link uk" data-lang="uk">🇺🇦 UA</button>
             </div>
-            <div class="menu-toggle"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="conference">
-            <h2 class="section-title">Посилання на <span class="highlight">Секції</span></h2>
-            <div class="meetings-container">
-                <div class="sessions-grid">
-                    <div class="session-card">
-                        <h3>Пленарне засідання | Секція 1 - Інформаційна безпека та кібербезпека</h3>
-                        <p class="session-time">Усі дні конференції</p>
-                        <div class="session-preview">
-                            <img src="../assets/images/kvybakj2w5.png" alt="Cybersecurity Conference Session" class="session-image">
-                        </div>
-                        <a href="https://meet.google.com/xwr-mxbv-dpc" class="join-button" target="_blank">
-                            <ion-icon name="videocam"></ion-icon> Приєднатися
-                        </a>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20261127T090000Z/20261128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fxwr-mxbv-dpc&location=NAU%20%22KhAI%22%2C%20Kharkiv" class="calendar-button" target="_blank">
-                            <ion-icon name="calendar"></ion-icon> Додати до календаря
-                        </a>
+        <section style="padding: 5rem 3%;">
+            <h2 class="section-title" id="program-title">Conference <span class="highlight">Program</span></h2>
+
+            <!-- Day tabs -->
+            <div class="tabs-navigation" id="day-tabs">
+                <button class="tab-btn active" data-day="day1" id="day1-btn">Day 1 – Nov 27</button>
+                <button class="tab-btn" data-day="day2" id="day2-btn">Day 2 – Nov 28</button>
+            </div>
+
+            <!-- Day 1 content -->
+            <div id="day1-content" class="tab-content active">
+                <div class="tabs-navigation" id="section-tabs-day1">
+                    <button class="tab-btn active" data-section="sec1-day1">Section 1 – Information &
+                        Cybersecurity</button>
+                    <button class="tab-btn" data-section="sec2-day1">Section 2 – Functional Safety</button>
+                    <button class="tab-btn" data-section="sec3-day1">Section 3 – Legal Provision</button>
+                </div>
+
+                <!-- Section 1 Day 1 -->
+                <div id="sec1-day1" class="tab-content active">
+                    <div class="schedule-table-wrapper">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Speaker</th>
+                                    <th>Presentation Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sec1-day1-data"></tbody>
+                        </table>
                     </div>
-                    <div class="session-card">
-                        <h3>Секція 2 - Функційна безпека</h3>
-                        <p class="session-time">Усі дні конференції</p>
-                        <div class="session-preview">
-                            <img src="../assets/images/kgqpkt9tzi.png" alt="Functional Safety Session" class="session-image">
-                        </div>
-                        <a href="https://meet.google.com/afr-deqo-ghv" class="join-button" target="_blank">
-                            <ion-icon name="videocam"></ion-icon> Приєднатися
-                        </a>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20261127T090000Z/20261128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fafr-deqo-ghv&location=NAU%20%22KhAI%22%2C%20Kharkiv" class="calendar-button" target="_blank">
-                            <ion-icon name="calendar"></ion-icon> Додати до календаря
-                        </a>
+                </div>
+                <!-- Section 2 Day 1 -->
+                <div id="sec2-day1" class="tab-content">
+                    <div class="schedule-table-wrapper">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Speaker</th>
+                                    <th>Presentation Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sec2-day1-data"></tbody>
+                        </table>
                     </div>
-                    <div class="session-card">
-                        <h3>Секція 3 - Правове забезпечення кібербезпеки</h3>
-                        <p class="session-time">Усі дні конференції</p>
-                        <div class="session-preview">
-                            <img src="../assets/images/Copilot_20251014_154338.png" alt="Legal Session" class="session-image">
-                        </div>
-                        <a href="https://meet.google.com/zbt-cxit-fuo" class="join-button" target="_blank">
-                            <ion-icon name="videocam"></ion-icon> Приєднатися
-                        </a>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=INTERNATIONAL%20CONFERENCE%20ON%20CYBERSECURITY%20%22SCIFiC%22&dates=20261127T090000Z/20261128T180000Z&details=Join%20our%20conference%20in%20Google%20Meet%3A%20https%3A%2F%2Fmeet.google.com%2Fzbt-cxit-fuo&location=NAU%20%22KhAI%22%2C%20Kharkiv" class="calendar-button" target="_blank">
-                            <ion-icon name="calendar"></ion-icon> Додати до календаря
-                        </a>
+                </div>
+                <!-- Section 3 Day 1 -->
+                <div id="sec3-day1" class="tab-content">
+                    <div class="schedule-table-wrapper">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Speaker</th>
+                                    <th>Presentation Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sec3-day1-data"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <h2 class="section-title" style="margin-top: 4rem;">Програма <span class="highlight">Конференції</span></h2>
-
-            <div class="tracks-tabs">
-                <div class="tabs-navigation">
-                    <button class="tab-button active" data-tab="track1">Секція 1: Інформаційна безпека та кібербезпека</button>
-                    <button class="tab-button" data-tab="track2">Секція 2: Функційна безпека</button>
-                    <button class="tab-button" data-tab="track3">Секція 3: Правове забезпечення кібербезпеки</button>
+            <!-- Day 2 content -->
+            <div id="day2-content" class="tab-content">
+                <div class="tabs-navigation" id="section-tabs-day2">
+                    <button class="tab-btn active" data-section="sec1-day2">Section 1 – Information &
+                        Cybersecurity</button>
+                    <button class="tab-btn" data-section="sec2-day2">Section 2 – Functional Safety</button>
+                    <button class="tab-btn" data-section="sec3-day2">Section 3 – Legal Provision</button>
                 </div>
-
-                <!-- Track 1 Content -->
-                <div class="tab-content active" id="track1">
-                    <div class="day-tabs">
-                        <button class="day-tab-button tab-button active" data-day="day1" data-track="track1">27 Листопада, 2026</button>
-                        <button class="day-tab-button tab-button" data-day="day2" data-track="track1">28 Листопада, 2026</button>
-                    </div>
-                    <div class="day-content active" id="track1-day1">
-                        <div class="schedule-table-container">
-                            <table class="conference-schedule">
-                                <thead><tr><th>Час</th><th>Учасник / Доповідь</th></tr></thead>
-                                <tbody>
-                                    <tr><td class="time-column">14:45 – 15:00</td><td><h3 class="presentation-title">Перевірка з'єднання</h3><p class="presentation-description">Онлайн-перевірка технічного забезпечення</p></td></tr>
-                                    <tr><td class="time-column">15:00 – 15:55</td><td><h3 class="presentation-title">Пленарне засідання (за посиланням в секцію 1)</h3><br><h3 class="presentation-title">Вітальне слово</h3><p class="presentation-speaker">Організаційний комітет конференції, представники НАУ "ХАІ"</p><br><h3 class="presentation-title">From KhAI to a Cybersecurity Leader</h3><p class="presentation-speaker">Jean Pierre Nzabahimana, Руанда</p><br><h3 class="presentation-title">Cybersecurity Research and Operations at CyberLAB</h3><p class="presentation-speaker">Suchorab Jakub, Польща</p></td></tr>
-                                    <tr><td class="time-column">15:55 – 16:00</td><td><h3 class="presentation-title">Перерва на каву (Перехід в секції)</h3></td></tr>
-                                    <tr><td class="time-column">16:00 – 16:10</td><td><h3 class="presentation-title">Аналіз існуючих проблем пояснюваного ШІ в кібербезпеці</h3><p class="presentation-speaker">Лісних Олександр Ігорович, НАУ "ХАІ"</p><span class="presentation-topic">Штучний інтелект</span></td></tr>
-                                    <!-- Тут мають бути всі рядки з оригіналу, але для стислості вони скорочені. У реальному файлі залиште повну таблицю. -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="day-content" id="track1-day2" style="display:none;">
-                        <div class="schedule-table-container">
-                            <table class="conference-schedule"><tbody><tr><td colspan="2">Другий день – аналогічно</td></tr></tbody></table>
-                        </div>
+                <div id="sec1-day2" class="tab-content active">
+                    <div class="schedule-table-wrapper">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Speaker</th>
+                                    <th>Presentation Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sec1-day2-data"></tbody>
+                        </table>
                     </div>
                 </div>
-                <!-- Track 2 і Track 3 аналогічно (залиште оригінальний вміст, лише змініть роки на 2026) -->
+                <div id="sec2-day2" class="tab-content">
+                    <div class="schedule-table-wrapper">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Speaker</th>
+                                    <th>Presentation Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sec2-day2-data"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="sec3-day2" class="tab-content">
+                    <div class="schedule-table-wrapper">
+                        <table class="program-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Speaker</th>
+                                    <th>Presentation Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sec3-day2-data"></tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo"><div class="logo">СКІФіК</div><p>Міжнародна конференція з кібербезпеки</p><div class="footer-image"><img src="../assets/images/4zx5d0amk2.png" alt="Логотип" class="footer-logo-image"></div></div>
-            <div class="footer-links"><h3>Швидкі посилання</h3><ul><li><a href="../uk/index.html">Головна</a></li><li><a href="../uk/materials.html">Матеріали</a></li><li><a href="../uk/schedule.html">Розклад</a></li><li><a href="../uk/sections.html">Секції</a></li><li><a href="../uk/archive.html">Архів</a></li><li><a href="../uk/contacts.html">Контакти</a></li></ul></div>
-            <div class="footer-social"><h3>Приєднуйтесь</h3><div class="social-icons"><a href="https://www.facebook.com/csn.khai.edu503/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a><a href="https://www.instagram.com/csn.khai.edu503/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a><a href="https://t.me/csn_khai_edu" target="_blank"><ion-icon name="paper-plane-outline"></ion-icon></a><a href="https://www.youtube.com/c/ComputerSystemsNetworksandCybersecurity" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a><a href="https://education.khai.edu/department/503" target="_blank"><ion-icon name="school-outline"></ion-icon></a></div><div class="footer-social-image"><img src="../assets/images/u399bbtlco.png" alt="Cyberpunk" class="social-footer-img"></div></div>
+            <div class="footer-logo">
+                <div class="logo">SCIFiC</div>
+                <p>International Conference on Cybersecurity</p>
+                <div class="footer-image"><img src="../assets/images/4zx5d0amk2.png" alt="Logo"
+                        class="footer-logo-image"></div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../en/index.html">Home</a></li>
+                    <li><a href="../en/materials.html">Materials</a></li>
+                    <li><a href="../en/schedule.html">Schedule</a></li>
+                    <li><a href="../en/sections.html">Sections</a></li>
+                    <li><a href="../en/archive.html">Archive</a></li>
+                    <li><a href="../en/contacts.html">Contacts</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons"><a href="https://www.facebook.com/csn.khai.edu503/"><ion-icon
+                            name="logo-facebook"></ion-icon></a><a
+                        href="https://www.instagram.com/csn.khai.edu503/"><ion-icon
+                            name="logo-instagram"></ion-icon></a><a href="https://t.me/csn_khai_edu"><ion-icon
+                            name="paper-plane-outline"></ion-icon></a><a
+                        href="https://www.youtube.com/c/ComputerSystemsNetworksandCybersecurity"><ion-icon
+                            name="logo-youtube"></ion-icon></a><a
+                        href="https://education.khai.edu/department/503"><ion-icon name="school-outline"></ion-icon></a>
+                </div>
+                <div class="footer-social-image"><img src="../assets/images/u399bbtlco.png" alt="Cyberpunk"
+                        class="social-footer-img"></div>
+            </div>
         </div>
-        <div class="copyright"><p>&copy; 2026 <a href="https://github.com/HeorhiiZemlianko?tab=repositories" class="author-link">Heorhii Zemlianko</a><br>Міжнародна студентська конференція з кібербезпеки (SCIFiC) — з 2021<br>Місто: Харків</p></div>
+        <div class="copyright">
+            <p>&copy; 2026 <a href="https://github.com/HeorhiiZemlianko?tab=repositories" class="author-link">Heorhii
+                    Zemlianko</a><br>International Student Conference on Cybersecurity (SCIFiC) — since 2021<br>City:
+                Kharkiv</p>
+        </div>
     </footer>
 
     <script src="../assets/js/script.js"></script>
     <script>
-        // Додатковий скрипт для табів (не конфліктує з основним)
-        document.addEventListener('DOMContentLoaded', function() {
-            const trackButtons = document.querySelectorAll('.tab-button:not(.day-tab-button)');
-            const trackContents = document.querySelectorAll('.tab-content');
-            const dayButtons = document.querySelectorAll('.day-tab-button');
-
-            function switchTrack(tabId) {
-                trackContents.forEach(c => c.classList.remove('active'));
-                document.getElementById(tabId).classList.add('active');
-                // Скидання денних табів
-                const activeTrack = tabId;
-                const firstDayBtn = document.querySelector(`.day-tab-button[data-track="${activeTrack}"]`);
-                if (firstDayBtn) firstDayBtn.click();
+        // Language data
+        const langData = {
+            en: {
+                programTitle: 'Conference <span class="highlight">Program</span>',
+                day1: 'Day 1 – Nov 27',
+                day2: 'Day 2 – Nov 28',
+                sec1: 'Section 1 – Information & Cybersecurity',
+                sec2: 'Section 2 – Functional Safety',
+                sec3: 'Section 3 – Legal Provision',
+                tableHeaderTime: 'Time',
+                tableHeaderSpeaker: 'Speaker',
+                tableHeaderTitle: 'Presentation Title',
+                // Day 1 Section 1
+                sec1day1: [
+                    { time: '16:00 – 16:10', speaker: 'Oleksandr Lisnykh', title: 'Analysis of existing problems of explainable AI in cybersecurity' },
+                    { time: '16:10 – 16:20', speaker: 'Maksym Lyubchenko', title: 'Analysis of data exchange protocol protection methods in IIoT systems' },
+                    { time: '16:20 – 16:30', speaker: 'Daniil Anokhin', title: 'Analysis of Grain-128a stream cipher as a computational randomness extractor for QRNG' },
+                    { time: '16:30 – 16:40', speaker: 'Dmytro Volotkovskyi', title: 'Application of SHA-3 cryptographic hash function as randomness extractor for QRNG' },
+                    { time: '16:40 – 16:50', speaker: 'Anastasiia Zahnibeda', title: 'Web service for password complexity assessment and generation' },
+                    { time: '16:50 – 17:00', speaker: 'Bohdan Miedviediev', title: 'AI-driven penetration testing: analysis of modern solutions' },
+                    { time: '17:00 – 17:10', speaker: 'Roman Peretiatko', title: 'Research and implementation of security tools in CI/CD pipeline' },
+                    { time: '17:10 – 17:20', speaker: 'Oleksandr Siroklyn', title: 'Cybersecurity of robots: vulnerability analysis and consequences' },
+                    { time: '17:20 – 17:30', speaker: 'Iryna Zayachkovska', title: 'Methods of collecting and aggregating cyber threat information from open sources' },
+                    { time: '17:30 – 17:40', speaker: 'Artem Tetskyi', title: 'The role of decoys in cybersecurity' },
+                    { time: '17:40 – 17:50', speaker: 'Myroslav Shashkin', title: 'Selection of tools and secure pentesting services: analysis, information model and algorithms' },
+                    { time: '17:50 – 18:00', speaker: 'Denys Lughovtsov', title: 'IoT threat landscape analysis: attack vectors and countermeasures' },
+                    { time: '18:00 – 18:10', speaker: 'Anar Kadzharov', title: 'Effectiveness analysis of modern anti-phishing attack protection methods' },
+                    { time: '18:10 – 18:20', speaker: 'Maksym Yerofieiev', title: 'Security threat analysis in IoT and mitigation methods' }
+                ],
+                // Day 1 Section 2
+                sec1day2: [
+                    { time: '16:00 – 16:10', speaker: 'Bohdan Kosarevskyi', title: 'Gitless Ops as a Method for Infrastructure Deployment' },
+                    { time: '16:10 – 16:20', speaker: 'Bohdan Kosarevskyi', title: 'Threat Model and Attack Surface: GitOps vs Gitless Ops' },
+                    { time: '16:20 – 16:30', speaker: 'Dmytro Vasyk', title: 'Analysis and assurance of functional safety of HMI-LLM systems' },
+                    { time: '16:30 – 16:40', speaker: 'Oleksii Hrodetskyi', title: 'Using artificial intelligence to detect vulnerabilities in web applications' },
+                    { time: '16:40 – 16:50', speaker: 'Ruslan Karpenko', title: 'Research of smart contract vulnerability analysis methods' },
+                    { time: '16:50 – 17:00', speaker: 'Ihor Tkachenko', title: 'Development of a car usage control system in carsharing' },
+                    { time: '17:00 – 17:10', speaker: 'Oleh Zakladnyi', title: 'Development of a mobile application for cryptocurrency portfolio management' },
+                    { time: '17:10 – 17:20', speaker: 'Bohdan Dudka', title: 'Information security of augmented reality systems' },
+                    { time: '17:20 – 17:30', speaker: 'Alina Tuz', title: 'Approaches to adapting vision and language models in data-limited tasks' },
+                    { time: '17:30 – 17:40', speaker: 'Petro Borysyn', title: 'Secure compression of one-dimensional acoustic signals using a neural network encoder' },
+                    { time: '17:40 – 17:50', speaker: 'Andrii Nikitin', title: 'Application of siamese neural networks to improve reliability of image manipulation detection systems' },
+                    { time: '17:50 – 18:00', speaker: 'Oleksii Astrakhantsev', title: 'Multimodal information system for quantification of air threat risks' },
+                    { time: '18:00 – 18:10', speaker: 'Mykola Vasylchuk', title: 'Issues of integrating functional safety and circular economy principles in waste management' }
+                ],
+                // Day 1 Section 3
+                sec1day3: [
+                    { time: '16:00 – 16:10', speaker: 'Yurii Kyforuk', title: 'Data integrity of satellite monitoring as a foundation for plastic pollution assessment in aerospace ocean monitoring' },
+                    { time: '16:10 – 16:20', speaker: 'Kateryna Savchenko', title: 'Protection of real-time telemetry streams from DoS attacks and manipulations' },
+                    { time: '16:20 – 16:30', speaker: 'Maksym Riabchun', title: 'Access management and role models in ocean monitoring systems' },
+                    { time: '16:30 – 16:40', speaker: 'Milaniya Puchenina', title: 'Validation of sensor measurement accuracy for regulatory and scientific requirements' },
+                    { time: '16:40 – 16:50', speaker: 'Mariia Sobolieva', title: 'Responsibility for incidents: notification, investigation and public reporting mechanisms' },
+                    { time: '16:50 – 17:00', speaker: 'Bohdan Titov', title: 'Architecture of behavioral data collection: balance between personalization and user security' },
+                    { time: '17:00 – 17:10', speaker: 'Valeriia Bozhko', title: 'Information warfare: disinformation around waste monitoring and the role of cybersecurity' },
+                    { time: '17:10 – 17:20', speaker: 'Kseniia Boboshko', title: 'Funding and legal support mechanisms for national monitoring programs' },
+                    { time: '17:20 – 17:30', speaker: 'Snizhana Kondrachuk', title: 'Legal aspects of using blockchain technologies to preserve evidence data' },
+                    { time: '17:30 – 17:40', speaker: 'Sofiia Bashkat', title: 'International Law and Data Exchange on Pollution: Treaties, Agreements, and Standards' },
+                    { time: '17:40 – 17:50', speaker: 'Myroslava Sheina', title: 'Requirements for algorithm transparency and their legal protection/regulation' },
+                    { time: '17:50 – 18:00', speaker: 'Tymofii Syvash', title: 'Ethical and legal norms when publishing pollution data considering impact on fishing and tourism' },
+                    { time: '18:00 – 18:10', speaker: 'Heorhii Kovalenko', title: 'Cyber threats to sensors and their external interfaces in satellite ocean plastic pollution monitoring systems' }
+                ],
+                // Day 2 Section 1 (shortened for brevity – you can extend)
+                sec2day1: [
+                    { time: '15:55 – 16:05', speaker: 'Ivan Olefirenko', title: 'Research and development of information security system for a state organization' },
+                    { time: '16:05 – 16:15', speaker: 'Ivan Iovenko', title: 'Analysis of cyber threat trends based on OWASP TOP 10:2025 RC' },
+                    { time: '16:15 – 16:25', speaker: 'Andrii Litvinov, Maryna Hanzera', title: 'Anti-piracy technologies in Steam / Cybersecurity technologies of Steam platform' },
+                    { time: '16:25 – 16:35', speaker: 'Arman Karapetyan', title: 'Using OSINT and facial recognition technologies to detect cyber threats' },
+                    { time: '16:35 – 16:45', speaker: 'Yaroslav Virskyi', title: 'Research of vulnerability detection methods using open-source intelligence' },
+                    { time: '16:45 – 16:55', speaker: 'Yan Deineko, Illia Mitsyk', title: 'Unauthorized obtaining and prevention of confidential information leakage at endpoint and in multimedia content' },
+                    { time: '16:55 – 17:05', speaker: 'Daryna Hart', title: 'Analysis of data leaks caused by artificial intelligence' },
+                    { time: '17:05 – 17:15', speaker: 'Oleksandr Yakovliev', title: 'Research of wireless network cybersecurity protocols with development of network administrator security policy' },
+                    { time: '17:15 – 17:25', speaker: 'Daria Drakon', title: 'Secure user authentication in modern applications' },
+                    { time: '17:25 – 17:35', speaker: 'Dmytro Chornohor', title: 'Botnet attack detection model in wireless networks based on machine learning methods' },
+                    { time: '17:35 – 17:45', speaker: 'Maksim Stadnichenko', title: 'Limitations of the Solovay-Strassen Primality Test' },
+                    { time: '17:45 – 17:55', speaker: 'Yaroslav Podlas', title: 'Analysis and counteraction to insider threats in organizations: assessment of modern protection methods' },
+                    { time: '17:55 – 18:05', speaker: 'Oleh Leikovskyi', title: 'Analysis of adaptive multi-factor authentication systems in CRM platforms' }
+                ],
+                sec2day2: [
+                    { time: '15:55 – 16:05', speaker: 'Yehor Oleinykov', title: 'Analysis of cybersecurity challenges in the use of UAVs in civil and security sectors' },
+                    { time: '16:05 – 16:15', speaker: 'Sofiia Akhtyrska', title: 'Tailscale as a basis for Zero Trust networks' },
+                    { time: '16:15 – 16:25', speaker: 'Sofiia Akhtyrska', title: 'Analysis of convolutional neural networks in access control systems based on face recognition' },
+                    { time: '16:25 – 16:35', speaker: 'Dmytro Satanovskyi', title: 'Development of custom export and post-processing of OpenStreetMap data for geospatial address matching' },
+                    { time: '16:35 – 16:45', speaker: 'Vladyslav Miachkov', title: 'Adversarial Approaches to Bot Evasion and Detection Countermeasures' },
+                    { time: '16:45 – 16:55', speaker: 'Daria Fedorenko', title: 'Design of a secure architecture of an intelligent AI assistant for the educational process' },
+                    { time: '16:55 – 17:05', speaker: 'Daria Fedorenko', title: 'Model of GDPR compliance verification for an intelligent educational assistant' },
+                    { time: '17:05 – 17:15', speaker: 'Danylo Kirichenko', title: 'Application of Machine Learning Technologies for Predictive Cyber Protection in Smart Home Systems' },
+                    { time: '17:15 – 17:25', speaker: 'Danylo Kirichenko', title: 'Using Machine Learning Methods to Predict Failures and Ensure Functional Safety of Smart Home Subsystems under Climatic Conditions' },
+                    { time: '17:25 – 17:35', speaker: 'Raed Al-Senaikh', title: 'Minimization of Risks Associated with Incorrect Filter Parameter Settings for Improving SAR Image Quality' },
+                    { time: '17:35 – 17:45', speaker: 'Andrii Ivanov', title: 'Ensuring cybersecurity in a web application for warehouse process automation using modern data protection methods' },
+                    { time: '17:45 – 17:55', speaker: 'Anton Striapunin', title: 'Advanced verification and validation process of FPGA modules based on artificial intelligence' },
+                    { time: '17:55 – 18:05', speaker: 'Yehor Antonov', title: 'Data confidentiality in artificial intelligence systems: leakage risks and protection approaches' },
+                    { time: '18:05 – 18:15', speaker: 'Mark Sukhodolskyi', title: 'Functional safety of augmented reality interfaces for unmanned monitoring systems' }
+                ],
+                sec2day3: [
+                    { time: '15:55 – 16:05', speaker: 'Maksym Andriichuk', title: 'Research of methods for ensuring security of WebAR technology' },
+                    { time: '16:05 – 16:15', speaker: 'Valeriia Baida', title: 'Research of tomographic image analysis using neural networks for diagnosing neurological diseases' },
+                    { time: '16:15 – 16:25', speaker: 'Vladimir Sorokin', title: 'Research and development of a web system for processing support service requests with automatic classification and SLA control' },
+                    { time: '16:25 – 16:35', speaker: 'Yevhenii Kruchyna', title: 'Analysis of patentable solutions and methods for selecting authentication factors in multi-factor access control systems' },
+                    { time: '16:35 – 16:45', speaker: 'Dmytro Dziuba', title: 'Gamification as a tool to motivate young people to choose cybersecurity specialties' },
+                    { time: '16:45 – 16:55', speaker: 'Daria Oreshko', title: 'Cyberbullying and safe online communication among youth' },
+                    { time: '16:55 – 17:05', speaker: 'Denys Khorunzhyi', title: 'Security aspects of developing an inclusive web platform for sign language to text translation' },
+                    { time: '17:05 – 17:15', speaker: 'Danylo Asieiev', title: 'Research and development of an augmented reality interfaces quality assessment system using artificial intelligence' },
+                    { time: '17:15 – 17:25', speaker: 'Oleh Plisko', title: 'Using atypical DCT encoders to ensure confidentiality of medical images' },
+                    { time: '17:25 – 17:35', speaker: 'Illia Cherepanov', title: 'Study of the reliability of no-reference quality metrics after DRUNet processing' },
+                    { time: '17:35 – 17:45', speaker: 'Semen Dzun', title: 'Ensuring cybersecurity in the legal mechanism of public administration' },
+                    { time: '17:45 – 17:55', speaker: 'Oleh Zuban', title: 'Methods of detecting and preventing personal data leakage' }
+                ]
+            },
+            uk: {
+                programTitle: 'Програма <span class="highlight">Конференції</span>',
+                day1: 'День 1 – 27 листопада',
+                day2: 'День 2 – 28 листопада',
+                sec1: 'Секція 1 – Інформаційна безпека та кібербезпека',
+                sec2: 'Секція 2 – Функціональна безпека',
+                sec3: 'Секція 3 – Правове забезпечення кібербезпеки',
+                tableHeaderTime: 'Час',
+                tableHeaderSpeaker: 'Доповідач',
+                tableHeaderTitle: 'Тема доповіді',
+                // День 1, Секція 1
+                sec1day1: [
+                    { time: '16:00 – 16:10', speaker: 'Олександр Лісних', title: 'Аналіз існуючих проблем пояснюваного ШІ в кібербезпеці' },
+                    { time: '16:10 – 16:20', speaker: 'Максим Любченко', title: 'Аналіз методів захисту протоколів обміну даними в системах IIoT' },
+                    { time: '16:20 – 16:30', speaker: 'Даніїл Анохін', title: 'Аналіз потокового шифру Grain-128a як обчислювального екстрактора випадковості для QRNG' },
+                    { time: '16:30 – 16:40', speaker: 'Дмитро Волотковський', title: 'Застосування криптографічної геш-функції SHA-3 як екстрактора випадковості для QRNG' },
+                    { time: '16:40 – 16:50', speaker: 'Анастасія Загнібеда', title: 'Вебсервіс для оцінки складності та генерації паролів' },
+                    { time: '16:50 – 17:00', speaker: 'Богдан Мєдвєдєв', title: 'ШІ-кероване пентестування: аналіз сучасних рішень' },
+                    { time: '17:00 – 17:10', speaker: 'Роман Перетятько', title: 'Дослідження та впровадження інструментальних засобів забезпечення безпеки у конвеєр безперервної інтеграції' },
+                    { time: '17:10 – 17:20', speaker: 'Олександр Сіроклин', title: 'Кібербезпека роботів: аналіз вразливостей та наслідки їх використання' },
+                    { time: '17:20 – 17:30', speaker: 'Ірина Заячковська', title: 'Методи збору та агрегації інформації про кіберзагрози з відкритих джерел' },
+                    { time: '17:30 – 17:40', speaker: 'Артем Тецький', title: 'Роль приманок у кібербезпеці' },
+                    { time: '17:40 – 17:50', speaker: 'Мирослав Шашкін', title: 'Вибір засобів та безпечних сервісів пентестування: аналіз, інформаційна модель та алгоритми' },
+                    { time: '17:50 – 18:00', speaker: 'Денис Луговцов', title: 'Аналіз ландшафту загроз інтернету речей: вектори атак та стратегії протидії' },
+                    { time: '18:00 – 18:10', speaker: 'Анар Каджаров', title: 'Аналіз ефективності сучасних методів захисту від фішингових атак' },
+                    { time: '18:10 – 18:20', speaker: 'Максим Єрофєєв', title: 'Аналіз загроз безпеки в інтернеті речей (IoT) та методів їх усунення' }
+                ],
+                // День 1, Секція 2
+                sec1day2: [
+                    { time: '16:00 – 16:10', speaker: 'Богдан Косаревський', title: 'Gitless Ops як метод розгортання інфраструктури' },
+                    { time: '16:10 – 16:20', speaker: 'Богдан Косаревський', title: 'Модель загроз і поверхня атак: GitOps проти Gitless Ops' },
+                    { time: '16:20 – 16:30', speaker: 'Дмитро Васик', title: 'Аналіз і забезпечення функційної безпеки HMI-LLM-систем' },
+                    { time: '16:30 – 16:40', speaker: 'Олексій Гродецький', title: 'Використання штучного інтелекту для виявлення вразливостей у веб-додатках' },
+                    { time: '16:40 – 16:50', speaker: 'Руслан Карпенко', title: 'Дослідження методів аналізу вразливостей смарт-контрактів' },
+                    { time: '16:50 – 17:00', speaker: 'Ігор Ткаченко', title: 'Дослідження та розроблення системи контролю використання автомобіля у системі каршерингу' },
+                    { time: '17:00 – 17:10', speaker: 'Олег Закладний', title: 'Розроблення мобільного застосунку для управління криптовалютним портфоліо' },
+                    { time: '17:10 – 17:20', speaker: 'Богдан Дудка', title: 'Інформаційна безпека систем доповненої реальності' },
+                    { time: '17:20 – 17:30', speaker: 'Аліна Туз', title: 'Підходи до адаптації моделей зору та мови у задачах з обмеженими даними' },
+                    { time: '17:30 – 17:40', speaker: 'Петро Брисін', title: 'Захищене стиснення одновимірних акустичних сигналів кодером на основі нейромережі' },
+                    { time: '17:40 – 17:50', speaker: 'Андрій Нікітін', title: 'Застосування сіамських нейронних мереж для підвищення надійності систем виявлення маніпуляцій із зображеннями' },
+                    { time: '17:50 – 18:00', speaker: 'Олексій Астраханцев', title: 'Мультимодальна інформаційна система квантифікації ризиків повітряних загроз' },
+                    { time: '18:00 – 18:10', speaker: 'Микола Васильчук', title: 'Питання інтеграції функціональної безпеки та принципів циркулярної економіки в управлінні відходами' }
+                ],
+                // День 1, Секція 3
+                sec1day3: [
+                    { time: '16:00 – 16:10', speaker: 'Юрій Кифорук', title: 'Цілісність даних супутникового моніторингу як фундамент оцінки забруднення пластиком у системі аерокосмічного моніторингу океанів' },
+                    { time: '16:10 – 16:20', speaker: 'Катерина Савченко', title: 'Захист потоків телеметрії в реальному часі від DoS-атак та маніпуляцій' },
+                    { time: '16:20 – 16:30', speaker: 'Максим Рябчун', title: 'Управління доступом та рольові моделі в системах моніторингу океану' },
+                    { time: '16:30 – 16:40', speaker: 'Міланія Пученіна', title: 'Валідація вимірювальної точності сенсорів для нормативних та наукових вимог' },
+                    { time: '16:40 – 16:50', speaker: 'Марія Соболєва', title: 'Відповідальність за інциденти: механізми оповіщення, розслідування та публічного звітування' },
+                    { time: '16:50 – 17:00', speaker: 'Богдан Тітов', title: 'Архітектура збору поведінкових даних: баланс між персоналізацією та безпекою користувача' },
+                    { time: '17:00 – 17:10', speaker: 'Валерія Божко', title: 'Інформаційна війна: дезінформація навколо моніторингу сміття та роль кібербезпеки' },
+                    { time: '17:10 – 17:20', speaker: 'Ксенія Бобошко', title: 'Механізми фінансування та правової підтримки національних програм моніторингу' },
+                    { time: '17:20 – 17:30', speaker: 'Сніжана Кондрачук', title: 'Правові аспекти використання блокчейн-технологій для збереження доказових даних' },
+                    { time: '17:30 – 17:40', speaker: 'Софія Башкат', title: 'Міжнародне право та обмін даними про забруднення: договори, угоди, стандарти' },
+                    { time: '17:40 – 17:50', speaker: 'Мирослава Шеіна', title: 'Вимоги до прозорості алгоритмів та їх правовий захист/регулювання' },
+                    { time: '17:50 – 18:00', speaker: 'Тимофій Сиваш', title: 'Етико-правові норми при публікації даних про забруднення з урахуванням впливу на рибальство та туризм' },
+                    { time: '18:00 – 18:10', speaker: 'Георгій Коваленко', title: 'Кіберзагрози сенсорам та їх зовнішнім інтерфейсам у системах супутникового моніторингу забруднення океанів та морів пластиком' }
+                ],
+                // День 2, Секція 1
+                sec2day1: [
+                    { time: '15:55 – 16:05', speaker: 'Іван Олефіренко', title: 'Дослідження та розроблення системи інформаційної безпеки державної організації' },
+                    { time: '16:05 – 16:15', speaker: 'Іван Іовенко', title: 'Аналіз тенденцій кіберзагроз на основі OWASP TOP 10:2025 RC' },
+                    { time: '16:15 – 16:25', speaker: 'Андрій Літвінов, Марина Ганзера', title: 'Технології протидії піратству в Steam / Технології кібербезпеки ігрової платформи Steam' },
+                    { time: '16:25 – 16:35', speaker: 'Арман Карапетян', title: 'Використання OSINT та технологій розпізнавання облич для виявлення кіберзагроз' },
+                    { time: '16:35 – 16:45', speaker: 'Ярослав Вірський', title: 'Дослідження методів пошуку вразливостей засобами розвідки на основі відкритих джерел' },
+                    { time: '16:45 – 16:55', speaker: 'Ян Дейнеко, Ілля Міцик', title: 'Несанкціоноване отримання та запобігання витоку конфіденційної інформації на кінцевій точці та в мультимедійному контенті' },
+                    { time: '16:55 – 17:05', speaker: 'Дарина Гарт', title: 'Аналіз витоків даних спричинених штучним інтелектом' },
+                    { time: '17:05 – 17:15', speaker: 'Олександр Яковлєв', title: 'Дослідження протоколів забезпечення кібербезпеки бездротових мереж з розробкою політики безпеки мережевого адміністратора' },
+                    { time: '17:15 – 17:25', speaker: 'Дар’я Дракон', title: 'Безпечна аутентифікація користувачів у сучасних застосунках' },
+                    { time: '17:25 – 17:35', speaker: 'Дмитро Чорногор', title: 'Модель виявлення ботнет-атак у бездротових мережах на основі методів машинного навчання' },
+                    { time: '17:35 – 17:45', speaker: 'Максим Стадніченко', title: 'Обмеження тесту простоти Соловея-Штрассена' },
+                    { time: '17:45 – 17:55', speaker: 'Ярослав Подлас', title: 'Аналіз та протидія інсайдерським загрозам в організаціях: оцінка ефективності сучасних методів захисту' },
+                    { time: '17:55 – 18:05', speaker: 'Олег Лейковський', title: 'Аналіз систем адаптивної багатофакторної аутентифікації у CRM-платформах' }
+                ],
+                // День 2, Секція 2
+                sec2day2: [
+                    { time: '15:55 – 16:05', speaker: 'Єгор Олейников', title: 'Аналіз кібербезпекових викликів в застосуванні БПЛА у цивільній та безпековій сферах' },
+                    { time: '16:05 – 16:15', speaker: 'Софія Ахтирська', title: 'Tailscale як основа для Zero Trust мереж' },
+                    { time: '16:15 – 16:25', speaker: 'Софія Ахтирська', title: 'Аналіз застосування згорткових нейронних мереж у системах контролю доступу на основі розпізнавання облич' },
+                    { time: '16:25 – 16:35', speaker: 'Дмитро Сатановський', title: 'Розробка власного експорту та постобробки даних OpenStreetMap для геопросторового зіставлення адрес' },
+                    { time: '16:35 – 16:45', speaker: 'Владислав Мячков', title: 'Адверсарні підходи до обходу ботів та заходи протидії виявленню' },
+                    { time: '16:45 – 16:55', speaker: 'Дар’я Федоренко', title: 'Проектування безпечної архітектури інтелектуального ШІ-помічника для освітнього процесу' },
+                    { time: '16:55 – 17:05', speaker: 'Дар’я Федоренко', title: 'Модель верифікації дотримання GDPR для інтелектуального освітнього асистента' },
+                    { time: '17:05 – 17:15', speaker: 'Данило Кіріченко', title: 'Застосування технологій машинного навчання для прогнозного кіберзахисту в системах "розумного будинку"' },
+                    { time: '17:15 – 17:25', speaker: 'Данило Кіріченко', title: 'Використання методів машинного навчання для прогнозування відмов та забезпечення функціональної безпеки підсистем "розумного будинку" за кліматичних умов' },
+                    { time: '17:25 – 17:35', speaker: 'Раед Аль-Сенайх', title: 'Мінімізація ризиків, пов’язаних із неправильним налаштуванням параметрів фільтра для покращення якості SAR-зображень' },
+                    { time: '17:35 – 17:45', speaker: 'Андрій Іванов', title: 'Забезпечення кібербезпеки у вебдодатку для автоматизації складських процесів із використанням сучасних методів захисту даних' },
+                    { time: '17:45 – 17:55', speaker: 'Антон Стряпунін', title: 'Удосконалений процес верифікації та валідації FPGA модулів на основі застосування штучного інтелекту' },
+                    { time: '17:55 – 18:05', speaker: 'Єгор Антонов', title: 'Конфіденційність даних у системах штучного інтелекту: ризики витоку та підходи до захисту' },
+                    { time: '18:05 – 18:15', speaker: 'Марк Суходольський', title: 'Функціональна безпека інтерфейсів доповненої реальності для безпілотних систем моніторингу' }
+                ],
+                // День 2, Секція 3
+                sec2day3: [
+                    { time: '15:55 – 16:05', speaker: 'Максим Андрійчук', title: 'Дослідження методів забезпечення безпеки технології WebAR' },
+                    { time: '16:05 – 16:15', speaker: 'Валерія Байда', title: 'Дослідження процесу аналізу томографічних зображень з використанням нейромереж для діагностування неврологічних захворювань' },
+                    { time: '16:15 – 16:25', speaker: 'Владімір Сорокін', title: 'Дослідження та розроблення вебсистеми обробки заявок служби підтримки з автоматичною класифікацією та контролем SLA' },
+                    { time: '16:25 – 16:35', speaker: 'Євгеній Кручина', title: 'Аналіз патентоздатних рішень та методів вибору факторів автентифікації в багатофакторних системах контролю доступу' },
+                    { time: '16:35 – 16:45', speaker: 'Дмитро Дзюба', title: 'Гейміфікація як інструмент формування мотивації до вибору спеціальностей у сфері кібербезпеки серед молоді' },
+                    { time: '16:45 – 16:55', speaker: 'Дар’я Орешко', title: 'Кібербулінг і безпечне спілкування в інтернеті серед молоді' },
+                    { time: '16:55 – 17:05', speaker: 'Денис Хорунжий', title: 'Безпекові аспекти розробки інклюзивної веб-платформи для перекладу жестової мови у текст' },
+                    { time: '17:05 – 17:15', speaker: 'Данило Асєєв', title: 'Дослідження та розробка системи оцінки якості інтерфейсів доповненої реальності з використанням штучного інтелекту' },
+                    { time: '17:15 – 17:25', speaker: 'Олег Пліско', title: 'Використання нетипових DCT-кодерів для забезпечення конфіденційності медичних зображень' },
+                    { time: '17:25 – 17:35', speaker: 'Ілля Черепанов', title: 'Дослідження надійності безеталонних метрик якості після обробки DRUNet' },
+                    { time: '17:35 – 17:45', speaker: 'Семен Джунь', title: 'Забезпечення кібербезпеки у правовому механізмі публічного управління' },
+                    { time: '17:45 – 17:55', speaker: 'Олег Зубань', title: 'Методи виявлення та запобігання витоку персональних даних' }
+                ]
             }
+        };
 
-            trackButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    trackButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    switchTrack(this.dataset.tab);
+        // Helper to populate table
+        function populateTable(tbodyId, data) {
+            const tbody = document.getElementById(tbodyId);
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            data.forEach(item => {
+                const row = tbody.insertRow();
+                row.insertCell(0).innerHTML = `<span class="time-col">${item.time}</span>`;
+                row.insertCell(1).innerHTML = `<span class="speaker-name">${item.speaker}</span>`;
+                row.insertCell(2).innerHTML = `<span class="presentation-title">${item.title}</span>`;
+            });
+        }
+
+        // Load data based on language
+        let currentLang = 'en';
+        function loadProgramData(lang) {
+            const data = langData[lang];
+            if (!data) return;
+            document.getElementById('program-title').innerHTML = data.programTitle;
+            document.getElementById('day1-btn').innerText = data.day1;
+            document.getElementById('day2-btn').innerText = data.day2;
+            const secBtns1 = document.querySelectorAll('#section-tabs-day1 .tab-btn');
+            const secBtns2 = document.querySelectorAll('#section-tabs-day2 .tab-btn');
+            if (secBtns1.length >= 3) {
+                secBtns1[0].innerText = data.sec1;
+                secBtns1[1].innerText = data.sec2;
+                secBtns1[2].innerText = data.sec3;
+            }
+            if (secBtns2.length >= 3) {
+                secBtns2[0].innerText = data.sec1;
+                secBtns2[1].innerText = data.sec2;
+                secBtns2[2].innerText = data.sec3;
+            }
+            populateTable('sec1-day1-data', data.sec1day1);
+            populateTable('sec2-day1-data', data.sec1day2);
+            populateTable('sec3-day1-data', data.sec1day3);
+            populateTable('sec1-day2-data', data.sec2day1);
+            populateTable('sec2-day2-data', data.sec2day2);
+            populateTable('sec3-day2-data', data.sec2day3);
+        }
+
+        // Tab switching logic
+        function initTabs() {
+            // Day tabs
+            const dayBtns = document.querySelectorAll('#day-tabs .tab-btn');
+            const dayContents = { day1: document.getElementById('day1-content'), day2: document.getElementById('day2-content') };
+            dayBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    dayBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const day = btn.getAttribute('data-day');
+                    Object.values(dayContents).forEach(c => c.classList.remove('active'));
+                    dayContents[day].classList.add('active');
+                    // Reset section tabs to first section of the day
+                    const firstSectionBtn = dayContents[day].querySelector('.section-tabs .tab-btn');
+                    if (firstSectionBtn) firstSectionBtn.click();
                 });
             });
-
-            dayButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const track = this.dataset.track;
-                    const day = this.dataset.day;
-                    document.querySelectorAll(`.day-tab-button[data-track="${track}"]`).forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    document.querySelectorAll(`#${track} .day-content`).forEach(c => c.classList.remove('active'));
-                    document.getElementById(`${track}-${day}`).classList.add('active');
+            // Section tabs for day1 and day2
+            const sectionGroups = [
+                { container: '#section-tabs-day1', contentPrefix: 'sec', dayPrefix: 'day1' },
+                { container: '#section-tabs-day2', contentPrefix: 'sec', dayPrefix: 'day2' }
+            ];
+            sectionGroups.forEach(group => {
+                const btns = document.querySelectorAll(`${group.container} .tab-btn`);
+                btns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const section = btn.getAttribute('data-section'); // e.g., "sec1-day1"
+                        const contents = document.querySelectorAll(`#${group.dayPrefix}-content .tab-content`);
+                        contents.forEach(c => c.classList.remove('active'));
+                        document.getElementById(section).classList.add('active');
+                    });
                 });
             });
+        }
+
+        // Language switching
+        function setupLanguage() {
+            const enBtn = document.querySelector('.lang-link.en');
+            const ukBtn = document.querySelector('.lang-link.uk');
+            enBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                enBtn.classList.add('active');
+                ukBtn.classList.remove('active');
+                currentLang = 'en';
+                loadProgramData('en');
+            });
+            ukBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                ukBtn.classList.add('active');
+                enBtn.classList.remove('active');
+                currentLang = 'uk';
+                loadProgramData('uk');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgramData('en');
+            initTabs();
+            setupLanguage();
+            // Also set active nav link manually (since we are not in en/ folder)
+            document.querySelectorAll('nav ul li a').forEach(link => link.classList.remove('active'));
+            // No direct match – optional
         });
     </script>
 </body>
+
 </html>
