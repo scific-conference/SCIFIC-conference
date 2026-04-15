@@ -19,6 +19,11 @@ This repository contains the complete source code of the official SCIFiC confere
 
 ```
 SCIFIC-conference/
+├── cyber-hunt/                          # Game version
+│   ├── index.html
+│   ├── style.css
+│   ├── game.js
+│   ├── tasks.json
 ├── en/                          # English version
 │   ├── index.html
 │   ├── materials.html
