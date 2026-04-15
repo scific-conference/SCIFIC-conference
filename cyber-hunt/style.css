@@ -173,15 +173,24 @@ button:hover {
   border-top: 1px solid var(--border);
 }
 
+.submit-section {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
 #submitResults {
   background: var(--neon);
   color: black;
   padding: 0.8rem 2rem;
   font-size: 1rem;
 }
-
+#submitResults:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 #statusMsg {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   color: var(--neon);
 }
 
