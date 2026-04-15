@@ -26,10 +26,9 @@
     <p class="sub">Agent: <span id="displayNickname"></span> | Email: <span id="displayEmailMasked"></span></p>
     <div class="progress-bar"><div class="progress-fill"></div></div>
     <div id="tasksContainer"></div>
-    <div class="completion-section" style="display: none;">
-      <h2>🏆 Mission Complete, Agent!</h2>
-      <p>You have found all flags. Click below to submit your results.</p>
-      <button id="submitResults">Submit Results</button>
+    <!-- Кнопка всегда видна, но активна только после решения хотя бы одной задачи -->
+    <div class="submit-section">
+      <button id="submitResults" disabled>Submit Results</button>
       <p id="statusMsg"></p>
     </div>
   </div>
