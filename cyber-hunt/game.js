@@ -11,7 +11,7 @@ let player = {
   emailMasked: ''
 };
 
-// ========== Registration & Initialization ==========
+// ========== Helper Functions ==========
 function maskEmail(email) {
   if (!email) return '';
   let [local, domain] = email.split('@');
@@ -20,6 +20,22 @@ function maskEmail(email) {
   return maskedLocal + '@' + domain;
 }
 
+function getSolvedCount() {
+  return Object.values(answers).filter(v => v === true).length;
+}
+
+function updateSubmitButton() {
+  const btn = document.getElementById('submitResults');
+  if (btn) {
+    if (getSolvedCount() > 0) {
+      btn.disabled = false;
+    } else {
+      btn.disabled = true;
+    }
+  }
+}
+
+// ========== Registration ==========
 document.getElementById('startGameBtn').addEventListener('click', () => {
   const nickname = document.getElementById('nickname').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -35,7 +51,6 @@ document.getElementById('startGameBtn').addEventListener('click', () => {
   player.email = email;
   player.emailMasked = maskEmail(email);
   localStorage.setItem('scific_hunt_player', JSON.stringify({nickname, email}));
-  // show game
   document.getElementById('registrationContainer').style.display = 'none';
   document.getElementById('gameContainer').style.display = 'block';
   document.getElementById('displayNickname').innerText = player.nickname;
@@ -43,7 +58,7 @@ document.getElementById('startGameBtn').addEventListener('click', () => {
   loadTasks();
 });
 
-// ========== Load saved progress ==========
+// ========== Load tasks and progress ==========
 function loadTasks() {
   fetch('tasks.json')
     .then(res => res.json())
@@ -61,7 +76,6 @@ function loadProgress() {
     const obj = JSON.parse(saved);
     answers = obj.answers || {};
   }
-  // also load player if exists (for case when page reloads after registration)
   const savedPlayer = localStorage.getItem('scific_hunt_player');
   if (savedPlayer && !player.nickname) {
     const p = JSON.parse(savedPlayer);
@@ -72,17 +86,18 @@ function loadProgress() {
     document.getElementById('gameContainer').style.display = 'block';
     document.getElementById('displayNickname').innerText = player.nickname;
     document.getElementById('displayEmailMasked').innerText = player.emailMasked;
-    loadTasks(); // reload tasks after showing game
+    loadTasks();
   }
 }
 
 function saveProgress() {
   localStorage.setItem('scific_hunt', JSON.stringify({ answers }));
   updateProgressBar();
+  updateSubmitButton();
 }
 
 function updateProgressBar() {
-  const solvedCount = Object.values(answers).filter(v => v === true).length;
+  const solvedCount = getSolvedCount();
   const percent = (solvedCount / tasks.length) * 100;
   const fill = document.querySelector('.progress-fill');
   if (fill) fill.style.width = `${percent}%`;
@@ -99,11 +114,6 @@ function updateProgressBar() {
       card.classList.remove('completed');
     }
   });
-  const allSolved = Object.values(answers).filter(v => v === true).length === tasks.length;
-  const submitDiv = document.querySelector('.completion-section');
-  if (submitDiv) {
-    submitDiv.style.display = allSolved ? 'block' : 'none';
-  }
 }
 
 function renderTasks() {
@@ -141,7 +151,7 @@ function renderTasks() {
       if (userAnswer === task.answer.toLowerCase()) {
         answers[id] = true;
         saveProgress();
-        renderTasks(); // re-render to disable input
+        renderTasks();
         alert(`✅ Task ${id} solved! Flag recorded.`);
       } else {
         alert(`❌ Wrong answer. Try again or use hint.`);
@@ -156,13 +166,14 @@ function renderTasks() {
     });
   });
   updateProgressBar();
+  updateSubmitButton();
 }
 
 // ========== Submit results to Google Sheets ==========
 async function submitResults() {
-  const solvedCount = Object.values(answers).filter(v => v === true).length;
-  if (solvedCount !== tasks.length) {
-    alert(`You have solved only ${solvedCount} out of ${tasks.length}. Solve all to submit.`);
+  const solvedCount = getSolvedCount();
+  if (solvedCount === 0) {
+    alert('You haven\'t solved any tasks yet. Solve at least one to submit.');
     return;
   }
   const completionTime = new Date().toISOString();
@@ -172,31 +183,27 @@ async function submitResults() {
     solvedCount: solvedCount,
     totalTasks: tasks.length,
     completionTime: completionTime,
-    solvedTasks: tasks.map(t => ({ id: t.id, solved: answers[t.id] })),
+    solvedTasks: tasks.map(t => ({ id: t.id, solved: answers[t.id] || false })),
     userAgent: navigator.userAgent
   };
   try {
-    const response = await fetch(SCRIPT_URL, {
+    await fetch(SCRIPT_URL, {
       method: 'POST',
-      mode: 'no-cors', // because of CORS limitations, but still works
+      mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-    // With mode: 'no-cors' we cannot read response, but request is sent.
     const msg = document.getElementById('statusMsg');
-    msg.innerHTML = '✅ Your results have been submitted successfully! Winners will be contacted by email. Thank you for playing.';
+    msg.innerHTML = '✅ Results submitted successfully! The admin will review. You can submit again later after solving more tasks.';
     msg.style.color = 'var(--neon)';
-    // optionally disable submit button
-    document.getElementById('submitResults').disabled = true;
   } catch (err) {
     console.error(err);
-    alert('Submission failed. Please screenshot your results and email to scific@csn.khai.edu');
+    alert('Submission failed. Please screenshot your progress and email to scific@csn.khai.edu');
   }
 }
 
-// Setup submit button after DOM ready
+// ========== Initialize ==========
 document.addEventListener('DOMContentLoaded', () => {
-  // check if player already exists in localStorage
   const savedPlayer = localStorage.getItem('scific_hunt_player');
   if (savedPlayer) {
     const p = JSON.parse(savedPlayer);
@@ -209,11 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('displayEmailMasked').innerText = player.emailMasked;
     loadTasks();
   } else {
-    // registration visible, hide game
     document.getElementById('registrationContainer').style.display = 'block';
     document.getElementById('gameContainer').style.display = 'none';
   }
-  // attach submit listener if exists
   const submitBtn = document.getElementById('submitResults');
   if (submitBtn) submitBtn.addEventListener('click', submitResults);
 });
