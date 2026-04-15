@@ -9,27 +9,36 @@
   <link rel="icon" href="../assets/images/4zx5d0amk2.ico">
 </head>
 <body>
-<div class="container">
+<div class="container" id="registrationContainer">
   <h1>🔐 SCIFiC Cyber Hunt</h1>
-  <p class="sub">Find the 10 hidden flags. Some require OSINT skills. Good luck, agent.</p>
-
-  <div class="progress-bar">
-    <div class="progress-fill"></div>
+  <p class="sub">Identify yourself to begin the mission.</p>
+  <div class="registration-form">
+    <input type="text" id="nickname" placeholder="Agent Nickname (e.g., Neo)" required>
+    <input type="email" id="email" placeholder="Email address (we will contact winners)" required>
+    <button id="startGameBtn">Start Cyber Hunt</button>
+    <p class="privacy">Your email will be shown as asterisks during the game.</p>
   </div>
-
-  <div id="tasksContainer"></div>
-
-  <div class="completion-section" style="display: none;">
-    <h2>🏆 Congratulations, Agent!</h2>
-    <p>You have found all flags. To claim your prize (or enter the raffle), click below and send the copied data to the conference organizers.</p>
-    <button id="submitResults">Submit Results</button>
-    <p id="statusMsg"></p>
-  </div>
-
-  <footer>
-    <p>⚡ SCIFiC Conference · 2026 · Cybersecurity for the future</p>
-  </footer>
 </div>
+
+<div id="gameContainer" style="display: none;">
+  <div class="container">
+    <h1>🔐 SCIFiC Cyber Hunt</h1>
+    <p class="sub">Agent: <span id="displayNickname"></span> | Email: <span id="displayEmailMasked"></span></p>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+    <div id="tasksContainer"></div>
+    <div class="completion-section" style="display: none;">
+      <h2>🏆 Mission Complete, Agent!</h2>
+      <p>You have found all flags. Click below to submit your results.</p>
+      <button id="submitResults">Submit Results</button>
+      <p id="statusMsg"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>⚡ SCIFiC Conference · 2026 · Cybersecurity for the future</p>
+</footer>
+
 <script src="game.js"></script>
 </body>
 </html>
