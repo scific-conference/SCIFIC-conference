@@ -1,0 +1,64 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "question": "What is the name of the vulnerability that allows an attacker to execute arbitrary SQL commands?",
+      "answer": "sql injection",
+      "hint": "Two words, first is 'SQL'."
+    },
+    {
+      "id": 2,
+      "question": "Decode the base64 string: U0NJRmlD",
+      "answer": "SCIFiC",
+      "hint": "Our conference name."
+    },
+    {
+      "id": 3,
+      "question": "What HTTP status code means 'Forbidden'?",
+      "answer": "403",
+      "hint": "Three digits, starts with 4."
+    },
+    {
+      "id": 4,
+      "question": "Which cryptographic hash function produces a 256-bit output and is commonly used in Bitcoin?",
+      "answer": "sha256",
+      "hint": "Starts with 'sha', ends with '256'."
+    },
+    {
+      "id": 5,
+      "question": "What is the default port for HTTPS?",
+      "answer": "443",
+      "hint": "Three digits."
+    },
+    {
+      "id": 6,
+      "question": "Find the hidden flag in the page source of the SCIFiC home page (https://scific-conference.github.io/SCIFIC-conference/en/). It's a comment.",
+      "answer": "flag{you_found_me}",
+      "hint": "View the HTML source, look for <!-- ... -->."
+    },
+    {
+      "id": 7,
+      "question": "What does 'XSS' stand for?",
+      "answer": "cross site scripting",
+      "hint": "Three words, first is 'Cross'."
+    },
+    {
+      "id": 8,
+      "question": "Which tool is commonly used for network scanning and host discovery?",
+      "answer": "nmap",
+      "hint": "Four letters, starts with 'n'."
+    },
+    {
+      "id": 9,
+      "question": "What is the name of the famous 2017 ransomware that spread rapidly using EternalBlue?",
+      "answer": "wannacry",
+      "hint": "One word, means 'want to cry'."
+    },
+    {
+      "id": 10,
+      "question": "The first flag was hidden in the SCIFiC archive page. Look for an HTML comment near the 2021 proceedings. What is the flag?",
+      "answer": "flag{archive_raider}",
+      "hint": "Check the source of archive.html, near year 2021."
+    }
+  ]
+}

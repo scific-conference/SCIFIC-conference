@@ -1,0 +1,198 @@
+/* Cyber Hunt Styles - dark theme to match SCIFiC */
+:root {
+  --bg: #0a0a0a;
+  --card: #1a1a1a;
+  --neon: #39e639;
+  --neon-glow: 0 0 10px #39e639;
+  --text: #fff;
+  --text-dim: #aaa;
+  --border: #39e63930;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', 'Orbitron', monospace;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--neon);
+  text-shadow: var(--neon-glow);
+  margin-bottom: 0.5rem;
+}
+
+.sub {
+  text-align: center;
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+}
+
+.task-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  transition: 0.2s;
+}
+
+.task-card.completed {
+  border-color: var(--neon);
+  box-shadow: 0 0 15px var(--neon);
+  background: #1a2a1a;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.task-id {
+  font-family: 'Orbitron', monospace;
+  color: var(--neon);
+  font-weight: bold;
+  background: #00000066;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.status {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.status.solved {
+  color: var(--neon);
+}
+
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.answer-area {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+input {
+  flex: 2;
+  padding: 0.6rem 1rem;
+  background: #0f0f0f;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: monospace;
+}
+
+button {
+  background: transparent;
+  border: 1px solid var(--neon);
+  color: var(--neon);
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--neon);
+  color: black;
+  box-shadow: 0 0 10px var(--neon);
+}
+
+.hint {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  display: none;
+}
+
+.hint.show {
+  display: block;
+}
+
+.hint-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  text-decoration: underline;
+  padding: 0;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.hint-btn:hover {
+  background: none;
+  color: var(--neon);
+  box-shadow: none;
+}
+
+.progress-bar {
+  background: #222;
+  border-radius: 20px;
+  height: 20px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: var(--neon);
+  transition: width 0.3s;
+}
+
+.completion-section {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+#submitResults {
+  background: var(--neon);
+  color: black;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+}
+
+#statusMsg {
+  margin-top: 1rem;
+  color: var(--neon);
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+a {
+  color: var(--neon);
+  text-decoration: none;
+}
